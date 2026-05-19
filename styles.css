@@ -326,7 +326,7 @@ h1, h2, h3, h4 { margin: 0; }
 /* =========================================================
    Generic content blocks
    ========================================================= */
-.col-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
+.col-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
 .col-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
 .col-2-asym { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 32px; }
 .col-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 22px; }
@@ -335,7 +335,7 @@ h1, h2, h3, h4 { margin: 0; }
 .block {
   border: 1px solid var(--line);
   border-radius: 14px;
-  padding: 24px 26px;
+  padding: 32px 28px;
   background: var(--bg);
 }
 .block.tinted {
@@ -421,6 +421,58 @@ ul.tidy li strong { color: var(--ink); font-weight: 600; }
   margin-top: 1px;
 }
 .callout strong { font-weight: 700; }
+
+/* =========================================================
+   Sección Contexto - Cards con colores sólidos
+   ========================================================= */
+section[data-screen-label="03 Contexto"] .col-3 > div:nth-child(1) {
+  background: #f0f5e8;
+  border-color: #d4e4a4;
+}
+section[data-screen-label="03 Contexto"] .col-3 > div:nth-child(2) {
+  background: #c8e0a8;
+  border-color: #b0d485;
+  color: var(--ink);
+}
+section[data-screen-label="03 Contexto"] .col-3 > div:nth-child(3) {
+  background: #047857;
+  border-color: #023739;
+}
+section[data-screen-label="03 Contexto"] .col-3 > div:nth-child(3) h3,
+section[data-screen-label="03 Contexto"] .col-3 > div:nth-child(3) p {
+  color: #fff;
+}
+section[data-screen-label="03 Contexto"] .col-3 > div:nth-child(1) .label-tag {
+  color: #023739;
+}
+section[data-screen-label="03 Contexto"] .col-3 > div:nth-child(2) .label-tag {
+  color: #023739;
+}
+section[data-screen-label="03 Contexto"] .col-3 > div:nth-child(3) .label-tag {
+  color: #a4c465;
+}
+section[data-screen-label="03 Contexto"] .col-3 h3 {
+  font-size: 32px;
+}
+section[data-screen-label="03 Contexto"] .col-3 p {
+  font-size: 20px;
+}
+section[data-screen-label="03 Contexto"] .col-3 .label-tag {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* Dark callout style */
+.dark-callout {
+  background: #023739 !important;
+  color: #fff !important;
+  border-color: #023739;
+  font-size: 18px;
+}
+.dark-callout .marker {
+  background: rgba(255,255,255,0.2) !important;
+  color: #fff !important;
+}
 
 /* =========================================================
    Metric chips / numbers
