@@ -585,14 +585,14 @@ section[data-screen-label="04 Problema"] .col-2 .label-tag {
 }
 .pipeline .step .step-tag {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 18px;
   font-weight: 600;
   letter-spacing: 0.1em;
   color: var(--icesi-purple);
   text-transform: uppercase;
 }
 .pipeline .step h4 {
-  font-size: 22px;
+  font-size: 30px;
   font-weight: 700;
   line-height: 1.25;
 }
