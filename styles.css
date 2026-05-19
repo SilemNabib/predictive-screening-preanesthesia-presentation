@@ -211,11 +211,16 @@ h1, h2, h3, h4 { margin: 0; }
 }
 .cover-top .icesi-mark {
   display: flex;
-  align-items: center;
-  gap: 14px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
 }
-.cover-top .icesi-mark img {
-  height: 44px;
+.cover-top .icesi-mark img:first-child {
+  height: 92px;
+  filter: brightness(0) invert(1);
+}
+.cover-top .icesi-mark img:last-child {
+  height: 8px;
   filter: brightness(0) invert(1);
 }
 .cover-top .meta {
