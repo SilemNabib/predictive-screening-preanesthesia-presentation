@@ -298,7 +298,7 @@ h1, h2, h3, h4 { margin: 0; }
 }
 .toc-card .toc-num {
   font-family: var(--font-mono);
-  font-size: 48px;
+  font-size: 52px;
   font-weight: 700;
   color: var(--icesi-purple);
   letter-spacing: 0.08em;
@@ -306,7 +306,7 @@ h1, h2, h3, h4 { margin: 0; }
   margin-bottom: 16px;
 }
 .toc-card h3 {
-  font-size: 29px;
+  font-size: 32px;
   font-weight: 700;
   line-height: 1.25;
   margin-top: 0;
@@ -314,10 +314,18 @@ h1, h2, h3, h4 { margin: 0; }
   letter-spacing: -0.01em;
 }
 .toc-card p {
-  font-size: 18px;
+  font-size: 20px;
   color: var(--muted);
   line-height: 1.5;
   margin: 0;
+}
+.toc-card .toc-num {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--icesi-purple);
+  letter-spacing: 0.08em;
+  display: block;
 }
 .toc-card .toc-tag {
   display: none;
@@ -348,7 +356,7 @@ h1, h2, h3, h4 { margin: 0; }
   border-color: transparent;
 }
 .block h3 {
-  font-size: 22px;
+  font-size: 26px;
   font-weight: 700;
   color: var(--ink);
   margin-bottom: 12px;
@@ -356,7 +364,7 @@ h1, h2, h3, h4 { margin: 0; }
 }
 .block.dark h3 { color: #fff; }
 .block p {
-  font-size: 18px;
+  font-size: 20px;
   color: var(--ink-soft);
   line-height: 1.55;
   margin: 0;
@@ -365,8 +373,8 @@ h1, h2, h3, h4 { margin: 0; }
 
 .block .label-tag {
   font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 700;
   letter-spacing: 0.1em;
   color: var(--icesi-purple);
   text-transform: uppercase;
@@ -475,6 +483,32 @@ section[data-screen-label="03 Contexto"] .col-3 .label-tag {
 }
 
 /* =========================================================
+   Sección El problema - Aumentar fonts y callout oscuro
+   ========================================================= */
+section[data-screen-label="04 Problema"] .col-2 h3 {
+  font-size: 26px;
+}
+section[data-screen-label="04 Problema"] .col-2 .tidy li {
+  font-size: 18px;
+}
+section[data-screen-label="04 Problema"] .col-2 .label-tag {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* Dark callout para Propuesta */
+.dark-callout-problema {
+  background: #023739 !important;
+  color: #fff !important;
+  border-color: #023739 !important;
+  font-size: 18px;
+}
+.dark-callout-problema .marker {
+  background: rgba(164,196,101,0.2) !important;
+  color: #a4c465 !important;
+}
+
+/* =========================================================
    Metric chips / numbers
    ========================================================= */
 .metric-row {
@@ -553,12 +587,12 @@ section[data-screen-label="03 Contexto"] .col-3 .label-tag {
   text-transform: uppercase;
 }
 .pipeline .step h4 {
-  font-size: 19px;
+  font-size: 22px;
   font-weight: 700;
   line-height: 1.25;
 }
 .pipeline .step p {
-  font-size: 16px;
+  font-size: 18px;
   color: var(--muted);
   line-height: 1.5;
   margin: 0;
@@ -583,14 +617,14 @@ section[data-screen-label="03 Contexto"] .col-3 .label-tag {
 table.data {
   width: 100%;
   border-collapse: collapse;
-  font-size: 17px;
+  font-size: 19px;
 }
 table.data th {
   background: var(--icesi-purple);
   color: #fff;
   text-align: left;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 18px;
   letter-spacing: 0.04em;
   padding: 14px 18px;
 }
@@ -764,7 +798,7 @@ table.data .pill.muted { background: var(--line-soft); color: var(--muted); }
   letter-spacing: 0.08em;
 }
 .checklist .check h4 {
-  font-size: 22px;
+  font-size: 26px;
   font-weight: 700;
   color: var(--ink);
 }
@@ -799,12 +833,12 @@ table.data .pill.muted { background: var(--line-soft); color: var(--muted); }
   font-family: var(--font-mono);
 }
 .numbered li h4 {
-  font-size: 22px;
+  font-size: 26px;
   font-weight: 700;
   margin-bottom: 6px;
 }
 .numbered li p {
-  font-size: 18px;
+  font-size: 20px;
   color: var(--ink-soft);
   line-height: 1.55;
   margin: 0;
@@ -886,7 +920,7 @@ table.data .pill.muted { background: var(--line-soft); color: var(--muted); }
   grid-template-columns: 200px 1fr 80px 110px;
   gap: 14px;
   align-items: center;
-  font-size: 17px;
+  font-size: 19px;
 }
 .bar-row .row .name { font-weight: 600; color: var(--ink); }
 .bar-row .row .track {
@@ -951,7 +985,7 @@ table.data .pill.muted { background: var(--line-soft); color: var(--muted); }
   display: flex; flex-direction: column; gap: 6px;
 }
 .algo-group ul li {
-  font-size: 17px;
+  font-size: 19px;
   font-weight: 600;
   color: var(--ink);
   padding: 8px 10px;
