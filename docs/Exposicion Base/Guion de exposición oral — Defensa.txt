@@ -1,0 +1,249 @@
+Guion de exposición oral — Defensa de Proyecto de Grado
+Modelo predictivo para identificación de pacientes candidatos a valoración preanestésica
+Diapositiva 1 — Portada
+Buenos días. Mi nombre es María Alejandra Mantilla Coral, y junto a mis compañeros Silem Nabib Villa Contreras y Andrés David Parra García, presentamos hoy nuestro proyecto de grado titulado "Construcción de un modelo predictivo para la identificación asistida de pacientes que requieren valoración preanestésica", desarrollado en la Universidad ICESI en colaboración con la Fundación Valle del Lili.
+
+Este proyecto nació de una necesidad concreta dentro de un entorno clínico real. A lo largo de la presentación vamos a explicar cuál era esa necesidad, cómo la abordamos, qué construimos y qué obtuvimos. Contamos con la guía de nuestros tutores Anibal Sosa, Ángela Villota y Andrés Aristizábal, a quienes agradecemos profundamente su acompañamiento durante todo el proceso.
+
+Diapositiva 2 — Agenda
+Para que tengan claridad sobre la estructura de lo que vamos a presentar, la exposición está organizada en seis bloques temáticos.
+
+Comenzaremos situando el contexto y el problema que originó el proyecto. Luego presentaremos el marco conceptual y el estado del arte que fundamentan nuestras decisiones. Después describiremos los objetivos y la metodología que guiaron el trabajo. En la segunda mitad, recorreremos en detalle la construcción de la solución, pasaremos por los resultados y su validación, y cerraremos con las conclusiones y el trabajo futuro.
+
+La idea es que al final quede claro no solo qué hicimos, sino por qué lo hicimos de esa manera.
+
+Diapositiva 3 — Contexto
+Para entender el proyecto hay que entender primero el escenario en el que opera.
+
+La valoración preanestésica es un estándar internacional de seguridad quirúrgica. Antes de cualquier cirugía, el paciente requiere una evaluación que incluye interrogatorio, examen físico, revisión de medicamentos y la elaboración de un plan anestésico individualizado. Organizaciones como la ASA y la OMS la reconocen como un elemento indispensable para reducir complicaciones perioperatorias.
+
+La Fundación Valle del Lili, institución de alta complejidad en Cali, opera este proceso en dos modalidades: una evaluación general realizada por el equipo tratante, y una valoración formal especializada llevada a cabo por anestesiología, con mayor anticipación al procedimiento.
+
+Y aquí está el reto: no todos los pacientes necesitan esa segunda valoración. Pero con la creciente demanda quirúrgica de la institución y la ausencia de un criterio único para tomar esa decisión, identificar quién sí la necesita se vuelve cada vez más complejo. Ese es el punto de partida de nuestro proyecto.
+
+Diapositiva 4 — El problema
+El problema central que identificamos es este: la decisión de remitir a un paciente a valoración preanestésica formal depende hoy de criterios heterogéneos, procesos manuales y la interpretación individual de cada profesional. No existe un marco institucional único que integre las múltiples variables clínicas que intervienen en esa decisión de forma objetiva y reproducible.
+
+Cuando miramos las causas, encontramos cuatro factores que se combinan: el crecimiento de la demanda quirúrgica supera la capacidad actual de clasificación; los procesos son manuales y dependientes del criterio subjetivo del profesional; los pacientes presentan perfiles clínicos muy heterogéneos; y hay una integración tecnológica limitada para apoyar esa decisión.
+
+Las consecuencias no son menores: consultas innecesarias, cancelaciones de cirugías, tiempos de espera más largos, costos adicionales para la institución y el paciente, y potenciales desalineaciones con los estándares de seguridad y acreditación.
+
+Frente a todo esto, la propuesta de nuestro proyecto fue construir un modelo de clasificación supervisada que, desde la evaluación general, apoye objetivamente esa decisión de escalar a una valoración formal. No para reemplazar el juicio clínico, sino para dotarlo de criterios más sólidos y reproducibles.
+
+Diapositiva 5 — Marco conceptual
+Antes de entrar al desarrollo técnico, vamos a establecer los conceptos clave sobre los que se apoya el proyecto.
+
+El primero es la propia valoración preanestésica. Como mencionamos, es un proceso que antecede a cualquier anestesia e incluye desde el interrogatorio hasta el plan individualizado del paciente. Una herramienta central dentro de este proceso es la clasificación ASA, que estratifica el estado físico del paciente en seis categorías y es una referencia ampliamente utilizada en la toma de decisiones clínicas.
+
+El segundo concepto es el de los Sistemas de Soporte a la Decisión Clínica, o CDSS por sus siglas en inglés. Son sistemas que integran datos clínicos y evidencia para emitir recomendaciones. Lo que construimos es exactamente eso: un CDSS basado en aprendizaje automático. Y dentro de esto, la IA Explicable, o XAI, es fundamental — si el clínico no entiende por qué el modelo toma una decisión, no lo va a confiar.
+
+El tercero tiene que ver con las métricas. Cuando hay desbalance de clases y el costo de un falso negativo es mucho mayor que el de un falso positivo — como es el caso en triaje clínico — las métricas tradicionales no son suficientes. Por eso priorizamos el Recall como métrica principal, complementado con el F2-score, que pondera el doble el recall sobre la precisión.
+
+Y el cuarto concepto es la calibración de probabilidades. Los modelos de árbol y boosting producen puntajes, no probabilidades bien formadas. Para que el umbral de clasificación tenga un significado clínico real, necesitamos calibrar esas salidas, y eso es exactamente lo que hicimos.
+
+Diapositiva 6 — Estado del arte
+Revisamos los trabajos previos más relevantes en la intersección entre inteligencia artificial y evaluación perioperatoria, y esto es lo que encontramos.
+
+Graesner et al. en 2023 lograron un AUC de 0.954 prediciendo mortalidad quirúrgica con XGBoost, pero su objetivo es la mortalidad, no la decisión de remisión a preanestesia, y la población es alemana. La revisión de Cao et al. de 2025 confirma que XGBoost es el algoritmo de referencia en anestesiología con AUCs entre 0.85 y 0.94, pero tampoco aborda nuestra pregunta específica. En Colombia, Rincón y Vélez desarrollaron la aplicación PreAnestesiApp, que procesó 171.000 valoraciones, pero es una calculadora de puntajes validados, no un modelo de aprendizaje automático. Arias Zuluaga trabajó clasificación ASA con IA también en Colombia, pero clasificar el ASA es distinto a decidir si el paciente necesita valoración formal. Y Kagerbauer et al. desarrollaron un sistema para autorizar cirugías en pacientes ASA 3 y 4, que es una decisión adyacente pero diferente.
+
+El patrón es claro: todos estos trabajos tienen como variable objetivo un resultado ya observado — mortalidad, duración de hospitalización, complicaciones registradas — o una decisión adyacente. Ninguno aborda directamente la pregunta binaria de "¿remito o no a este paciente a valoración preanestésica formal?", usando únicamente variables disponibles antes de que intervenga el anestesiólogo, y con banderas clínicas posoperatorias como verdad de referencia.
+
+Esa brecha precisa es el aporte de nuestro proyecto.
+
+Diapositiva 7 — Objetivos
+Con ese contexto, el objetivo general del proyecto fue diseñar, entrenar y validar un modelo predictivo de clasificación que apoye la decisión de remitir a un paciente a valoración preanestésica formal, usando información clínica preoperatoria estructurada y garantizando trazabilidad para su integración institucional.
+
+Para alcanzarlo, definimos cinco objetivos específicos que estructuraron todo el trabajo. El OE1 fue construir el dataset: anonimizado, documentado, con diccionario de datos y proceso de limpieza trazable. El OE2 fue diseñar el feature set y entrenar los modelos de forma reproducible. El OE3 fue evaluar el desempeño con métricas estadísticas y clínicas sobre datos de prueba independientes. El OE4 fue desarrollar el servicio de inferencia: una API que consume el modelo y registra las interacciones para auditoría. Y el OE5 fue definir la arquitectura de integración con los sistemas institucionales.
+
+Cada decisión técnica que vamos a describir a continuación está ligada a uno o más de estos objetivos. El proyecto no fue un ejercicio académico aislado, sino un proceso orientado a resultados concretos y verificables.
+
+Diapositiva 8 — Metodología
+El marco metodológico que adoptamos fue CRISP-DM, el estándar de la industria para proyectos de ciencia de datos, que organiza el trabajo en seis fases: comprensión del negocio, comprensión de los datos, preparación, modelado, evaluación y despliegue.
+
+Pero lo más importante no es la metodología en sí, sino cómo la aplicamos: de forma iterativa y orientada por los datos, no lineal. El proyecto avanzó a través de tres ciclos de ajuste que resultaron determinantes.
+
+El primer ciclo fue el ajuste del objetivo. Inicialmente intentamos predecir demasiados eventos, muchos de los cuales simplemente no son predecibles con información preoperatoria. Redefinir la variable objetivo fue la decisión con mayor impacto en el desempeño del modelo.
+
+El segundo ciclo fue hacer obligatoria la calibración de probabilidades. Detectamos que los modelos interpretaban sus salidas de maneras inconsistentes, lo que hacía que el umbral de clasificación perdiera sentido. A partir de ese momento, calibrar se convirtió en un paso obligatorio del pipeline.
+
+El tercer ciclo fue entender la señal. El análisis reveló que el modelo se apoya más en la complejidad del procedimiento que en las comorbilidades del paciente. Ese hallazgo no es un fallo, es información valiosa que documentamos como limitación y que orienta el trabajo futuro.
+
+Diapositiva 9 — Datos y limpieza
+Pasemos ahora a la construcción de la solución, comenzando por los datos.
+
+La institución nos proporcionó información de 30.962 registros del sistema OPERA, correspondientes a pacientes que fueron remitidos a valoración preanestésica. Después del proceso de limpieza y de restringir el análisis a la población adulta, el dataset final quedó en 24.279 episodios quirúrgicos, 237 variables, cero valores nulos y cero contradicciones residuales.
+
+¿Cómo llegamos ahí? El análisis exploratorio inicial identificó seis categorías de problemas. El primero y quizás el más sutil: muchos valores en blanco no son datos desconocidos, son negaciones implícitas. Si un campo de alergias está vacío, generalmente significa que el paciente no tiene alergias, no que no se registró el dato. Esa distinción clínica es fundamental.
+
+También encontramos ceros sin plausibilidad biológica en talla, IMC y presión arterial, más de siete mil contradicciones entre banderas booleanas y texto libre en la variable de medicamentos, variables multi-etiqueta desnormalizadas, y campos de texto libre de alta cardinalidad como diagnósticos y procedimientos que requerían normalización antes de cualquier uso analítico.
+
+Para resolverlo, diseñamos un pipeline de limpieza determinista y reproducible. Cada decisión siguió criterios clínicos explícitos: rangos por variable y grupo etario, prioridad del texto libre sobre la bandera booleana, codificación CIE-10 y HCPCS vía la API de ClinicalTables del NIH, enriquecimiento con puntajes de severidad asistidos por un LLM, y finalmente la restricción a adultos, excluyendo 6.683 registros pediátricos que por sus características clínicas y de protocolo institucional requieren un modelo propio.
+
+Diapositiva 10 — Variable objetivo
+El segundo componente crítico fue la construcción de la variable objetivo, y es aquí donde el proyecto tuvo su ciclo iterativo más importante.
+
+Antes de adoptar el enfoque supervisado, evaluamos si un enfoque no supervisado podía funcionar. La hipótesis era: si los pacientes que realmente necesitan valoración formal tienen perfiles inusuales, técnicas de detección de anomalías deberían identificarlos. Aplicamos PCA, K-Means e Isolation Forest. El resultado fue claro: no había correlación entre la condición de "anomalía estadística" y la ocurrencia de eventos clínicos reales. Un paciente puede ser estadísticamente atípico y cursar la cirugía sin ningún evento adverso. Esa línea quedó descartada.
+
+Adoptamos entonces el enfoque supervisado: construir la variable objetivo a partir de 49 banderas posoperatorias binarias, agrupadas en 13 categorías clínicas, y analizamos qué tan predecibles eran individualmente desde información preoperatoria.
+
+Ese análisis fue revelador. Algunas banderas, como la hospitalización no anticipada o las interconsultas especializadas, tienen un AUC individual mayor a 0.80. Otras, como los parámetros ventilatorios o las decisiones de monitorización intraoperatoria, tienen AUCs indistinguibles del azar: no importa qué hagamos, no podemos predecirlas con información preoperatoria.
+
+Evaluamos cinco versiones del target. La versión inicial con todos los eventos relevantes alcanzaba un AUC de apenas 0.62 con el mejor modelo. La versión final, que retiene solo los flags con AUC individual mayor a 0.76, elevó ese resultado a 0.86 sin cambiar el algoritmo ni las variables de entrada. Esa diferencia de 24 puntos porcentuales viene únicamente de definir mejor el problema. Es la lección más importante de todo el proyecto.
+
+Diapositiva 11 — Selección de variables
+Con el target definido, el siguiente paso fue seleccionar las variables más informativas entre las 236 candidatas.
+
+El proceso tuvo cuatro etapas secuenciales. Primero, eliminación por baja varianza: si el 99% de los registros tienen el mismo valor en una variable, esa variable no aporta información útil. Segundo, información mutua: una medida no lineal de dependencia entre cada variable y el target, que captura relaciones que la correlación tradicional no detecta. Tercero, importancia de variables en un Random Forest balanceado, que considera las interacciones entre el total de predictoras. Y cuarto, un puntaje combinado que promedia ambas métricas normalizadas y aplica un umbral mínimo de relevancia.
+
+El resultado fue la selección de aproximadamente 80 variables que concentran la señal predictiva disponible.
+
+¿Cuáles lideran el ranking? El tipo de anestesia propuesta —especialmente raquídea y peridural— y los puntajes de severidad del procedimiento y del diagnóstico preoperatorio. Eso nos dice algo muy concreto sobre la naturaleza del problema: el modelo está aprendiendo principalmente a reconocer la complejidad del procedimiento planeado, no el riesgo intrínseco del paciente. Las comorbilidades crónicas como hipertensión, diabetes o EPOC aparecen en posiciones tardías o no superan el umbral de selección. Eso es una limitación que vamos a retomar más adelante, porque tiene implicaciones clínicas importantes.
+
+Diapositiva 12 — Modelado
+Con los datos limpios, el target definido y las variables seleccionadas, pasamos a la fase de modelado.
+
+Entrenamos y comparamos nueve algoritmos que cubren las principales familias de clasificación: regresión logística como línea base, Random Forest y Extra Trees como métodos de bagging, XGBoost, LightGBM e HistGradientBoosting como métodos de boosting, una red neuronal MLP, y dos modelos de ensemble compuesto: uno por votación suave y otro por stacking con regresión logística como meta-clasificador.
+
+Configuramos explícitamente dos aspectos derivados de las características del dataset. El primero es el desbalance de clases: con el 19% de positivos en el target principal, entrenar sin corrección haría que los modelos favorecieran sistemáticamente la clase mayoritaria. Usamos class_weight='balanced' en scikit-learn y scale_pos_weight en XGBoost y LightGBM.
+
+El segundo es la calibración, que mencionamos antes como obligatoria. Todos los modelos de árbol y boosting se encapsularon en un esquema de calibración isotónica con validación cruzada de cinco particiones. Los modelos lineales y la red neuronal usaron calibración sigmoidal. Este paso garantiza que las probabilidades predichas reflejen frecuencias reales, no solo rankings relativos.
+
+El umbral de clasificación no se fijó en el convencional 0.5. Se optimizó individualmente para cada modelo maximizando el F2-score sobre el conjunto de entrenamiento, con valores resultantes entre 0.13 y 0.38 según el algoritmo. Ese umbral se almacena en el manifiesto de cada modelo, lo que asegura coherencia entre entrenamiento y despliegue.
+
+Diapositiva 13 — Arquitectura del servicio
+Hasta aquí hemos hablado del pipeline de entrenamiento. Ahora veamos cómo se estructuró el sistema para que esos modelos puedan ser consumidos de forma controlada.
+
+La arquitectura propuesta separa explícitamente el proceso de entrenamiento del consumo operativo del modelo, y está compuesta por cuatro elementos.
+
+El primero es la base de datos OPERA, que contiene los registros históricos y es la fuente de los datos de entrenamiento. El segundo es el pipeline de entrenamiento orquestado con Apache Airflow como un DAG reproducible, que ejecuta secuencialmente todas las fases del proceso y almacena los artefactos resultantes. El tercero son los modelos versionados, cada uno acompañado de su manifiesto JSON, que actúa como contrato técnico entre el modelo y quien lo consume. Y el cuarto es la API REST desarrollada con FastAPI y dockerizada, que recibe los datos de un paciente, valida las entradas contra el manifiesto, ejecuta la predicción y retorna una respuesta estandarizada con metadatos de trazabilidad.
+
+Como capa de presentación, desarrollamos una interfaz en React que permite al personal clínico ingresar los datos y visualizar el resultado. Esta interfaz es una prueba de concepto, no un producto clínico.
+
+Es importante aclarar que esta arquitectura fue implementada y validada como prototipo funcional. La integración efectiva con los sistemas reales de la FVL está fuera del alcance académico de este proyecto, pero la arquitectura está diseñada para habilitarla.
+
+Diapositiva 14 — Manifiesto del modelo
+Un elemento que merece atención especial es el manifiesto del modelo, porque es lo que hace que el servicio sea verdaderamente genérico y trazable.
+
+El manifiesto es un archivo JSON que acompaña a cada modelo entrenado y declara todo lo que el servicio de inferencia necesita saber para usarlo correctamente: la versión del target con el que fue entrenado, el algoritmo y su configuración, la lista exacta de variables de entrada con sus tipos, la estrategia de imputación para valores faltantes en producción, el umbral operativo optimizado, las métricas de validación del conjunto de prueba, y la información de calibración.
+
+¿Para qué sirve esto en la práctica? Significa que la API puede cargar cualquier modelo que cumpla ese esquema sin necesidad de cambiar una línea de código. Significa también que cada predicción puede asociarse inequívocamente a una versión concreta del modelo y la variable objetivo. Y significa que si mañana se entrena un nuevo modelo con datos actualizados, basta con agregar el nuevo manifiesto para que el servicio lo reconozca automáticamente.
+
+Esto es lo que llamamos trazabilidad técnica: no solo saber qué predijo el modelo, sino exactamente con qué modelo, con qué threshold, con qué calibración y sobre qué datos fue entrenado.
+
+Diapositiva 15 — Métricas del modelo final
+Llegamos a los resultados. El modelo seleccionado como referencia técnica del proyecto fue XGBoost con calibración isotónica, entrenado sobre la versión final de la variable objetivo y evaluado sobre un conjunto de prueba estratificado e independiente de 4.856 registros.
+
+Las cuatro métricas centrales son estas: un ROC-AUC de 0.861, que significa que dados dos pacientes aleatorios — uno positivo y uno negativo — el modelo asigna mayor probabilidad al positivo el 86% de las veces. Un Recall de 0.853, que quiere decir que detectamos el 85% de los pacientes que realmente requerirían valoración formal. Un F2-score de 0.677, que fue la métrica de optimización del proyecto. Y un Brier-score de 0.097, que confirma que las probabilidades predichas son confiables como estimadores de riesgo graduado.
+
+Sobre la tabla de métricas complementarias: la Precision de 0.371 puede generar una pregunta legítima, y vale la pena anticiparla. De los pacientes que el modelo marca como positivos, solo el 37% efectivamente lo son. ¿Por qué aceptamos eso? Porque en este contexto clínico, el costo de un falso negativo — un paciente de riesgo que no recibe valoración — es considerablemente mayor que el costo de un falso positivo. El threshold de 0.14 fue elegido precisamente para maximizar la detección, aceptando que el modelo va a referir a un conjunto más amplio de pacientes. Con ese umbral, el modelo marca como candidato a valoración al 44.7% de la población de prueba.
+
+El modelo supera a la regresión logística calibrada en 7.3 puntos de AUC, y al mejor resultado sobre el objetivo alternativo en 10 puntos, diferencia que como ya explicamos proviene de la calidad de la variable objetivo.
+
+Diapositiva 16 — Análisis por subgrupos
+Las métricas globales son importantes, pero en medicina lo que le pasa al promedio no siempre es lo que le pasa a cada paciente. Por eso realizamos un análisis de desempeño por subgrupos clínicos.
+
+El hallazgo principal es una asimetría preocupante. El modelo es estable a lo largo del rango etario, con AUCs entre 0.75 y 0.85 en distintas bandas de edad. Pero cuando analizamos por antecedente clínico, la imagen cambia: los pacientes con antecedentes endocrinológicos presentan un AUC de apenas 0.54, que es prácticamente aleatorio. Los pacientes con antecedentes cardiovasculares muestran una tasa de falsos negativos de aproximadamente el 24%. Y estos son precisamente los perfiles que mayor beneficio obtendrían de una valoración preanestésica formal.
+
+Esto es coherente con lo que encontramos en la selección de variables: las comorbilidades crónicas tienen señal débil en los datos preoperatorios disponibles, y el modelo no puede compensar lo que no está en los datos.
+
+Complementariamente, realizamos un análisis de fenotipos posoperatorios usando PCA y K-Means, e identificamos cinco fenotipos clínicamente distintos. Cuatro de ellos tienen el 100% de positivos, pero con perfiles preoperatorios completamente heterogéneos entre sí. Eso confirma que no existe un único fenotipo de "paciente de riesgo" que el modelo pueda aprender a reconocer de forma uniforme.
+
+La implicación es directa: el modelo global promedia señales que serían más discriminativas en subpoblaciones específicas, y modelos especializados por tipo de procedimiento o perfil de comorbilidad son la línea de mejora más prometedora.
+
+Diapositiva 17 — Validación del pipeline
+Ahora bien, el modelo es solo una parte del producto que entregamos. El pipeline completo, incluyendo el servicio de inferencia, fue validado como software en cuatro capas independientes.
+
+La primera es la suite de pruebas unitarias: 216 tests en pytest que cubren la infraestructura completa del pipeline — limpieza, carga, construcción de splits, entrenamiento, métricas, SHAP, reportes — y que incluyen granularidad unitaria sobre los 13 validadores clínicos de la variable objetivo.
+
+La segunda son los reportes automáticos del pipeline. En cada ejecución del DAG de Airflow, el sistema genera reportes en JSON con las métricas clave. Cualquier desviación es detectable sin necesidad de inspeccionar el código fuente. Estos reportes funcionan como pruebas funcionales del flujo completo.
+
+La tercera capa valida los tres componentes del servicio de inferencia de forma independiente: el preprocesador, que solo admite las variables declaradas en el manifiesto del modelo específico; el motor de predicción, que aplica el threshold y construye la respuesta con metadatos de trazabilidad; y el registro de modelos, que descubre automáticamente los modelos disponibles al inicio del servicio.
+
+La cuarta es la suite de 23 pruebas de integración end-to-end, que ejecutan el servicio en condiciones idénticas a las de producción. Cubren disponibilidad, descubrimiento de modelos, predicción individual — incluyendo dos casos de referencia clínica — rechazo de entradas inválidas, predicción en lote y robustez ante fallos. En todos los casos el servicio respondió dentro de los márgenes esperados sin interrupciones.
+
+Diapositiva 18 — Validación cualitativa
+Más allá de los números, sometimos las decisiones clave del diseño a validación cualitativa con el equipo clínico de la Fundación Valle del Lili, a través de los tutores institucionales del proyecto.
+
+Validamos cuatro aspectos. El primero fue la variable objetivo: la incorporación de la hospitalización no anticipada como componente central fue avalada como clínicamente razonable. Eso nos confirmó que estábamos midiendo algo con sentido médico real.
+
+El segundo fue la coherencia de los predictores dominantes. El hecho de que el tipo de anestesia propuesta y la severidad del procedimiento lideren el modelo es esperable desde el criterio clínico — pero el equipo también lo señaló como una limitación potencial, porque sugiere que el modelo podría estar capturando principalmente la complejidad del procedimiento más que el riesgo intrínseco del paciente.
+
+El tercero fue el threshold operativo. El umbral de 0.14 y la decisión de priorizar sensibilidad sobre precisión fueron refrendados como adecuados para un sistema de apoyo al triaje.
+
+Y el cuarto, que es quizás el más importante conceptualmente: el equipo clínico reconoció explícitamente que el costo de un falso negativo — un paciente de riesgo que no recibe valoración — supera ampliamente al de un falso positivo. Eso valida el fundamento clínico de nuestras decisiones de diseño.
+
+Diapositiva 19 — Impacto del proyecto
+¿Qué impacto puede tener este proyecto si se implementa? Lo analizamos desde seis dimensiones.
+
+Desde lo operativo, una mejor identificación de candidatos a valoración formal reduce las consultas no pertinentes y alivia la carga del personal asistencial. Desde lo clínico, detectar el 85% de los pacientes que realmente requieren valoración, con trazabilidad de cada predicción, aporta objetividad a una decisión que hoy es heterogénea.
+
+Desde lo social, una priorización basada en perfiles de riesgo verificables contribuye a mayor equidad en el acceso a la atención especializada. Desde lo cultural e institucional, el proyecto fomenta la adopción de prácticas de gobernanza ética en IA dentro de la FVL: anonimización, trazabilidad y explicabilidad.
+
+Desde lo metodológico, el pipeline que entregamos es un referente reproducible de extremo a extremo para proyectos de IA en salud en Colombia. Y desde lo ambiental y económico, una selección más precisa tiene el potencial de reducir repetición de exámenes y desplazamientos innecesarios.
+
+Ninguno de estos impactos es automático ni garantizado. Dependen de una implementación responsable, que empieza por reconocer las limitaciones del modelo, que es justamente lo que vamos a ver a continuación.
+
+Diapositiva 20 — Limitaciones
+Toda decisión técnica tiene un costo, y ser rigurosos implica nombrarlo con claridad. Identificamos cinco limitaciones.
+
+La primera es que el modelo predice complejidad más que riesgo intrínseco. Las variables dominantes son el procedimiento y la anestesia, no las comorbilidades. Eso no es un error del modelo — es un reflejo honesto de la señal disponible en los datos preoperatorios actuales.
+
+La segunda es que los subgrupos peor detectados son precisamente los más vulnerables: los pacientes con antecedentes endocrinológicos, con un AUC de apenas 0.54, y los cardiovasculares, con un 24% de falsos negativos. Antes de cualquier despliegue, este sesgo debe comunicarse explícitamente al personal que use la herramienta.
+
+La tercera es la ausencia de validación clínica formal: el modelo no fue evaluado por anestesiólogos en casos individuales reales, y sin esa validación no es posible afirmar que la herramienta es segura para uso asistencial directo.
+
+La cuarta es la ausencia de validación externa. Todas las métricas son sobre datos internos de la FVL. La generalización a otros contextos requiere validación específica.
+
+Y la quinta, quizás la más estructural, es el sesgo de selección: el dataset incluye solo pacientes que ya fueron remitidos a valoración preanestésica. El modelo aprende dentro de una población preseleccionada, no sobre la población quirúrgica general. Las métricas que reportamos describen el desempeño en ese subgrupo filtrado, y eso debe reconocerse explícitamente ante el equipo clínico.
+
+Diapositiva 21 — Conclusiones
+Con todo lo que hemos presentado, podemos afirmar que los cinco objetivos específicos del proyecto fueron cumplidos.
+
+El OE1 se cumplió: entregamos un dataset anonimizado de 24.279 registros, con diccionario de datos, cero nulos, cero contradicciones y reportes automáticos de trazabilidad. El OE2 se cumplió: nueve algoritmos entrenados de forma reproducible sobre dos versiones del target, con código versionado y reportes comparativos automáticos. El OE3 se cumplió: métricas completas, calibración verificada, análisis por subgrupos, explicabilidad global e individual con SHAP. El OE4 se cumplió: API REST con descubrimiento dinámico de modelos, validación de entradas basada en manifiesto y 23 pruebas de integración. El OE5 se cumplió en el diseño: arquitectura de tres capas, manifiesto como contrato de integración y lineamientos de recalibración identificados.
+
+Más allá del cumplimiento formal, tres decisiones de diseño explican la mayor parte del resultado alcanzado y son las lecciones más transferibles del proyecto.
+
+La primera: reformular iterativamente el target elevó el AUC de 0.62 a 0.86 sin cambiar el algoritmo. La definición del problema tiene mayor impacto que la elección del algoritmo o la optimización de hiperparámetros.
+
+La segunda: optimizar por F2 con un threshold bajo de 0.14 garantiza un Recall de 0.853, que es el balance correcto para este contexto clínico donde el costo de no detectar es muy superior al costo de sobre-referir.
+
+La tercera: la calibración isotónica obligatoria convierte scores en probabilidades interpretables. El Brier-score de 0.097 confirma que el umbral tiene significado probabilístico real, condición necesaria para que el clínico pueda confiar en el nivel de riesgo que el modelo asigna.
+
+Diapositiva 22 — Trabajo futuro
+Los resultados obtenidos y las limitaciones identificadas señalan cinco líneas de trabajo que extenderían el alcance y la solidez de este proyecto.
+
+La primera y más urgente es la validación clínica formal y prospectiva: que anestesiólogos en activo evalúen el modelo sobre casos individuales reales, y que se diseñe un piloto controlado en la FVL que incluya datos de pacientes no remitidos, para corregir el sesgo de selección que identificamos.
+
+La segunda es la validación externa en otras instituciones colombianas de alta complejidad, que permitiría medir cuánto generaliza el modelo fuera del contexto de entrenamiento.
+
+La tercera es el enriquecimiento de variables para los subgrupos más débiles: incorporar valores continuos como HbA1c, creatinina sérica o fracción de eyección, en lugar de los indicadores binarios de antecedente que usamos actualmente. Eso es lo que necesitamos para mejorar la detección en pacientes cardiovasculares y endocrinológicos.
+
+La cuarta es la extensión a la población pediátrica, que quedó fuera de este proyecto por razones clínicas y de protocolo, pero que representa el 21.6% de los registros originales.
+
+Y la quinta es la integración efectiva con el sistema OPERA: el piloto de conexión real con la HCE institucional, evaluación de latencia en producción y el establecimiento de mecanismos de recalibración periódica del modelo.
+
+Diapositiva 23 — Aporte del proyecto
+Antes de cerrar, queremos articular qué es exactamente lo que este proyecto entrega.
+
+Técnicamente, entregamos un pipeline CRISP-DM reproducible de extremo a extremo: desde los registros del sistema HCE hasta un servicio de inferencia con probabilidades calibradas. Cada componente está documentado, versionado y validado. El código fuente, las pruebas, los reportes automáticos y la documentación quedan disponibles como referente para futuros proyectos de IA en salud en Colombia.
+
+Clínicamente, entregamos un modelo con Recall del 85% orientado explícitamente al contexto: FN más costoso que FP. Y entregamos explicabilidad por caso mediante valores SHAP, para que el clínico no solo sepa qué decidió el modelo, sino qué variables impulsaron esa decisión para ese paciente específico.
+
+Éticamente, hay algo que queremos dejar muy claro: este modelo es un sistema de apoyo a la decisión. La responsabilidad final sobre la remisión a valoración preanestésica formal recae en el equipo médico tratante. El modelo no debe operar como criterio excluyente. Los sesgos que identificamos en los subgrupos cardiovascular y endocrinológico deben comunicarse explícitamente al personal que use la herramienta, precisamente para evitar que esos pacientes queden desprotegidos por la baja sensibilidad del modelo en sus perfiles.
+
+Y metodológicamente, documentamos un marco de trabajo que muestra cómo articular limpieza determinista, enriquecimiento semántico, calibración de probabilidades, métricas orientadas a la sensibilidad clínica y una arquitectura de despliegue trazable, bajo iteraciones cortas orientadas por los datos.
+
+Diapositiva 24 — Cierre
+Queremos cerrar con la idea central que atraviesa todo el proyecto.
+
+Un modelo predictivo no reemplaza el juicio clínico. Lo hace más oportuno.
+
+La valoración preanestésica es un acto médico que requiere experiencia, criterio y responsabilidad profesional. Lo que este proyecto propone es que esa decisión cuente con un insumo adicional: una estimación objetiva, basada en datos, reproducible y explicable, que oriente al equipo tratante antes de que intervenga el especialista.
+
+Con un ROC-AUC de 0.861, un Recall de 0.853 y un F2 de 0.677, el modelo demuestra que existe señal predictiva suficiente en los datos preoperatorios disponibles para apoyar esa decisión de forma útil y confiable.
+
+Esto ha sido nuestro proyecto de grado. Agradecemos al equipo de la Fundación Valle del Lili, a nuestros tutores, al jurado evaluador y a todos quienes acompañaron este proceso.
+
+Quedamos atentos a sus preguntas.
+
+Fin del guion — 24 diapositivas
