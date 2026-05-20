@@ -1223,6 +1223,73 @@ table.data .pill.muted { background: var(--line-soft); color: var(--muted); }
   justify-content: center;
   padding: 12px;
 }
+
+/* =========================================================
+   Slides 05 / 06 · Marco conceptual — 2 cards XL por slide
+   ========================================================= */
+.concept-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  height: 100%;
+  min-height: 0;
+}
+.concept-card-xl {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 38px 36px;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  gap: 18px;
+  min-height: 0;
+}
+.concept-card-xl.tinted { background: #f0f5e8; border-color: transparent; }
+.concept-card-xl.dark { background: #023739; color: #fff; border-color: transparent; }
+.concept-card-xl .c-head .label-tag {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--icesi-purple);
+  margin-bottom: 12px;
+  display: block;
+}
+.concept-card-xl.dark .c-head .label-tag { color: #a4c465; }
+.concept-card-xl .c-head h3 {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+.concept-card-xl.dark .c-head h3 { color: #fff; }
+.concept-card-xl .c-lede {
+  font-size: 20px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  margin: 0;
+}
+.concept-card-xl.dark .c-lede { color: rgba(255,255,255,0.85); }
+.concept-card-xl .c-lede strong { color: var(--ink); font-weight: 700; }
+.concept-card-xl.dark .c-lede strong { color: #fff; }
+.concept-card-xl .c-viz-xl {
+  background: rgba(255,255,255,0.65);
+  border-radius: 16px;
+  padding: 22px 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+}
+.concept-card-xl.dark .c-viz-xl { background: rgba(255,255,255,0.06); }
+.concept-card-xl .c-viz-xl svg {
+  width: 100%;
+  height: 100%;
+  max-height: 320px;
+  display: block;
+}
 .concept-card.dark .c-viz { background: rgba(255,255,255,0.06); }
 .concept-card .c-viz svg { width: 100%; height: 100%; display: block; }
 
@@ -1296,6 +1363,332 @@ table.data .pill.muted { background: var(--line-soft); color: var(--muted); }
 }
 
 /* =========================================================
+   Datos · split en 2 slides — layout XL
+   ========================================================= */
+.eda-grid-xl {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  align-content: start;
+}
+.eda-item-xl {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 16px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px 20px;
+  align-items: center;
+}
+.eda-col-danger .eda-item-xl {
+  background: #fdf3f3;
+  border-color: rgba(209,67,67,0.18);
+}
+.eda-col-success .eda-item-xl {
+  background: #f3faf6;
+  border-color: rgba(0,176,116,0.18);
+}
+.eda-item-xl .glyph {
+  width: 72px; height: 72px;
+  border-radius: 14px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+}
+.eda-col-danger .eda-item-xl .glyph { color: var(--danger); border-color: rgba(209,67,67,0.25); }
+.eda-col-success .eda-item-xl .glyph { color: var(--success); border-color: rgba(0,176,116,0.25); }
+.eda-item-xl .glyph svg { width: 42px; height: 42px; }
+.eda-item-xl .body {
+  font-size: 17px;
+  color: var(--ink-soft);
+  line-height: 1.45;
+}
+.eda-item-xl .body strong {
+  color: var(--ink);
+  font-weight: 700;
+  display: block;
+  font-size: 19px;
+  margin-bottom: 3px;
+  letter-spacing: -0.005em;
+}
+.eda-section-tag {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.eda-section-tag.danger { color: var(--danger); }
+.eda-section-tag.success { color: var(--success); }
+.eda-section-tag::before {
+  content: "";
+  width: 36px; height: 4px;
+  border-radius: 2px;
+  background: currentColor;
+}
+.eda-section-tag .count {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  text-transform: none;
+  margin-left: auto;
+}
+
+/* =========================================================
+   Indicator list — íconos + datos puntuales
+   ========================================================= */
+.indicator-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.indicator {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 18px;
+  align-items: center;
+  background: rgba(255,255,255,0.7);
+  border-radius: 14px;
+  padding: 16px 20px;
+  border: 1px solid rgba(0,0,0,0.04);
+}
+.indicator .ic-icon {
+  width: 72px; height: 72px;
+  border-radius: 14px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+}
+.indicator .ic-icon svg { width: 40px; height: 40px; }
+.indicator.danger .ic-icon { color: var(--danger); border-color: rgba(209,67,67,0.28); }
+.indicator.success .ic-icon { color: var(--success); border-color: rgba(0,176,116,0.28); }
+.indicator.neutral .ic-icon { color: var(--ink-soft); }
+.indicator .ic-body { display: flex; flex-direction: column; gap: 2px; }
+.indicator .ic-value {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  line-height: 1.05;
+}
+.indicator.danger .ic-value { color: var(--danger); }
+.indicator.success .ic-value { color: var(--success); }
+.indicator .ic-label {
+  font-size: 16px;
+  color: var(--ink-soft);
+  font-weight: 500;
+  line-height: 1.35;
+}
+.indicator.compact { padding: 12px 16px; gap: 14px; grid-template-columns: 56px 1fr; }
+.indicator.compact .ic-icon { width: 56px; height: 56px; border-radius: 12px; }
+.indicator.compact .ic-icon svg { width: 30px; height: 30px; }
+.indicator.compact .ic-value { font-size: 22px; }
+.indicator.compact .ic-label { font-size: 15px; }
+
+/* Section card around an indicator list (used when not on tinted background) */
+.indicator-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 28px 28px;
+  border-radius: 18px;
+  min-height: 0;
+}
+.indicator-card .ic-head .ic-tag {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: block;
+}
+.indicator-card .ic-head h3 {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.indicator-card .ic-question {
+  font-size: 16px;
+  color: var(--ink-soft);
+  font-style: italic;
+  line-height: 1.4;
+  padding: 12px 16px;
+  background: rgba(255,255,255,0.55);
+  border-radius: 10px;
+  border-left: 3px solid currentColor;
+}
+.indicator-card.danger { background: var(--danger-soft); border: 1px solid rgba(209,67,67,0.18); }
+.indicator-card.danger .ic-head .ic-tag { color: var(--danger); }
+.indicator-card.danger .ic-question { color: var(--danger); }
+.indicator-card.success { background: var(--success-soft); border: 1px solid rgba(0,176,116,0.18); }
+.indicator-card.success .ic-head .ic-tag { color: var(--success); }
+.indicator-card.success .ic-question { color: var(--success); }
+
+/* =========================================================
+   Cycle diagram — 3 iteraciones CRISP-DM
+   ========================================================= */
+.cycle-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  flex: 1;
+  min-height: 0;
+  align-items: stretch;
+}
+.cycle-canvas {
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+}
+.cycle-canvas svg {
+  width: 100%;
+  height: 100%;
+  max-height: 600px;
+  display: block;
+}
+.cycle-details {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.cycle-card {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-left: 6px solid var(--icesi-purple);
+  border-radius: 14px;
+  padding: 22px 24px;
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 18px;
+  align-items: start;
+  flex: 1;
+  min-height: 0;
+}
+.cycle-card .cy-num {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: var(--icesi-purple);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.cycle-card .cy-body { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.cycle-card .cy-tag {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.cycle-card h3 {
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.18;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.cycle-card p {
+  font-size: 17px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  margin: 0;
+}
+.cycle-card p strong { color: var(--ink); font-weight: 700; }
+.cycle-card.c1 { border-left-color: #023739; }
+.cycle-card.c1 .cy-num { background: #023739; }
+.cycle-card.c2 { border-left-color: var(--icesi-purple); }
+.cycle-card.c2 .cy-num { background: var(--icesi-purple); }
+.cycle-card.c3 { border-left-color: var(--success); }
+.cycle-card.c3 .cy-num { background: var(--success); }
+
+/* =========================================================
+   CRISP-DM phase grid — 3×2 layout for the 6 phases
+   ========================================================= */
+.phase-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 1fr;
+  gap: 22px;
+  flex: 1;
+  min-height: 0;
+}
+.phase-card {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 26px 28px;
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 22px;
+  align-items: center;
+  position: relative;
+  min-height: 0;
+}
+.phase-card .ph-num {
+  width: 72px;
+  height: 72px;
+  border-radius: 16px;
+  background: var(--icesi-purple-tint);
+  color: var(--icesi-purple-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.phase-card .ph-body { display: flex; flex-direction: column; gap: 10px; min-width: 0; justify-content: center; }
+.phase-card .ph-tag {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.phase-card h4 {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.18;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.phase-card p {
+  font-size: 19px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  margin: 0;
+}
+.phase-card.entry .ph-num { background: #023739; color: #a4c465; }
+.phase-card.last  .ph-num { background: var(--success); color: #fff; }
+
+/* =========================================================
    New slide · DAG (pipeline Airflow)
    ========================================================= */
 .dag-canvas {
@@ -1357,6 +1750,50 @@ table.data .pill.muted { background: var(--line-soft); color: var(--muted); }
 .dag-task.fork  { border-left-color: var(--warn); }
 .dag-task.final { border-left-color: var(--icesi-purple-deep); }
 .dag-task.single { flex: 0 0 240px; }
+
+/* DAG XL — when the canvas is the only thing in the slide body, fill vertical space */
+.dag-canvas.xl {
+  flex: 1;
+  min-height: 0;
+  padding: 28px 32px;
+  gap: 14px;
+  grid-auto-rows: 1fr;
+  align-content: stretch;
+}
+.dag-canvas.xl .dag-row {
+  grid-template-columns: 160px 1fr;
+  gap: 20px;
+  flex: 1;
+  min-height: 0;
+}
+.dag-canvas.xl .dag-label {
+  font-size: 16px;
+  letter-spacing: 0.14em;
+  padding-right: 14px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  border-right-width: 3px;
+}
+.dag-canvas.xl .dag-track {
+  gap: 12px;
+  align-items: stretch;
+}
+.dag-canvas.xl .dag-task {
+  padding: 16px 18px;
+  border-left-width: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.dag-canvas.xl .dag-task .t-name {
+  font-size: 22px;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+.dag-canvas.xl .dag-task .t-meta {
+  font-size: 14px;
+}
+.dag-canvas.xl .dag-task.single { flex: 0 0 320px; }
 
 /* =========================================================
    Slide 16 · Subgrupos — leyenda + fenotipos 30/70
