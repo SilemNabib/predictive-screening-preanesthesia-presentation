@@ -303,7 +303,7 @@ h1, h2, h3, h4 { margin: 0; }
 }
 .toc-card .toc-num {
   font-family: var(--font-mono);
-  font-size: 52px;
+  font-size: 24px;
   font-weight: 700;
   color: var(--icesi-purple);
   letter-spacing: 0.08em;
@@ -324,13 +324,6 @@ h1, h2, h3, h4 { margin: 0; }
   line-height: 1.5;
   margin: 0;
 }
-.toc-card .toc-num {
-  font-family: var(--font-mono);
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--icesi-purple);
-  letter-spacing: 0.08em;
-  display: block;
 }
 .toc-card .toc-tag {
   display: none;
@@ -781,8 +774,9 @@ table.data .pill.muted { background: var(--line-soft); color: var(--muted); }
   border-radius: 14px;
   padding: 18px 18px;
   display: flex;
-  flex-direction: column;
-  gap: 8px;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
 }
 .checklist .check .icon {
   width: 28px; height: 28px;
@@ -797,7 +791,7 @@ table.data .pill.muted { background: var(--line-soft); color: var(--muted); }
 }
 .checklist .check .oe {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 20px;
   color: var(--success);
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -823,7 +817,7 @@ table.data .pill.muted { background: var(--line-soft); color: var(--muted); }
   display: grid;
   grid-template-columns: 70px 1fr;
   gap: 18px;
-  align-items: flex-start;
+  align-items: center;
   padding: 18px 22px;
   border-radius: 14px;
   background: var(--bg-soft);
