@@ -245,7 +245,7 @@
         <div class="block tinted">
           <span class="label-tag">CDSS · XAI</span>
           <h3>Soporte a la decisión clínica + IA explicable</h3>
-          <p>Un <strong>CDSS</strong> integra datos y evidencia para emitir recomendaciones; la <strong>XAI</strong> garantiza transparencia — condición indispensable para la confianza clínica.</p>
+          <p>Un <strong>CDSS</strong> actúa como <strong>soporte, no sustitución</strong>: el equipo médico sigue siendo quien decide. La <strong>XAI</strong> permite que el clínico entienda <em>por qué</em> el modelo recomienda remisión. 
         </div>
       </div>
 
@@ -546,13 +546,13 @@
       <div class="col-2">
         <div class="block" style="border-color: var(--danger); background: var(--danger-soft);">
           <span class="label-tag" style="color: var(--danger);">✕  No supervisado — descartado</span>
-          <h3>IsolationForest + K-Means + PCA</h3>
-          <p>Sin correlación con eventos clínicos reales. <strong>Anomalía estadística ≠ riesgo clínico.</strong> La señal predictiva no emerge del espacio de features.</p>
+          <h3>¿Buscar patrones naturales?</h3>
+          <p><strong>Pregunta inicial: </strong><em>¿Los pacientes con complicaciones posoperatorias forman grupos naturales detectables sin etiquetar?</em> Se aplicó IsolationForest + PCA sobre la matriz de features brutos para identificar anomalías estadísticas. <br><strong>Resultado: </strong>detectadas anomalías, pero ninguna correlación con complicaciones reales (AUC ≈ 0.45). Conclusión: anomalía estadística ≠ riesgo clínico. La señal predictiva no emerge del espacio de features. Se descartó.</p>
         </div>
         <div class="block" style="border-color: var(--success); background: var(--success-soft);">
           <span class="label-tag" style="color: var(--success);">✓  Supervisado — adoptado</span>
-          <h3>49 banderas posoperatorias → 13 categorías macro</h3>
-          <p>Análisis de predictibilidad individual (AUC por flag) → versión final optimizada por AUC individual ≥ 0.76.</p>
+          <h3>Eventos posoperatorios como verdad de referencia</h3>
+          <p><strong>Enfoque supervisado: </strong>De los 49 eventos posoperatorios registrados en HCE, se calculó AUC individual con target. Umbral mínimo: AUC ≥ 0.76 — solo eventos con poder discriminativo real. <br><strong>Resultado: </strong> 13 eventos pasaron. Se combinaron en categorías macro (hospitalización no anticipada, complicación cardiovascular, desenlace fatal, requiere líquidos) para reducir ruido y mantener interpretabilidad clínica.</p>
         </div>
       </div>
 
