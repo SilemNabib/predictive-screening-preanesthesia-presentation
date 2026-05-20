@@ -916,7 +916,7 @@ table.data .pill.muted { background: var(--line-soft); color: var(--muted); }
 }
 .bar-row .row {
   display: grid;
-  grid-template-columns: 200px 1fr 80px 110px;
+  grid-template-columns: 260px 1fr 130px 200px;
   gap: 14px;
   align-items: center;
   font-size: 19px;
@@ -1059,3 +1059,426 @@ table.data .pill.muted { background: var(--line-soft); color: var(--muted); }
   color: var(--muted);
   margin-bottom: 14px;
 }
+
+
+/* =========================================================
+   Slide 3 · Contexto — flujo visual (override)
+   ========================================================= */
+.ctx-flow {
+  display: grid;
+  grid-template-columns: 1fr 32px 1fr 32px 1fr;
+  gap: 0;
+  align-items: stretch;
+}
+.ctx-stage {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 28px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  min-height: 380px;
+}
+.ctx-stage.tinted { background: #f0f5e8; border-color: transparent; }
+.ctx-stage.dark { background: #023739; border-color: transparent; color: #fff; }
+.ctx-stage .ctx-num {
+  font-family: var(--font-mono);
+  font-size: 56px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--icesi-purple);
+  line-height: 0.9;
+}
+.ctx-stage.dark .ctx-num { color: #a4c465; }
+.ctx-stage .ctx-tag {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.ctx-stage.dark .ctx-tag { color: rgba(255,255,255,0.7); }
+.ctx-stage h3 {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.ctx-stage.dark h3 { color: #fff; }
+.ctx-stage p {
+  font-size: 16px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  margin: 0;
+}
+.ctx-stage.dark p { color: rgba(255,255,255,0.85); }
+.ctx-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+.ctx-icons .pill-icon {
+  font-size: 13px;
+  font-weight: 600;
+  background: var(--icesi-purple-tint);
+  color: var(--icesi-purple-deep);
+  padding: 5px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.ctx-icons .pill-icon.invert {
+  background: rgba(164,196,101,0.18);
+  color: #a4c465;
+}
+.ctx-fork {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 4px;
+}
+.ctx-fork .ctx-branch {
+  background: rgba(255,255,255,0.7);
+  border: 1px dashed var(--icesi-purple-deep);
+  border-radius: 10px;
+  padding: 12px 12px;
+  font-size: 14px;
+  color: var(--ink);
+}
+.ctx-fork .ctx-branch strong {
+  color: var(--icesi-purple-deep);
+  display: block;
+  margin-bottom: 4px;
+  font-size: 16px;
+}
+.ctx-fork .ctx-branch span {
+  color: var(--muted);
+  font-size: 13px;
+  display: block;
+}
+.ctx-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: var(--icesi-purple);
+  font-weight: 700;
+}
+.spacer { flex: 1; }
+
+/* =========================================================
+   Slide 5 · Marco conceptual — illustrations
+   ========================================================= */
+.concept-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.concept-card {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 22px 24px;
+  display: grid;
+  grid-template-columns: 1fr 180px;
+  gap: 18px;
+  align-items: center;
+  min-height: 220px;
+}
+.concept-card.tinted { background: #f0f5e8; border-color: transparent; }
+.concept-card.dark { background: #023739; color: #fff; border-color: transparent; }
+.concept-card .c-text .label-tag { display: block; margin-bottom: 6px; font-size: 13px; }
+.concept-card.dark .c-text .label-tag { color: #a4c465; }
+.concept-card .c-text h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+}
+.concept-card.dark .c-text h3 { color: #fff; }
+.concept-card .c-text p {
+  font-size: 15px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  margin: 0;
+}
+.concept-card.dark .c-text p { color: rgba(255,255,255,0.85); }
+.concept-card .c-text p strong { color: var(--ink); font-weight: 700; }
+.concept-card.dark .c-text p strong { color: #fff; }
+.concept-card .c-text ul.tidy { margin-top: 4px; gap: 4px; }
+.concept-card .c-text ul.tidy li { font-size: 14px; padding-left: 16px; line-height: 1.4; }
+.concept-card .c-viz {
+  width: 180px;
+  height: 180px;
+  background: rgba(255,255,255,0.55);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+}
+.concept-card.dark .c-viz { background: rgba(255,255,255,0.06); }
+.concept-card .c-viz svg { width: 100%; height: 100%; display: block; }
+
+/* =========================================================
+   Slide 9 · Datos — técnicas EDA como bloques visuales
+   ========================================================= */
+.eda-pairs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+.eda-col {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.eda-col h4 {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.eda-col.danger h4 { color: var(--danger); }
+.eda-col.success h4 { color: var(--success); }
+.eda-col h4::before {
+  content: "";
+  width: 28px; height: 3px;
+  border-radius: 2px;
+  display: inline-block;
+}
+.eda-col.danger h4::before { background: var(--danger); }
+.eda-col.success h4::before { background: var(--success); }
+.eda-item {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 14px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px 14px;
+  align-items: center;
+}
+.eda-col.success .eda-item { background: #f6faef; border-color: rgba(0,176,116,0.15); }
+.eda-item .glyph {
+  width: 56px; height: 56px;
+  border-radius: 12px;
+  background: var(--line-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.eda-item .glyph svg { width: 32px; height: 32px; }
+.eda-col.danger .eda-item .glyph { background: var(--danger-soft); color: var(--danger); }
+.eda-col.success .eda-item .glyph { background: var(--success-soft); color: var(--success); }
+.eda-item .body {
+  font-size: 15px;
+  color: var(--ink-soft);
+  line-height: 1.4;
+}
+.eda-item .body strong {
+  color: var(--ink);
+  font-weight: 700;
+  display: block;
+  font-size: 16px;
+  margin-bottom: 2px;
+}
+
+/* =========================================================
+   New slide · DAG (pipeline Airflow)
+   ========================================================= */
+.dag-canvas {
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 22px 24px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+.dag-row {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 16px;
+  align-items: center;
+}
+.dag-row .dag-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: right;
+  padding-right: 8px;
+  border-right: 2px solid var(--line);
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+.dag-track {
+  display: flex;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
+.dag-task {
+  flex: 1;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--icesi-purple);
+  border-radius: 8px;
+  padding: 10px 12px;
+  min-width: 0;
+}
+.dag-task .t-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 2px;
+  letter-spacing: -0.005em;
+  line-height: 1.2;
+}
+.dag-task .t-meta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted);
+}
+.dag-task.entry { border-left-color: var(--success); }
+.dag-task.fork  { border-left-color: var(--warn); }
+.dag-task.final { border-left-color: var(--icesi-purple-deep); }
+.dag-task.single { flex: 0 0 240px; }
+
+/* =========================================================
+   Slide 16 · Subgrupos — leyenda + fenotipos 30/70
+   ========================================================= */
+.legend-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+  padding: 10px 16px;
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+.legend-row .lg {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+.legend-row .lg .swatch {
+  width: 14px; height: 14px;
+  border-radius: 50%;
+}
+.legend-row .lg .swatch.green { background: var(--success); }
+.legend-row .lg .swatch.warn { background: var(--warn); }
+.legend-row .lg .swatch.danger { background: var(--danger); }
+.legend-row .lg .swatch.line { width: 28px; height: 6px; border-radius: 3px; background: var(--line-soft); }
+.legend-row .lg strong { color: var(--ink); font-weight: 700; }
+
+.phen-grid {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  gap: 18px;
+  align-items: stretch;
+  min-height: 0;
+}
+.phen-text {
+  background: #f0f5e8;
+  border-radius: 14px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.phen-text .label-tag { font-size: 13px; color: var(--icesi-purple-deep); }
+.phen-text h3 { font-size: 19px; font-weight: 700; line-height: 1.2; }
+.phen-text p { font-size: 13px; color: var(--ink-soft); line-height: 1.45; margin: 0; }
+.phen-text p strong { color: var(--ink); font-weight: 700; }
+.phen-text .hi-box {
+  background: #fff;
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin-top: auto;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+.phen-text .hi-box strong { color: var(--icesi-purple-deep); }
+
+.phen-viz {
+  border: 1px solid var(--line);
+  background: var(--bg-soft);
+  border-radius: 14px;
+  padding: 14px 16px;
+  display: grid;
+  grid-template-columns: 1fr 0.85fr;
+  gap: 14px;
+  min-height: 0;
+}
+.phen-scatter {
+  background: #fff;
+  border: 1px dashed var(--line);
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  min-height: 200px;
+  max-height: 280px;
+}
+.phen-scatter svg { width: 100%; height: 100%; display: block; }
+.phen-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.phen-row {
+  display: grid;
+  grid-template-columns: 18px 1fr auto;
+  gap: 8px;
+  align-items: center;
+  padding: 7px 10px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-size: 12px;
+}
+.phen-row .p-dot {
+  width: 14px; height: 14px;
+  border-radius: 50%;
+}
+.phen-row .p-name {
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 13px;
+  line-height: 1.2;
+}
+.phen-row .p-name span {
+  display: block;
+  font-weight: 500;
+  color: var(--muted);
+  font-size: 11px;
+}
+.phen-row .p-badge {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--success);
+  background: var(--success-soft);
+  padding: 4px 8px;
+  border-radius: 999px;
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+.phen-row .p-badge.muted { color: var(--muted); background: var(--line-soft); }
