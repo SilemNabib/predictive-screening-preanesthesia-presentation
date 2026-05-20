@@ -324,7 +324,7 @@ h1, h2, h3, h4 { margin: 0; }
   line-height: 1.5;
   margin: 0;
 }
-}
+
 .toc-card .toc-tag {
   display: none;
 }
@@ -409,14 +409,14 @@ ul.tidy li strong { color: var(--ink); font-weight: 600; }
   line-height: 1.55;
   display: flex;
   gap: 16px;
-  align-items: flex-start;
+  align-items: center;
 }
 .callout.green {
   background: linear-gradient(135deg, var(--success) 0%, #00CC8A 100%);
 }
 .callout .marker {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
