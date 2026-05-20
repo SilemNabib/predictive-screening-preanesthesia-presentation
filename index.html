@@ -703,27 +703,38 @@
     </div>
 
     <div class="slide-body">
-      <div class="cycle-layout">
-        <div class="cycle-canvas">
+              <div class="cycle-canvas">
           <svg viewBox="0 0 520 520" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-            <!-- Outer guide circle (very subtle) -->
-            <circle cx="260" cy="260" r="200" fill="none" stroke="#E6E6F0" stroke-width="1" stroke-dasharray="2 4"/>
+            <defs>
+              <marker id="arr" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto">
+                <path d="M0,0.5 L0,5.5 L8,3 z" fill="#a4c465"/>
+              </marker>
+            </defs>
 
-            <!-- Curved arrows between nodes (clockwise) -->
-            <!-- 01 (top) → 02 (bottom-right) -->
-            <path d="M 360 110 A 200 200 0 0 1 430 360" fill="none" stroke="#a4c465" stroke-width="3"/>
-            <polygon points="430,360 422,346 444,348" fill="#a4c465"/>
-            <!-- 02 (bottom-right) → 03 (bottom-left) -->
-            <path d="M 380 430 A 200 200 0 0 1 140 430" fill="none" stroke="#a4c465" stroke-width="3"/>
-            <polygon points="140,430 156,422 154,444" fill="#a4c465"/>
-            <!-- 03 (bottom-left) → 01 (top) -->
-            <path d="M 90 360 A 200 200 0 0 1 160 110" fill="none" stroke="#a4c465" stroke-width="3"/>
-            <polygon points="160,110 174,122 152,124" fill="#a4c465"/>
+            <!-- Outer guide circle -->
+            <circle cx="260" cy="260" r="200" fill="none" stroke="#d4e8a4" stroke-width="1.5" stroke-dasharray="4 6" opacity="0.5"/>
+
+            <!--
+              Nodes:  N1(260,92,r72)  N2(406,396,r72)  N3(114,396,r72)
+              Edge points (border toward next node, clockwise cycle):
+                N1→N2 start : (291, 157)   N2 arrive: (375, 331)
+                N2→N3 start : (334, 396)   N3 arrive: (186, 396)
+                N3→N1 start : (145, 331)   N1 arrive: (229, 157)
+              Each arc uses r=200, large-arc=0, sweep=1 (clockwise)
+            -->
+            <!-- N1 → N2 -->
+            <path d="M 291 157 A 200 200 0 0 1 375 331"
+                  fill="none" stroke="#a4c465" stroke-width="4" stroke-linecap="round" marker-end="url(#arr)"/>
+            <!-- N2 → N3 -->
+            <path d="M 334 396 A 200 200 0 0 1 186 396"
+                  fill="none" stroke="#a4c465" stroke-width="4" stroke-linecap="round" marker-end="url(#arr)"/>
+            <!-- N3 → N1 -->
+            <path d="M 145 331 A 200 200 0 0 1 229 157"
+                  fill="none" stroke="#a4c465" stroke-width="4" stroke-linecap="round" marker-end="url(#arr)"/>
 
             <!-- Center label -->
             <text x="260" y="248" font-family="JetBrains Mono" font-size="14" font-weight="700" letter-spacing="2" fill="#7B7A8E" text-anchor="middle">3 CICLOS</text>
             <text x="260" y="272" font-family="Plus Jakarta Sans" font-size="20" font-weight="800" fill="#023739" text-anchor="middle">CRISP-DM</text>
-            <text x="260" y="294" font-family="Plus Jakarta Sans" font-size="13" font-style="italic" fill="#7B7A8E" text-anchor="middle">iterativo</text>
 
             <!-- Node 01 · Top -->
             <g>
@@ -750,34 +761,6 @@
             </g>
           </svg>
         </div>
-
-        <div class="cycle-details">
-          <div class="cycle-card c1">
-            <div class="cy-num">01</div>
-            <div class="cy-body">
-              <div class="cy-tag">Ciclo 1 · Comprensión del problema</div>
-              <h3>Redefinición del target</h3>
-              <p>ROC-AUC pasó de <strong>0.62 → 0.86</strong> sin cambiar el algoritmo, sólo afinando la definición del evento posoperatorio que el modelo intenta predecir.</p>
-            </div>
-          </div>
-          <div class="cycle-card c2">
-            <div class="cy-num">02</div>
-            <div class="cy-body">
-              <div class="cy-tag">Ciclo 2 · Modelado</div>
-              <h3>Calibración isotónica</h3>
-              <p>Convertida en <strong>paso obligatorio</strong> del pipeline. Los scores crudos de árboles y boosting pasan a ser probabilidades interpretables.</p>
-            </div>
-          </div>
-          <div class="cycle-card c3">
-            <div class="cy-num">03</div>
-            <div class="cy-body">
-              <div class="cy-tag">Ciclo 3 · Evaluación</div>
-              <h3>Señal disponible</h3>
-              <p>La <strong>complejidad del procedimiento</strong> domina por sobre el riesgo intrínseco del paciente. Hallazgo que orientó las limitaciones documentadas.</p>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
 
     <div class="slide-foot">
