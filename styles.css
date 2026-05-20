@@ -760,6 +760,14 @@ table.data .pill.muted { background: var(--line-soft); color: var(--muted); }
 .confusion .cell.fp { background: var(--warn-soft); color: var(--ink); }
 .confusion .cell.fn { background: var(--danger-soft); color: var(--ink); border: 1px solid var(--danger); }
 
+.confusion.confusion-wide { grid-template-columns: 80px repeat(2, 1fr); gap: 14px; }
+.confusion.confusion-wide .cell { min-height: 160px; padding: 22px 26px; }
+.confusion.confusion-wide .cell .count { font-size: 56px; }
+.confusion.confusion-wide .cell .name { font-size: 13px; }
+.confusion.confusion-wide .cell .pct { font-size: 14px; }
+.confusion.confusion-wide .head { font-size: 14px; }
+.confusion.confusion-wide .side { font-size: 14px; }
+
 /* =========================================================
    Checklist
    ========================================================= */
@@ -1957,6 +1965,42 @@ table.data .pill.muted { background: var(--line-soft); color: var(--muted); }
   max-height: 280px;
 }
 .phen-scatter svg { width: 100%; height: 100%; display: block; }
+
+.phen-grid-compact { grid-template-columns: 1fr; }
+.phen-grid-compact .phen-viz { border: none; background: transparent; padding: 0; }
+.phen-grid-compact .phen-row { padding: 5px 10px; font-size: 12px; }
+.phen-grid-compact .phen-list { gap: 5px; }
+
+.phen-list-textual { gap: 10px; }
+.phen-list-textual .phen-row {
+  grid-template-columns: 22px 1fr auto;
+  gap: 14px;
+  padding: 14px 18px;
+  font-size: 16px;
+}
+.phen-list-textual .phen-row .p-dot { width: 18px; height: 18px; }
+.phen-list-textual .phen-row .p-name { font-size: 16px; font-weight: 700; line-height: 1.3; }
+.phen-list-textual .phen-row .p-name span { display: block; font-size: 13px; font-weight: 500; color: var(--ink-soft); margin-top: 2px; }
+.phen-list-textual .phen-row .p-badge { font-size: 12px; padding: 5px 10px; }
+
+/* Slide 23 · row layout for bars + fenotipos side by side */
+.slide-23-row .bar-row .row {
+  grid-template-columns: 160px 1fr 90px 140px;
+  gap: 12px;
+  font-size: 14px;
+}
+.slide-23-row .bar-row .row .name { font-size: 14px; }
+.slide-23-row .bar-row .row .value { font-size: 12px; }
+.slide-23-row .bar-row .row .badge { font-size: 10px; padding: 4px 8px; }
+.slide-23-row .legend-row { font-size: 12px; flex-wrap: wrap; gap: 10px 14px; padding: 10px 12px; }
+.slide-23-row .legend-row .lg { font-size: 12px; }
+.slide-23-row .phen-list-textual .phen-row {
+  grid-template-columns: 18px 1fr auto;
+  gap: 10px;
+  padding: 11px 14px;
+}
+.slide-23-row .phen-list-textual .phen-row .p-name { font-size: 14px; }
+.slide-23-row .phen-list-textual .phen-row .p-name span { font-size: 12px; }
 .phen-list {
   display: flex;
   flex-direction: column;
