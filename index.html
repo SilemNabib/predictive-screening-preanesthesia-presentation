@@ -227,7 +227,6 @@
               </div>
               <div class="iss-text">
                 Crecimiento sostenido de la demanda quirúrgica
-                <small>Sin herramientas de apoyo a la decisión.</small>
               </div>
             </div>
             <div class="issue-item">
@@ -236,7 +235,6 @@
               </div>
               <div class="iss-text">
                 Clasificación subjetiva
-                <small>Procesos manuales sin criterio institucional único.</small>
               </div>
             </div>
             <div class="issue-item">
@@ -245,7 +243,6 @@
               </div>
               <div class="iss-text">
                 Alta heterogeneidad clínica
-                <small>Comorbilidades, edades y tipos de procedimiento muy diversos.</small>
               </div>
             </div>
             <div class="issue-item">
@@ -254,7 +251,6 @@
               </div>
               <div class="iss-text">
                 Escasa integración de tecnología
-                <small>Soporte clínico tradicional, sin sistemas predictivos.</small>
               </div>
             </div>
           </div>
@@ -273,7 +269,6 @@
               </div>
               <div class="iss-text">
                 Consultas innecesarias
-                <small>Reprocesos en la programación quirúrgica.</small>
               </div>
             </div>
             <div class="issue-item">
@@ -282,7 +277,6 @@
               </div>
               <div class="iss-text">
                 Cancelaciones y reprogramaciones
-                <small>Pacientes citados que no logran operarse.</small>
               </div>
             </div>
             <div class="issue-item">
@@ -291,7 +285,6 @@
               </div>
               <div class="iss-text">
                 Mayores tiempos de espera
-                <small>Acumulación de cupos y costos adicionales.</small>
               </div>
             </div>
             <div class="issue-item">
@@ -300,7 +293,6 @@
               </div>
               <div class="iss-text">
                 Riesgos de cumplimiento
-                <small>Estándares de seguridad y acreditación en juego.</small>
               </div>
             </div>
           </div>
@@ -1774,7 +1766,7 @@
       </div>
     </div>
 
-    <div class="slide-body">
+    <div class="slide-body" style="justify-content: center;">
       <div class="col-4">
         <div class="block">
           <div style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 12px;">
@@ -1782,11 +1774,6 @@
             <span style="font-family: var(--font-mono); font-size: 13px; color: var(--muted); font-weight: 600;">tests · pytest</span>
           </div>
           <h3>Suite de pruebas unitarias</h3>
-          <ul class="tidy" style="margin-top: 12px;">
-            <li>Infraestructura: limpieza, carga, splits, entrenamiento, métricas, SHAP, reportes.</li>
-            <li>13 validadores clínicos de la variable objetivo con granularidad unitaria.</li>
-            <li>Cobertura de los módulos críticos del pipeline.</li>
-          </ul>
         </div>
         <div class="block">
           <div style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 12px;">
@@ -1794,11 +1781,6 @@
             <span style="font-family: var(--font-mono); font-size: 13px; color: var(--muted); font-weight: 600;">por ejecución</span>
           </div>
           <h3>Reportes automáticos</h3>
-          <ul class="tidy" style="margin-top: 12px;">
-            <li>Métricas clave verificables sin inspeccionar código fuente.</li>
-            <li>Desviaciones detectables como prueba funcional del flujo completo.</li>
-            <li>Generados en cada ejecución del DAG Airflow.</li>
-          </ul>
         </div>
         <div class="block">
           <div style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 12px;">
@@ -1806,11 +1788,6 @@
             <span style="font-family: var(--font-mono); font-size: 13px; color: var(--muted); font-weight: 600;">componentes testeables</span>
           </div>
           <h3>Capa de inferencia</h3>
-          <ul class="tidy" style="margin-top: 12px;">
-            <li><strong>Preprocesador:</strong> sólo admite features declaradas en el manifiesto.</li>
-            <li><strong>Motor:</strong> aplica threshold y retorna respuesta con metadatos de trazabilidad.</li>
-            <li><strong>Registro:</strong> descubrimiento automático de modelos al inicio.</li>
-          </ul>
         </div>
         <div class="block">
           <div style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 12px;">
@@ -1818,12 +1795,6 @@
             <span style="font-family: var(--font-mono); font-size: 13px; color: var(--muted); font-weight: 600;">tests · integración</span>
           </div>
           <h3>Suite E2E</h3>
-          <ul class="tidy" style="margin-top: 12px;">
-            <li>Disponibilidad y estado del servicio.</li>
-            <li>Descubrimiento y consistencia de modelos registrados.</li>
-            <li>Predicción individual + 2 casos de referencia clínica.</li>
-            <li>Rechazo de entradas inválidas · Lote · Robustez ante fallos.</li>
-          </ul>
         </div>
       </div>
 
