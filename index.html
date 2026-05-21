@@ -1288,24 +1288,18 @@
       <div class="pipeline">
         <div class="step">
           <span class="step-tag">01</span>
-          <h4>Baja varianza</h4>
-          <p>Se descartan variables donde ≥ 99 % de los registros comparten el mismo valor. Sin información útil.</p>
-        </div>
-        <div class="arrow">→</div>
-        <div class="step">
-          <span class="step-tag">02</span>
           <h4>Mutual Information</h4>
           <p>Dependencia no lineal entre cada variable y el target. Captura relaciones que Pearson no detecta.</p>
         </div>
         <div class="arrow">→</div>
         <div class="step">
-          <span class="step-tag">03</span>
+          <span class="step-tag">02</span>
           <h4>Random Forest</h4>
           <p>Importancia de variables considerando interacciones entre el total de predictoras (bosque balanceado).</p>
         </div>
         <div class="arrow">→</div>
         <div class="step">
-          <span class="step-tag">04</span>
+          <span class="step-tag">03</span>
           <h4>Puntaje combinado</h4>
           <p>Promedio normalizado [0,1] de MI + RF Importance. Se retienen variables que superan un umbral mínimo.</p>
         </div>
