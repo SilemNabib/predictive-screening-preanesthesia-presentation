@@ -695,7 +695,8 @@
     </div>
 
     <div class="slide-body">
-              <div class="cycle-canvas">
+      <div class="cycle-layout">
+        <div class="cycle-canvas">
           <svg viewBox="0 0 520 520" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
             <defs>
               <marker id="arr" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto">
@@ -753,6 +754,34 @@
             </g>
           </svg>
         </div>
+
+        <div class="cycle-details">
+          <div class="cycle-card c1">
+            <div class="cy-num">01</div>
+            <div class="cy-body">
+              <div class="cy-tag">Ciclo 1 · Comprensión del problema</div>
+              <h3>Redefinición del target</h3>
+              <p>ROC-AUC pasó de <strong>0.62 → 0.86</strong> sin cambiar el algoritmo, sólo afinando la definición del evento posoperatorio que el modelo intenta predecir.</p>
+            </div>
+          </div>
+          <div class="cycle-card c2">
+            <div class="cy-num">02</div>
+            <div class="cy-body">
+              <div class="cy-tag">Ciclo 2 · Modelado</div>
+              <h3>Calibración isotónica</h3>
+              <p>Convertida en <strong>paso obligatorio</strong> del pipeline. Los scores crudos de árboles y boosting pasan a ser probabilidades interpretables.</p>
+            </div>
+          </div>
+          <div class="cycle-card c3">
+            <div class="cy-num">03</div>
+            <div class="cy-body">
+              <div class="cy-tag">Ciclo 3 · Evaluación</div>
+              <h3>Señal disponible</h3>
+              <p>La <strong>complejidad del procedimiento</strong> domina por sobre el riesgo intrínseco del paciente. Hallazgo que orientó las limitaciones documentadas.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="slide-foot">
@@ -1026,10 +1055,9 @@
         <div class="block" style="display: flex; flex-direction: column;">
           <span class="label-tag">Airflow · captura del DAG</span>
           <h3 style="font-size: 22px; margin-top: 6px;">localhost:8080 — vista Graph</h3>
-          <div style="flex: 1; min-height: 280px; background: var(--bg-soft); border: 1px dashed var(--line); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 12px; font-family: var(--font-mono); font-size: 14px; color: var(--muted); margin-top: 16px; padding: 24px 28px; text-align: center;">
-            <span style="font-size: 28px; font-weight: 700; color: var(--icesi-purple-deep); letter-spacing: 0.08em;">[ AIRFLOW · screenshot ]</span>
-            <span>Reemplazar con captura de la vista Graph del DAG</span>
-            <span style="font-size: 12px; opacity: 0.85;">docker compose up airflow-init &nbsp;·&nbsp; docker compose up -d</span>
+          <div style="flex: 1; min-height: 280px; border-radius: 12px; overflow: hidden; margin-top: 16px;">
+            <img src="assets/preanesthesia_pipeline.png" alt="Vista Graph del DAG del pipeline en Airflow"
+                 style="width: 100%; height: 100%; object-fit: contain; display: block;" />
           </div>
         </div>
 
@@ -2058,40 +2086,35 @@
     </div>
 
     <div class="slide-body">
-      <ol class="numbered" style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+      <ol class="numbered" style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-content: center; flex: 1;">
         <li>
           <span class="num">01</span>
           <div>
             <h4>Validación clínica formal y prospectiva</h4>
-            <p>Evaluación por anestesiólogos en casos individuales reales. Piloto controlado en FVL con captura de pacientes <strong>no remitidos</strong> para corregir el work-up bias.</p>
           </div>
         </li>
         <li>
           <span class="num">02</span>
           <div>
             <h4>Validación externa</h4>
-            <p>Replicar el modelo en otras instituciones colombianas de alta complejidad con características poblacionales comparables.</p>
           </div>
         </li>
         <li>
           <span class="num">03</span>
           <div>
             <h4>Enriquecimiento de variables</h4>
-            <p>Incorporar valores continuos (HbA1c, creatinina sérica, fracción de eyección) en lugar de indicadores binarios. Mejora crítica para subgrupos CV y endocrinológico.</p>
           </div>
         </li>
         <li>
           <span class="num">04</span>
           <div>
             <h4>Extensión a población pediátrica</h4>
-            <p>Modelo específico para los 6 683 registros pediátricos excluidos, con variable objetivo adaptada y validación con anestesia pediátrica de la FVL.</p>
           </div>
         </li>
         <li style="grid-column: 1 / -1;">
           <span class="num">05</span>
           <div>
             <h4>Integración efectiva con OPERA</h4>
-            <p>Piloto de conexión real con la HCE institucional: consumo directo de variables, evaluación de latencia en producción y recalibración periódica del modelo.</p>
           </div>
         </li>
       </ol>

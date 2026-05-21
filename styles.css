@@ -1986,22 +1986,22 @@ table.data .pill.muted { background: var(--line-soft); color: var(--muted); }
 
 /* Slide 23 · row layout for bars + fenotipos side by side */
 .slide-23-row .bar-row .row {
-  grid-template-columns: 160px 1fr 90px 140px;
+  grid-template-columns: 200px 1fr 110px 170px;
   gap: 12px;
-  font-size: 14px;
+  font-size: 17px;
 }
-.slide-23-row .bar-row .row .name { font-size: 14px; }
-.slide-23-row .bar-row .row .value { font-size: 12px; }
-.slide-23-row .bar-row .row .badge { font-size: 10px; padding: 4px 8px; }
-.slide-23-row .legend-row { font-size: 12px; flex-wrap: wrap; gap: 10px 14px; padding: 10px 12px; }
-.slide-23-row .legend-row .lg { font-size: 12px; }
+.slide-23-row .bar-row .row .name { font-size: 17px; }
+.slide-23-row .bar-row .row .value { font-size: 15px; }
+.slide-23-row .bar-row .row .badge { font-size: 13px; padding: 4px 10px; }
+.slide-23-row .legend-row { font-size: 14px; flex-wrap: wrap; gap: 10px 14px; padding: 10px 12px; }
+.slide-23-row .legend-row .lg { font-size: 14px; }
 .slide-23-row .phen-list-textual .phen-row {
   grid-template-columns: 18px 1fr auto;
   gap: 10px;
   padding: 11px 14px;
 }
-.slide-23-row .phen-list-textual .phen-row .p-name { font-size: 14px; }
-.slide-23-row .phen-list-textual .phen-row .p-name span { font-size: 12px; }
+.slide-23-row .phen-list-textual .phen-row .p-name { font-size: 17px; }
+.slide-23-row .phen-list-textual .phen-row .p-name span { font-size: 14px; }
 .phen-list {
   display: flex;
   flex-direction: column;
