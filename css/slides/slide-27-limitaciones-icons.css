@@ -1,0 +1,51 @@
+/* Slide 27 · Limitaciones — icon tiles for each numbered item */
+section[data-screen-label="26 Limitaciones"] .numbered {
+  gap: 14px;
+}
+section[data-screen-label="26 Limitaciones"] .numbered li {
+  grid-template-columns: 96px 1fr;
+  gap: 22px;
+  padding: 16px 24px;
+  align-items: center;
+}
+section[data-screen-label="26 Limitaciones"] .numbered li .num {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 96px;
+  height: 96px;
+  border-radius: 18px;
+  background: #fbf1de;
+  color: #b07b18;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  font-family: var(--font-mono);
+  border: 1px solid rgba(176, 123, 24, 0.18);
+}
+section[data-screen-label="26 Limitaciones"] .numbered li .num svg {
+  width: 44px;
+  height: 44px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+section[data-screen-label="26 Limitaciones"] .numbered li .num .lbl {
+  display: inline-block;
+}
+
+/* The 5th item spans both columns — keep the icon tile compact at the left */
+section[data-screen-label="26 Limitaciones"] .numbered li[style*="grid-column"] {
+  grid-template-columns: 96px 1fr;
+}
+
+/* Optional accent on the most important limitations */
+section[data-screen-label="26 Limitaciones"] .numbered li.accent .num {
+  background: var(--icesi-purple-deep);
+  color: var(--icesi-purple-light);
+  border-color: transparent;
+}

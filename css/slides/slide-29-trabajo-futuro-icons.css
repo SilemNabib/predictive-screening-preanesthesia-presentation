@@ -1,0 +1,41 @@
+/* Slide 29 · Trabajo futuro — icon tiles for each numbered item */
+section[data-screen-label="29 Trabajo futuro"] .numbered {
+  gap: 14px;
+}
+section[data-screen-label="29 Trabajo futuro"] .numbered li {
+  grid-template-columns: 84px 1fr;
+  gap: 18px;
+  padding: 16px 20px;
+  align-items: center;
+}
+section[data-screen-label="29 Trabajo futuro"] .numbered li .num {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 84px;
+  height: 84px;
+  border-radius: 16px;
+  background: var(--icesi-purple-tint);
+  color: var(--icesi-purple-deep);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  font-family: var(--font-mono);
+  border: 1px solid rgba(2, 55, 57, 0.08);
+}
+section[data-screen-label="29 Trabajo futuro"] .numbered li .num svg {
+  width: 38px;
+  height: 38px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* The 5th item spans both columns — keep the icon tile compact at the left */
+section[data-screen-label="29 Trabajo futuro"] .numbered li[style*="grid-column"] {
+  grid-template-columns: 84px 1fr;
+}
