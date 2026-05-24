@@ -1,0 +1,80 @@
+/* SLIDE 4 · EL PROBLEMA — CAUSAS / CONSECUENCIAS CON ÍCONOS */
+.issue-card {
+  border-radius: 16px;
+  padding: 30px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-height: 0;
+}
+.issue-card.cause {
+  background: #fdf3f3;
+  border: 1px solid rgba(209,67,67,0.18);
+}
+.issue-card.effect {
+  background: #fdf6e8;
+  border: 1px solid rgba(224,163,58,0.22);
+}
+.issue-card .iss-head .iss-tag {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 8px;
+}
+.issue-card.cause .iss-head .iss-tag { color: var(--danger); }
+.issue-card.effect .iss-head .iss-tag { color: var(--warn); }
+.issue-card .iss-head h3 {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.issue-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  min-height: 0;
+}
+.issue-item {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 18px;
+  align-items: center;
+  background: rgba(255,255,255,0.75);
+  border-radius: 12px;
+  padding: 16px 18px;
+  flex: 1;
+}
+.issue-item .iss-icon {
+  width: 60px; height: 60px;
+  border-radius: 14px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+}
+.issue-item .iss-icon svg { width: 34px; height: 34px; }
+.issue-card.cause .iss-item .iss-icon,
+.issue-card.cause .issue-item .iss-icon { color: var(--danger); border-color: rgba(209,67,67,0.25); }
+.issue-card.effect .issue-item .iss-icon { color: var(--warn); border-color: rgba(224,163,58,0.32); }
+.issue-item .iss-text {
+  font-size: 22px;
+  color: var(--ink);
+  font-weight: 600;
+  line-height: 1.35;
+}
+.issue-item .iss-text small {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+  margin-top: 3px;
+  line-height: 1.4;
+}
+

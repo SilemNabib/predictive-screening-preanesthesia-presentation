@@ -1,0 +1,119 @@
+<section data-screen-label="20 Manifiesto">
+    <div class="title-row">
+      <div>
+        <div class="eyebrow">04 · Construcción de la solución</div>
+        <h1 class="slide-title">Manifiesto del modelo — contrato técnico</h1>
+        <p class="slide-subtitle">Cada modelo entrenado se acompaña de un JSON que la API consume al arranque. Sin él, no se carga el modelo.</p>
+      </div>
+    </div>
+
+    <div class="slide-body">
+      <div class="json-grid">
+
+        <div class="json-card">
+          <div class="jc-head">
+            <span class="jc-num">01</span>
+            <span class="jc-title">Identidad del modelo</span>
+          </div>
+          <pre class="jc-code"><span class="jc-p">{</span>
+  <span class="jc-k">"schema_version"</span>: <span class="jc-s">"1.0"</span>,
+  <span class="jc-k">"model_id"</span>: <span class="jc-s">"target_d_v2_hosp__lightgbm"</span>,
+  <span class="jc-k">"target_version"</span>: <span class="jc-s">"target_d_v2_hosp"</span>,
+  <span class="jc-k">"algorithm"</span>: <span class="jc-s">"lightgbm"</span>
+<span class="jc-p">}</span></pre>
+        </div>
+
+        <div class="json-card">
+          <div class="jc-head">
+            <span class="jc-num">02</span>
+            <span class="jc-title">Artefactos asociados</span>
+          </div>
+          <pre class="jc-code"><span class="jc-p">{</span>
+  <span class="jc-k">"model_filename"</span>: <span class="jc-s">"lightgbm_model.joblib"</span>,
+  <span class="jc-k">"metrics_filename"</span>: <span class="jc-s">"lightgbm_metrics.json"</span>
+<span class="jc-p">}</span></pre>
+        </div>
+
+        <div class="json-card">
+          <div class="jc-head">
+            <span class="jc-num">03</span>
+            <span class="jc-title">Estrategia de imputación</span>
+          </div>
+          <pre class="jc-code"><span class="jc-k">"imputation"</span>: <span class="jc-p">{</span>
+  <span class="jc-k">"strategy"</span>: <span class="jc-s">"fill_constant"</span>,
+  <span class="jc-k">"value"</span>: <span class="jc-n">-1</span>
+<span class="jc-p">}</span></pre>
+        </div>
+
+        <div class="json-card">
+          <div class="jc-head">
+            <span class="jc-num">04</span>
+            <span class="jc-title">Threshold operativo</span>
+          </div>
+          <pre class="jc-code"><span class="jc-k">"threshold"</span>: <span class="jc-n">0.18</span>,
+<span class="jc-k">"threshold_metric"</span>: <span class="jc-s">"f2"</span></pre>
+        </div>
+
+        <div class="json-card">
+          <div class="jc-head">
+            <span class="jc-num">05</span>
+            <span class="jc-title">Calibración</span>
+          </div>
+          <pre class="jc-code"><span class="jc-k">"calibrated"</span>: <span class="jc-b">true</span>,
+<span class="jc-k">"calibration"</span>: <span class="jc-p">{</span>
+  <span class="jc-k">"method"</span>: <span class="jc-s">"isotonic"</span>,
+  <span class="jc-k">"cv"</span>: <span class="jc-n">5</span>,
+  <span class="jc-k">"fallback_reason"</span>: <span class="jc-b">null</span>
+<span class="jc-p">}</span></pre>
+        </div>
+
+        <div class="json-card">
+          <div class="jc-head">
+            <span class="jc-num">06</span>
+            <span class="jc-title">Prevalencia (entrenamiento)</span>
+          </div>
+          <pre class="jc-code"><span class="jc-k">"prevalence"</span>: <span class="jc-p">{</span>
+  <span class="jc-k">"train"</span>: <span class="jc-n">0.2768</span>,
+  <span class="jc-k">"n_positive"</span>: <span class="jc-n">5180</span>,
+  <span class="jc-k">"n_negative"</span>: <span class="jc-n">13529</span>,
+  <span class="jc-k">"n_total"</span>: <span class="jc-n">18709</span>
+<span class="jc-p">}</span></pre>
+        </div>
+
+        <div class="json-card jc-wide">
+          <div class="jc-head">
+            <span class="jc-num">07</span>
+            <span class="jc-title">Variables de entrada · 80 features</span>
+            <span class="jc-badge">contrato</span>
+          </div>
+          <pre class="jc-code"><span class="jc-k">"feature_names"</span>: <span class="jc-p">[</span>
+  <span class="jc-s">"score_proc_high_severity"</span>,
+  <span class="jc-s">"score_proc_critical"</span>,
+  <span class="jc-s">"Tipo de anestesia propuesta_raquidea"</span>,
+  <span class="jc-s">"score_proc_low_severity"</span>,
+  <span class="jc-c">  // … 76 más</span>
+<span class="jc-p">]</span>,
+<span class="jc-k">"feature_dtypes"</span>: <span class="jc-p">{</span> <span class="jc-c">/* 24 float64 · 56 int64 */</span> <span class="jc-p">}</span></pre>
+        </div>
+
+        <div class="json-card jc-wide jc-accent">
+          <div class="jc-head">
+            <span class="jc-num light">08</span>
+            <span class="jc-title light">Métricas de validación</span>
+            <span class="jc-badge light">performance</span>
+          </div>
+          <pre class="jc-code"><span class="jc-k">"performance"</span>: <span class="jc-p">{</span>
+  <span class="jc-k">"roc_auc"</span>: <span class="jc-n">0.7614</span>,   <span class="jc-k">"pr_auc"</span>:  <span class="jc-n">0.6219</span>,
+  <span class="jc-k">"f2"</span>:      <span class="jc-n">0.6767</span>,   <span class="jc-k">"recall"</span>:  <span class="jc-n hi">0.8533</span>,
+  <span class="jc-k">"precision"</span>:<span class="jc-n">0.3702</span>,   <span class="jc-k">"brier"</span>:   <span class="jc-n">0.1562</span>
+<span class="jc-p">}</span></pre>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="slide-foot">
+      <div class="brand-mark"><span class="dot"></span> Manifiesto</div>
+      <div>20 / 30</div>
+    </div>
+  </section>

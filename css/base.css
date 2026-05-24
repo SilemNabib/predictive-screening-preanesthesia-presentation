@@ -1,0 +1,136 @@
+/* Presentación · Modelo predictivo de valoración preanestésica    ICESI · Fundación Valle del Lili · 2026 */
+:root {
+  /* ICESI primary palette */
+  --icesi-purple: #a4c465;
+  --icesi-purple-deep: #023739;
+  --icesi-purple-light: #c8e0a8;
+  --icesi-purple-tint: #eef3e0;
+
+  /* Accents */
+  --success: #00B074;
+  --success-soft: #E4F7EF;
+  --warn: #E0A33A;
+  --warn-soft: #FBF1DE;
+  --danger: #D14343;
+  --danger-soft: #FBE6E6;
+
+  /* Neutrals */
+  --ink: #1A1A2E;
+  --ink-soft: #43425B;
+  --muted: #7B7A8E;
+  --line: #E6E6F0;
+  --line-soft: #F2F2F8;
+  --bg: #FFFFFF;
+  --bg-soft: #FAFAFD;
+
+  /* Type */
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+}
+
+* { box-sizing: border-box; }
+
+deck-stage {
+  --stage-bg: #050516;
+  font-family: var(--font-sans);
+  color: var(--ink);
+}
+
+deck-stage > section {
+  background: var(--bg);
+  color: var(--ink);
+  padding: 64px 88px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Header chrome (top tag + ICESI mark) */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--icesi-purple);
+  margin-bottom: 18px;
+}
+.eyebrow::before {
+  content: "";
+  width: 32px;
+  height: 2px;
+  background: var(--icesi-purple);
+  border-radius: 2px;
+}
+.eyebrow .step-no {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+h1, h2, h3, h4 { margin: 0; }
+
+.slide-title {
+  font-size: 67px;
+  font-weight: 800;
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.slide-subtitle {
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--muted);
+  line-height: 1.45;
+  max-width: 78ch;
+}
+
+.title-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 36px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+/* slide page number + branding */
+.slide-foot {
+  position: absolute;
+  bottom: 28px;
+  left: 88px;
+  right: 88px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.slide-foot .brand-mark {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  color: var(--icesi-purple);
+}
+.slide-foot .brand-mark .dot {
+  width: 8px; height: 8px;
+  background: var(--icesi-purple);
+  border-radius: 2px;
+}
+
+.slide-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  min-height: 0;
+}
+

@@ -1,0 +1,60 @@
+/* CRISP-DM PHASE GRID — 3×2 LAYOUT FOR THE 6 PHASES */
+.phase-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 1fr;
+  gap: 22px;
+  flex: 1;
+  min-height: 0;
+}
+.phase-card {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 26px 28px;
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 22px;
+  align-items: center;
+  position: relative;
+  min-height: 0;
+}
+.phase-card .ph-num {
+  width: 72px;
+  height: 72px;
+  border-radius: 16px;
+  background: var(--icesi-purple-tint);
+  color: var(--icesi-purple-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.phase-card .ph-body { display: flex; flex-direction: column; gap: 10px; min-width: 0; justify-content: center; }
+.phase-card .ph-tag {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.phase-card h4 {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.18;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.phase-card p {
+  font-size: 19px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  margin: 0;
+}
+.phase-card.entry .ph-num { background: #023739; color: #a4c465; }
+.phase-card.last  .ph-num { background: var(--success); color: #fff; }
+

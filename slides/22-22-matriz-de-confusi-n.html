@@ -1,0 +1,59 @@
+<section data-screen-label="22 Matriz de confusión">
+    <div class="title-row">
+      <div>
+        <div class="eyebrow">05 · Resultados y validación</div>
+        <h1 class="slide-title">Matriz de confusión</h1>
+        <p class="slide-subtitle">Composición de aciertos y errores del modelo final sobre el conjunto de prueba · <span class="mono" style="background: var(--line-soft); padding: 1px 8px; border-radius:4px;">n = 4 856</span></p>
+      </div>
+    </div>
+
+    <div class="slide-body">
+      <div style="display: flex; flex-direction: column; gap: 22px;">
+        <div class="block">
+          <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 14px;">
+            <div>
+              <span class="label-tag">Matriz de confusión</span>
+              <h3 style="margin-top: 4px;">Test set · n = 4 856 · threshold 0.14</h3>
+            </div>
+          </div>
+          <div class="confusion confusion-wide">
+            <div class="head"></div>
+            <div class="head">Predicho negativo</div>
+            <div class="head">Predicho positivo</div>
+            <div class="side">Real negativo</div>
+            <div class="cell tn">
+              <span class="name">Verdadero negativo</span>
+              <span class="count">2 558</span>
+              <span class="pct">65.1 % de los negativos</span>
+            </div>
+            <div class="cell fp">
+              <span class="name">Falso positivo</span>
+              <span class="count">1 373</span>
+              <span class="pct">34.9 % de los negativos</span>
+            </div>
+            <div class="side">Real positivo</div>
+            <div class="cell fn">
+              <span class="name">Falso negativo</span>
+              <span class="count">137</span>
+              <span class="pct">14.7 % de los positivos</span>
+            </div>
+            <div class="cell tp">
+              <span class="name">Verdadero positivo</span>
+              <span class="count">788</span>
+              <span class="pct">85.3 % de los positivos</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="block tinted">
+          <span class="label-tag">Trade-off</span>
+          <p style="font-size: 18px; color: var(--ink); margin-top: 6px;">El modelo marca <strong>2 161 candidatos</strong> (44.7 % del test). De ellos, <strong>788 son verdaderos positivos</strong> (precision 0.371) y <strong>1 373 son falsos positivos</strong> que se filtran en la valoración preanestésica — donde el costo marginal de revisar un caso es bajo. A cambio, la <strong>tasa de FN se mantiene en 14.7 %</strong>: solo 137 de 925 positivos reales pasan inadvertidos.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide-foot">
+      <div class="brand-mark"><span class="dot"></span> Matriz de confusión</div>
+      <div>22 / 30</div>
+    </div>
+  </section>

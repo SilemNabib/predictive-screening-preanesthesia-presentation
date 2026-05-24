@@ -1,0 +1,97 @@
+<section data-screen-label="05 Marco conceptual I">
+    <div class="title-row">
+      <div>
+        <div class="eyebrow">02 · Marco conceptual y estado del arte</div>
+        <h1 class="slide-title">Marco conceptual · I</h1>
+        <p class="slide-subtitle">La práctica clínica de origen y el tipo de sistema que se construye.</p>
+      </div>
+    </div>
+
+    <div class="slide-body">
+      <div class="concept-grid-2">
+
+        <!-- 1 · Valoración preanestésica -->
+        <div class="concept-card-xl">
+          <div class="c-head">
+            <span class="label-tag">Valoración preanestésica</span>
+            <h3>Proceso obligatorio previo a la anestesia</h3>
+          </div>
+          <p class="c-lede">Cinco actividades clínicas estandarizadas. La clasificación <strong>ASA</strong> estratifica al paciente en <strong>6 categorías</strong> de riesgo.</p>
+          <div class="c-viz-xl">
+            <svg viewBox="0 0 180 180" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+              <line x1="22" y1="40" x2="158" y2="40" stroke="#a4c465" stroke-width="2"/>
+              <g fill="#023739">
+                <circle cx="22" cy="40" r="7"/>
+                <circle cx="56" cy="40" r="7"/>
+                <circle cx="90" cy="40" r="7"/>
+                <circle cx="124" cy="40" r="7"/>
+                <circle cx="158" cy="40" r="7"/>
+              </g>
+              <g font-family="JetBrains Mono" font-size="6.5" fill="#7B7A8E" text-anchor="middle">
+                <text x="22" y="58">interrog.</text>
+                <text x="56" y="58">examen</text>
+                <text x="90" y="58">medic.</text>
+                <text x="124" y="58">plan</text>
+                <text x="158" y="58">consent.</text>
+              </g>
+              <text x="90" y="86" font-family="Plus Jakarta Sans" font-size="9" font-weight="700" fill="#1A1A2E" text-anchor="middle">Clasificación ASA</text>
+              <g font-family="JetBrains Mono" font-size="10" font-weight="700" text-anchor="middle">
+                <rect x="14" y="100" width="22" height="48" rx="3" fill="#E4F7EF"/>
+                <text x="25" y="120" fill="#00B074">I</text>
+                <rect x="40" y="100" width="22" height="48" rx="3" fill="#E4F7EF"/>
+                <text x="51" y="120" fill="#00B074">II</text>
+                <rect x="66" y="100" width="22" height="48" rx="3" fill="#FBF1DE"/>
+                <text x="77" y="120" fill="#E0A33A">III</text>
+                <rect x="92" y="100" width="22" height="48" rx="3" fill="#FBF1DE"/>
+                <text x="103" y="120" fill="#E0A33A">IV</text>
+                <rect x="118" y="100" width="22" height="48" rx="3" fill="#FBE6E6"/>
+                <text x="129" y="120" fill="#D14343">V</text>
+                <rect x="144" y="100" width="22" height="48" rx="3" fill="#FBE6E6"/>
+                <text x="155" y="120" fill="#D14343">VI</text>
+              </g>
+              <text x="90" y="170" font-family="Plus Jakarta Sans" font-size="7" fill="#7B7A8E" text-anchor="middle">riesgo creciente →</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- 2 · CDSS / XAI -->
+        <div class="concept-card-xl tinted">
+          <div class="c-head">
+            <span class="label-tag">CDSS · XAI</span>
+            <h3>Apoyo a la decisión clínica, no sustitución</h3>
+          </div>
+          <p class="c-lede">El sistema sugiere; el clínico decide. La <strong>explicabilidad (SHAP)</strong> permite entender el porqué de cada predicción.</p>
+          <div class="c-viz-xl">
+            <svg viewBox="0 0 180 180" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+              <rect x="10" y="20" width="60" height="44" rx="6" fill="#fff" stroke="#a4c465" stroke-width="2"/>
+              <text x="40" y="38" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#023739" text-anchor="middle">MODELO</text>
+              <text x="40" y="52" font-family="Plus Jakarta Sans" font-size="8" fill="#7B7A8E" text-anchor="middle">prob + SHAP</text>
+              <line x1="74" y1="42" x2="106" y2="42" stroke="#a4c465" stroke-width="2"/>
+              <polygon points="106,42 100,38 100,46" fill="#a4c465"/>
+              <rect x="110" y="20" width="60" height="44" rx="6" fill="#023739"/>
+              <text x="140" y="38" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#a4c465" text-anchor="middle">CLÍNICO</text>
+              <text x="140" y="52" font-family="Plus Jakarta Sans" font-size="8" fill="#fff" text-anchor="middle">DECIDE ✓</text>
+              <line x1="40" y1="64" x2="40" y2="92" stroke="#7B7A8E" stroke-width="1.5" stroke-dasharray="3 2"/>
+              <rect x="14" y="92" width="152" height="68" rx="6" fill="#fff" stroke="#E6E6F0"/>
+              <text x="22" y="106" font-family="JetBrains Mono" font-size="7" font-weight="700" fill="#7B7A8E">¿POR QUÉ?</text>
+              <g font-family="Plus Jakarta Sans" font-size="7.5">
+                <rect x="22" y="114" width="100" height="6" rx="3" fill="#a4c465"/>
+                <text x="128" y="120" fill="#1A1A2E">anestesia raquídea</text>
+                <rect x="22" y="126" width="70" height="6" rx="3" fill="#a4c465"/>
+                <text x="98" y="132" fill="#1A1A2E">score procedim.</text>
+                <rect x="22" y="138" width="45" height="6" rx="3" fill="#a4c465"/>
+                <text x="73" y="144" fill="#1A1A2E">edad</text>
+                <rect x="22" y="150" width="28" height="6" rx="3" fill="#a4c465"/>
+                <text x="56" y="156" fill="#1A1A2E">comorbilidad</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide-foot">
+      <div class="brand-mark"><span class="dot"></span> Marco conceptual · I</div>
+      <div>05 / 30</div>
+    </div>
+  </section>

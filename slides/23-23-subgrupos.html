@@ -1,0 +1,101 @@
+<section data-screen-label="23 Subgrupos">
+    <div class="title-row">
+      <div>
+        <div class="eyebrow">05 · Resultados y validación</div>
+        <h1 class="slide-title">Análisis por subgrupos clínicos</h1>
+        <p class="slide-subtitle">El desempeño varía significativamente entre subpoblaciones — el promedio global no cuenta toda la historia.</p>
+      </div>
+    </div>
+
+    <div class="slide-body">
+      <div class="subg-grid">
+
+        <!-- WHY · justificación -->
+        <aside class="subg-why">
+          <div class="why-eyebrow">¿Por qué subgrupos?</div>
+          <p class="why-lede">El AUC global <strong>oculta disparidades clínicamente críticas</strong>.</p>
+          <div class="why-contrast">
+            <div class="wc-cell">
+              <span class="wc-num good">0.86</span>
+              <span class="wc-lbl">AUC global</span>
+            </div>
+            <div class="wc-arrow">vs</div>
+            <div class="wc-cell">
+              <span class="wc-num bad">0.54</span>
+              <span class="wc-lbl">pacientes endocrinológicos</span>
+            </div>
+          </div>
+          <p class="why-tail">Entender <strong>dónde falla — y para quién —</strong> es tan importante como el desempeño agregado.</p>
+        </aside>
+
+        <!-- Tabla · desempeño por subgrupo -->
+        <div class="block subg-chart">
+          <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 14px;">
+            <div>
+              <span class="label-tag">Desempeño por subgrupo</span>
+              <h3 style="font-size: 22px; margin-top: 4px;">AUC y tasa de FN por banda clínica</h3>
+            </div>
+            <span style="font-family: var(--font-mono); font-size: 12px; color: var(--muted);">n_test = 4 856</span>
+          </div>
+
+          <div class="table-wrap">
+            <table class="data subg-table">
+              <thead>
+                <tr>
+                  <th>Subgrupo</th>
+                  <th>Resultado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Rango etario <span class="cell-sub">bandas de 10 años</span></td>
+                  <td class="res-cell">
+                    <span class="res-val">AUC 0.75 – 0.85</span>
+                    <span class="pill ok">Estable · señal sólida</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Cap. CIE-10 O <span class="cell-sub">embarazo</span></td>
+                  <td class="res-cell">
+                    <span class="res-val">AUC ≈ 0.85</span>
+                    <span class="pill ok">Buena señal</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Antec. cardiovasculares</td>
+                  <td class="res-cell">
+                    <span class="res-val warn-val">FN 24 %</span>
+                    <span class="pill warn">Peor detección · FN alto</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Cap. CIE-10 Z <span class="cell-sub">preventivo</span></td>
+                  <td class="res-cell">
+                    <span class="res-val warn-val">AUC ≈ 0.45</span>
+                    <span class="pill warn">Poco predictivo</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Antec. endocrinológicos</td>
+                  <td class="res-cell">
+                    <span class="res-val bad-val">AUC 0.54</span>
+                    <span class="pill bad">Cerca de aleatorio</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="subg-foot">
+            Filas ordenadas de mejor a peor desempeño · <strong>AUC</strong> = capacidad discriminativa (1.0 perfecta · 0.5 aleatoria) · <strong>FN</strong> = pacientes positivos no detectados.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="slide-foot">
+      <div class="brand-mark"><span class="dot"></span> Subgrupos clínicos</div>
+      <div>23 / 30</div>
+    </div>
+  </section>

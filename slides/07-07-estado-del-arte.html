@@ -1,0 +1,66 @@
+<section data-screen-label="07 Estado del arte">
+    <div class="title-row">
+      <div>
+        <div class="eyebrow">02 · Estado del arte</div>
+        <h1 class="slide-title">Trabajo previo y brecha identificada</h1>
+        <p class="slide-subtitle">Cinco trabajos representativos en IA aplicada a anestesiología y la pregunta que ninguno responde de forma directa.</p>
+      </div>
+    </div>
+
+    <div class="slide-body">
+      <div class="table-wrap">
+        <table class="data">
+          <thead>
+            <tr>
+              <th style="width: 22%;">Autor / Año</th>
+              <th style="width: 26%;">Enfoque</th>
+              <th style="width: 18%;">Métrica clave</th>
+              <th>Limitación frente a este proyecto</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Graesner et al.</strong><br><span class="mono">2023</span></td>
+              <td>Mortalidad quirúrgica · XGBoost interpretable</td>
+              <td><span class="mono">AUC = 0.954</span><br><span class="mono" style="color:var(--muted)">n = 66 846</span></td>
+              <td>Predice mortalidad, no triaje a preanestesia. Población alemana.</td>
+            </tr>
+            <tr>
+              <td><strong>Cao et al.</strong><br><span class="mono">2025</span></td>
+              <td>Revisión IA en anestesiología (XGBoost, RNN, RL)</td>
+              <td><span class="mono">AUC 0.85 – 0.94</span></td>
+              <td>No aborda la decisión de remisión a preanestesia.</td>
+            </tr>
+            <tr>
+              <td><strong>Rincón &amp; Vélez</strong><br><span class="mono">2025</span></td>
+              <td>PreAnestesiApp® · 5 instituciones · CDSS + escalas</td>
+              <td><span class="mono">171 000 valoraciones</span><br><span class="mono" style="color:var(--muted)">10.6 min/caso</span></td>
+              <td>Sin ML; sólo calculadora de puntajes (ASA, Charlson, SORT, POSPOM).</td>
+            </tr>
+            <tr>
+              <td><strong>Arias Zuluaga</strong><br><span class="mono">2020</span></td>
+              <td>Clasificación ASA con IA · Colombia</td>
+              <td><span class="mono" style="color:var(--muted)">— </span></td>
+              <td>Clasifica ASA, no la decisión de remisión a valoración formal.</td>
+            </tr>
+            <tr>
+              <td><strong>Kagerbauer et al.</strong><br><span class="mono">2024</span></td>
+              <td>Autorización quirúrgica ASA 3-4 · Software de reglas</td>
+              <td><span class="mono">18.1% vs 47.5%</span><br><span class="mono" style="color:var(--muted)">vs experto</span></td>
+              <td>Decisión de autorización, no de remisión a preanestesia.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout block dark">
+        <div class="marker">Brecha</div>
+        <div>Ningún trabajo aborda la <strong>decisión de remitir a valoración preanestésica formal</strong> usando únicamente variables preoperatorias y banderas clínicas posoperatorias como verdad de referencia.</div>
+      </div>
+    </div>
+
+    <div class="slide-foot">
+      <div class="brand-mark"><span class="dot"></span> Estado del arte</div>
+      <div>07 / 30</div>
+    </div>
+  </section>

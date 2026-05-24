@@ -1,0 +1,159 @@
+/* Slide 16 · Subgrupos — leyenda + fenotipos 30/70 */
+.legend-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+  padding: 10px 16px;
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+.legend-row .lg {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+.legend-row .lg .swatch {
+  width: 14px; height: 14px;
+  border-radius: 50%;
+}
+.legend-row .lg .swatch.green { background: var(--success); }
+.legend-row .lg .swatch.warn { background: var(--warn); }
+.legend-row .lg .swatch.danger { background: var(--danger); }
+.legend-row .lg .swatch.line { width: 28px; height: 6px; border-radius: 3px; background: var(--line-soft); }
+.legend-row .lg strong { color: var(--ink); font-weight: 700; }
+
+.phen-grid {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  gap: 18px;
+  align-items: stretch;
+  min-height: 0;
+}
+.phen-text {
+  background: #f0f5e8;
+  border-radius: 14px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.phen-text .label-tag { font-size: 13px; color: var(--icesi-purple-deep); }
+.phen-text h3 { font-size: 19px; font-weight: 700; line-height: 1.2; }
+.phen-text p { font-size: 13px; color: var(--ink-soft); line-height: 1.45; margin: 0; }
+.phen-text p strong { color: var(--ink); font-weight: 700; }
+.phen-text .hi-box {
+  background: #fff;
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin-top: auto;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+.phen-text .hi-box strong { color: var(--icesi-purple-deep); }
+
+.phen-viz {
+  border: 1px solid var(--line);
+  background: var(--bg-soft);
+  border-radius: 14px;
+  padding: 14px 16px;
+  display: grid;
+  grid-template-columns: 1fr 0.85fr;
+  gap: 14px;
+  min-height: 0;
+}
+.phen-scatter {
+  background: #fff;
+  border: 1px dashed var(--line);
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  min-height: 200px;
+  max-height: 280px;
+}
+.phen-scatter svg { width: 100%; height: 100%; display: block; }
+
+.phen-grid-compact { grid-template-columns: 1fr; }
+.phen-grid-compact .phen-viz { border: none; background: transparent; padding: 0; }
+.phen-grid-compact .phen-row { padding: 5px 10px; font-size: 12px; }
+.phen-grid-compact .phen-list { gap: 5px; }
+
+.phen-list-textual { gap: 10px; }
+.phen-list-textual .phen-row {
+  grid-template-columns: 22px 1fr auto;
+  gap: 14px;
+  padding: 14px 18px;
+  font-size: 16px;
+}
+.phen-list-textual .phen-row .p-dot { width: 18px; height: 18px; }
+.phen-list-textual .phen-row .p-name { font-size: 16px; font-weight: 700; line-height: 1.3; }
+.phen-list-textual .phen-row .p-name span { display: block; font-size: 13px; font-weight: 500; color: var(--ink-soft); margin-top: 2px; }
+.phen-list-textual .phen-row .p-badge { font-size: 12px; padding: 5px 10px; }
+
+/* Slide 23 · row layout for bars + fenotipos side by side */
+.slide-23-row .bar-row .row {
+  grid-template-columns: 200px 1fr 110px 170px;
+  gap: 12px;
+  font-size: 17px;
+}
+.slide-23-row .bar-row .row .name { font-size: 17px; }
+.slide-23-row .bar-row .row .value { font-size: 15px; }
+.slide-23-row .bar-row .row .badge { font-size: 13px; padding: 4px 10px; }
+.slide-23-row .legend-row { font-size: 14px; flex-wrap: wrap; gap: 10px 14px; padding: 10px 12px; }
+.slide-23-row .legend-row .lg { font-size: 14px; }
+.slide-23-row .phen-list-textual .phen-row {
+  grid-template-columns: 18px 1fr auto;
+  gap: 10px;
+  padding: 11px 14px;
+}
+.slide-23-row .phen-list-textual .phen-row .p-name { font-size: 17px; }
+.slide-23-row .phen-list-textual .phen-row .p-name span { font-size: 14px; }
+.phen-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.phen-row {
+  display: grid;
+  grid-template-columns: 18px 1fr auto;
+  gap: 8px;
+  align-items: center;
+  padding: 7px 10px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-size: 12px;
+}
+.phen-row .p-dot {
+  width: 14px; height: 14px;
+  border-radius: 50%;
+}
+.phen-row .p-name {
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 13px;
+  line-height: 1.2;
+}
+.phen-row .p-name span {
+  display: block;
+  font-weight: 500;
+  color: var(--muted);
+  font-size: 11px;
+}
+.phen-row .p-badge {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--success);
+  background: var(--success-soft);
+  padding: 4px 8px;
+  border-radius: 999px;
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+.phen-row .p-badge.muted { color: var(--muted); background: var(--line-soft); }
+

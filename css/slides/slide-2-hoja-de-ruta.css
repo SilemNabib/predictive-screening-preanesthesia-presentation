@@ -1,0 +1,48 @@
+/* Slide 2 · Hoja de ruta */
+.toc-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  margin-top: 8px;
+}
+.toc-card {
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  padding: 40px 32px;
+  background: var(--bg);
+  position: relative;
+  transition: all 0.2s ease;
+}
+.toc-card:hover {
+  border-color: var(--icesi-purple);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(164,196,101,0.15);
+}
+.toc-card .toc-num {
+  font-family: var(--font-mono);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--icesi-purple);
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: 16px;
+}
+.toc-card h3 {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-top: 0;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+.toc-card p {
+  font-size: 20px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.toc-card .toc-tag {
+  display: none;
+}
+

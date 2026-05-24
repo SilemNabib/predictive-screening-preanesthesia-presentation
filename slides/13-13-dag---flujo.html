@@ -1,0 +1,108 @@
+<section data-screen-label="13 DAG · flujo">
+    <div class="title-row">
+      <div>
+        <div class="eyebrow">04 · Construcción de la solución</div>
+        <h1 class="slide-title">DAG del pipeline — flujo completo</h1>
+        <p class="slide-subtitle">Cada modelo se entrena con el mismo flujo orquestado en Apache Airflow: una secuencia de tareas atómicas y verificables, desde la carga del dataset hasta el reporte final en JSON.</p>
+      </div>
+    </div>
+
+    <div class="slide-body">
+      <div class="dag-canvas xl">
+        <div class="dag-row">
+          <div class="dag-label">Entrada</div>
+          <div class="dag-track">
+            <div class="dag-task entry single">
+              <div class="t-name">Cargar OPERA</div>
+              <div class="t-meta">load_dataset · 30 962 registros</div>
+            </div>
+          </div>
+        </div>
+        <div class="dag-row">
+          <div class="dag-label">Preparación</div>
+          <div class="dag-track">
+            <div class="dag-task">
+              <div class="t-name">Limpiar datos</div>
+              <div class="t-meta">clean · 24 279 adultos</div>
+            </div>
+            <div class="dag-task">
+              <div class="t-name">Construir target</div>
+              <div class="t-meta">build_target · AUC ≥ 0.76</div>
+            </div>
+            <div class="dag-task">
+              <div class="t-name">Seleccionar features</div>
+              <div class="t-meta">feature_select · 80 vars</div>
+            </div>
+            <div class="dag-task">
+              <div class="t-name">Split train / test</div>
+              <div class="t-meta">split · estratificado</div>
+            </div>
+          </div>
+        </div>
+        <div class="dag-row">
+          <div class="dag-label">Modelado</div>
+          <div class="dag-track">
+            <div class="dag-task fork">
+              <div class="t-name">Lineal</div>
+              <div class="t-meta">train_logreg</div>
+            </div>
+            <div class="dag-task fork">
+              <div class="t-name">Bagging</div>
+              <div class="t-meta">train_rf · train_et</div>
+            </div>
+            <div class="dag-task fork">
+              <div class="t-name">Boosting</div>
+              <div class="t-meta">xgb · lgbm · hgb</div>
+            </div>
+            <div class="dag-task fork">
+              <div class="t-name">MLP</div>
+              <div class="t-meta">train_mlp</div>
+            </div>
+            <div class="dag-task fork">
+              <div class="t-name">Ensambles</div>
+              <div class="t-meta">voting · stacking</div>
+            </div>
+          </div>
+        </div>
+        <div class="dag-row">
+          <div class="dag-label">Post-proc.</div>
+          <div class="dag-track">
+            <div class="dag-task">
+              <div class="t-name">Calibrar</div>
+              <div class="t-meta">isotónica · Platt</div>
+            </div>
+            <div class="dag-task">
+              <div class="t-name">Optimizar threshold</div>
+              <div class="t-meta">tune_threshold · F2</div>
+            </div>
+            <div class="dag-task">
+              <div class="t-name">Evaluar</div>
+              <div class="t-meta">evaluate · test set</div>
+            </div>
+            <div class="dag-task">
+              <div class="t-name">Explicar (SHAP)</div>
+              <div class="t-meta">explain · global + local</div>
+            </div>
+          </div>
+        </div>
+        <div class="dag-row">
+          <div class="dag-label">Salida</div>
+          <div class="dag-track">
+            <div class="dag-task final">
+              <div class="t-name">Reporte JSON</div>
+              <div class="t-meta">write_report · métricas + metadatos</div>
+            </div>
+            <div class="dag-task final">
+              <div class="t-name">Persistir modelo</div>
+              <div class="t-meta">save_artifact · .joblib + manifest.json</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide-foot">
+      <div class="brand-mark"><span class="dot"></span> DAG · flujo</div>
+      <div>13 / 30</div>
+    </div>
+  </section>

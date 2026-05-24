@@ -1,0 +1,54 @@
+<section data-screen-label="17 Selección de variables">
+    <div class="title-row">
+      <div>
+        <div class="eyebrow">04 · Construcción de la solución</div>
+        <h1 class="slide-title">Selección de variables</h1>
+        <p class="slide-subtitle">De 236 variables candidatas a 80 seleccionadas mediante un proceso combinado de cuatro etapas.</p>
+      </div>
+    </div>
+
+    <div class="slide-body">
+      <div class="pipeline">
+        <div class="step">
+          <span class="step-tag">01</span>
+          <h4>Mutual Information</h4>
+          <p>Dependencia no lineal entre cada variable y el target. Captura relaciones que Pearson no detecta.</p>
+        </div>
+        <div class="arrow">→</div>
+        <div class="step">
+          <span class="step-tag">02</span>
+          <h4>Random Forest</h4>
+          <p>Importancia de variables considerando interacciones entre el total de predictoras (bosque balanceado).</p>
+        </div>
+        <div class="arrow">→</div>
+        <div class="step">
+          <span class="step-tag">03</span>
+          <h4>Puntaje combinado</h4>
+          <p>Promedio normalizado [0,1] de MI + RF Importance. Se retienen variables que superan un umbral mínimo.</p>
+        </div>
+      </div>
+
+      <div class="col-2-asym">
+        <div class="block">
+          <span class="label-tag">Top variables · puntaje combinado</span>
+          <h3 style="margin-bottom: 14px;">Ranking final</h3>
+          <ul class="tidy">
+            <li><strong>#1</strong> Tipo de anestesia: raquídea</li>
+            <li><strong>#2</strong> Score procedimiento: crítico</li>
+            <li><strong>#3 – #7</strong> Scores severidad procedimiento (alta, media, moderada, baja)</li>
+            <li><strong>#8 – #12</strong> Scores severidad diagnóstico preoperatorio</li>
+          </ul>
+        </div>
+        <div class="block dark">
+          <span class="label-tag" style="color:#9C9BFF;">Diagnóstico del modelo</span>
+          <h3>Complejidad &gt; comorbilidades</h3>
+          <p style="font-size: 17px;">El modelo se apoya más en la <strong>complejidad del procedimiento</strong> que en las comorbilidades del paciente. Las comorbilidades crónicas aparecen en posiciones tardías. <span style="opacity: 0.85;">Esto es coherente con la señal disponible en datos preoperatorios, y se discute como limitación en la diapositiva 26.</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide-foot">
+      <div class="brand-mark"><span class="dot"></span> Selección de variables</div>
+      <div>17 / 30</div>
+    </div>
+  </section>

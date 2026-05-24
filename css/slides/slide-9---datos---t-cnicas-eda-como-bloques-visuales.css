@@ -1,0 +1,67 @@
+/* SLIDE 9 · DATOS — TÉCNICAS EDA COMO BLOQUES VISUALES */
+.eda-pairs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+.eda-col {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.eda-col h4 {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.eda-col.danger h4 { color: var(--danger); }
+.eda-col.success h4 { color: var(--success); }
+.eda-col h4::before {
+  content: "";
+  width: 28px; height: 3px;
+  border-radius: 2px;
+  display: inline-block;
+}
+.eda-col.danger h4::before { background: var(--danger); }
+.eda-col.success h4::before { background: var(--success); }
+.eda-item {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 14px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px 14px;
+  align-items: center;
+}
+.eda-col.success .eda-item { background: #f6faef; border-color: rgba(0,176,116,0.15); }
+.eda-item .glyph {
+  width: 56px; height: 56px;
+  border-radius: 12px;
+  background: var(--line-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.eda-item .glyph svg { width: 32px; height: 32px; }
+.eda-col.danger .eda-item .glyph { background: var(--danger-soft); color: var(--danger); }
+.eda-col.success .eda-item .glyph { background: var(--success-soft); color: var(--success); }
+.eda-item .body {
+  font-size: 15px;
+  color: var(--ink-soft);
+  line-height: 1.4;
+}
+.eda-item .body strong {
+  color: var(--ink);
+  font-weight: 700;
+  display: block;
+  font-size: 16px;
+  margin-bottom: 2px;
+}
+

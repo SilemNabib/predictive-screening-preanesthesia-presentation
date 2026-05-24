@@ -1,0 +1,76 @@
+<section data-screen-label="18 Modelado">
+    <div class="title-row">
+      <div>
+        <div class="eyebrow">04 · Construcción de la solución</div>
+        <h1 class="slide-title">Modelado — 9 algoritmos comparados</h1>
+        <p class="slide-subtitle">Lineales, bagging, boosting, red neuronal y ensambles, evaluados bajo el mismo protocolo de validación.</p>
+      </div>
+    </div>
+
+    <div class="slide-body">
+      <div class="col-2">
+        <div class="block">
+          <span class="label-tag">Desbalance de clases</span>
+          <h3>19 % positivos · 28 % en target secundario</h3>
+          <p><span class="mono" style="background: var(--icesi-purple-tint); padding: 2px 6px; border-radius: 4px;">class_weight='balanced'</span> en sklearn · <span class="mono" style="background: var(--icesi-purple-tint); padding: 2px 6px; border-radius: 4px;">scale_pos_weight</span> en XGBoost/LightGBM.</p>
+        </div>
+        <div class="block">
+          <span class="label-tag">Calibración de probabilidades</span>
+          <h3>Por familia de algoritmo</h3>
+          <p><strong>Isotónica</strong> (CalibratedClassifierCV, cv=5) → árboles y boosting. <strong>Sigmoidal</strong> (Platt) → Regresión Logística y MLP.</p>
+        </div>
+      </div>
+
+      <div class="algo-grid">
+        <div class="algo-group">
+          <span class="gtitle">Lineal</span>
+          <ul><li>Regresión Logística</li></ul>
+        </div>
+        <div class="algo-group">
+          <span class="gtitle">Bagging</span>
+          <ul>
+            <li>Random Forest</li>
+            <li>Extra Trees</li>
+          </ul>
+        </div>
+        <div class="algo-group">
+          <span class="gtitle">Boosting</span>
+          <ul>
+            <li>XGBoost</li>
+            <li>LightGBM</li>
+            <li>HistGradientBoosting</li>
+          </ul>
+        </div>
+        <div class="algo-group">
+          <span class="gtitle">Red neuronal</span>
+          <ul><li>MLP (128-64, ReLU, early_stop)</li></ul>
+        </div>
+        <div class="algo-group">
+          <span class="gtitle">Ensamble</span>
+          <ul>
+            <li>Voting · soft (RF+XGB+HGB)</li>
+            <li>Stacking · LR meta, cv=5</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="dial-row">
+        <span class="label">Threshold F2</span>
+        <div class="ruler">
+          <div class="mark" style="left: 0%;"></div>
+          <div class="mark" style="left: 25%;"></div>
+          <div class="mark" style="left: 50%;"></div>
+          <div class="mark" style="left: 75%;"></div>
+          <div class="mark" style="left: 100%;"></div>
+          <div class="pin" style="left: 13%;">.13</div>
+          <div class="pin" style="left: 38%; background: var(--icesi-purple);">.38</div>
+        </div>
+        <div style="font-size: 13px; opacity: 0.85;">Rango resultante <strong>0.13 – 0.38</strong> según algoritmo. No el 0.5 convencional — optimizado por F2 sobre train con CV interna.</div>
+      </div>
+    </div>
+
+    <div class="slide-foot">
+      <div class="brand-mark"><span class="dot"></span> Modelado</div>
+      <div>18 / 30</div>
+    </div>
+  </section>

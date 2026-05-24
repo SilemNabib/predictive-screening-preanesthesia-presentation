@@ -1,0 +1,79 @@
+/* DATOS · SPLIT EN 2 SLIDES — LAYOUT XL */
+.eda-grid-xl {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  align-content: start;
+}
+.eda-item-xl {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 16px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px 20px;
+  align-items: center;
+}
+.eda-col-danger .eda-item-xl {
+  background: #fdf3f3;
+  border-color: rgba(209,67,67,0.18);
+}
+.eda-col-success .eda-item-xl {
+  background: #f3faf6;
+  border-color: rgba(0,176,116,0.18);
+}
+.eda-item-xl .glyph {
+  width: 72px; height: 72px;
+  border-radius: 14px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+}
+.eda-col-danger .eda-item-xl .glyph { color: var(--danger); border-color: rgba(209,67,67,0.25); }
+.eda-col-success .eda-item-xl .glyph { color: var(--success); border-color: rgba(0,176,116,0.25); }
+.eda-item-xl .glyph svg { width: 42px; height: 42px; }
+.eda-item-xl .body {
+  font-size: 17px;
+  color: var(--ink-soft);
+  line-height: 1.45;
+}
+.eda-item-xl .body strong {
+  color: var(--ink);
+  font-weight: 700;
+  display: block;
+  font-size: 19px;
+  margin-bottom: 3px;
+  letter-spacing: -0.005em;
+}
+.eda-section-tag {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.eda-section-tag.danger { color: var(--danger); }
+.eda-section-tag.success { color: var(--success); }
+.eda-section-tag::before {
+  content: "";
+  width: 36px; height: 4px;
+  border-radius: 2px;
+  background: currentColor;
+}
+.eda-section-tag .count {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  text-transform: none;
+  margin-left: auto;
+}
+

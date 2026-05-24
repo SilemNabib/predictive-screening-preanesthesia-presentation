@@ -1,0 +1,69 @@
+<section data-screen-label="21 Métricas">
+    <div class="title-row">
+      <div>
+        <div class="eyebrow">05 · Resultados y validación</div>
+        <h1 class="slide-title">Resultados — métricas del modelo final</h1>
+        <p class="slide-subtitle">XGBoost calibrado (isotónico) · target de máxima predictibilidad · <span class="mono" style="background: var(--line-soft); padding: 1px 8px; border-radius:4px;">n_test = 4 856</span></p>
+      </div>
+    </div>
+
+    <div class="slide-body">
+      <div class="metric-row">
+        <div class="metric accent"><div class="value">0.861</div><div class="label">ROC-AUC</div><div class="hint">Discriminación global</div></div>
+        <div class="metric"><div class="value" style="color: var(--success);">0.853</div><div class="label">Recall</div><div class="hint">Detección de positivos</div></div>
+        <div class="metric"><div class="value" style="color: var(--icesi-purple);">0.677</div><div class="label">F2-Score</div><div class="hint">Métrica de optimización</div></div>
+        <div class="metric"><div class="value">0.097</div><div class="label">Brier-score</div><div class="hint">Calibración de probabilidades</div></div>
+      </div>
+
+      <div>
+        <div class="table-wrap">
+          <table class="data">
+            <thead>
+              <tr>
+                <th style="width: 32%;">Métrica</th>
+                <th style="width: 16%;">Valor</th>
+                <th>Interpretación</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Precision</td>
+                <td class="mono">0.371</td>
+                <td>37 % de los marcados positivos lo son — deliberadamente bajo para mantener el recall alto.</td>
+              </tr>
+              <tr>
+                <td>Specificity</td>
+                <td class="mono">0.651</td>
+                <td>65 % de los negativos correctamente identificados.</td>
+              </tr>
+              <tr>
+                <td>Balanced Accuracy</td>
+                <td class="mono">0.752</td>
+                <td>Promedio de Recall y Specificity; corrige el desbalance de clases.</td>
+              </tr>
+              <tr>
+                <td>Tasa de FN</td>
+                <td class="mono">0.147</td>
+                <td>14.7 % de positivos verdaderos no detectados — métrica de mayor relevancia clínica.</td>
+              </tr>
+              <tr>
+                <td>Tasa pred. positiva</td>
+                <td class="mono">0.447</td>
+                <td>El modelo marca el 44.7 % del conjunto de prueba como candidato.</td>
+              </tr>
+              <tr>
+                <td>Threshold operativo</td>
+                <td class="mono">0.14</td>
+                <td>Optimizado por F2 sobre el conjunto de entrenamiento (rango global: 0.13 – 0.38).</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide-foot">
+      <div class="brand-mark"><span class="dot"></span> Métricas</div>
+      <div>21 / 30</div>
+    </div>
+  </section>

@@ -1,0 +1,47 @@
+<section data-screen-label="14 DAG · Airflow">
+    <div class="title-row">
+      <div>
+        <div class="eyebrow">04 · Construcción de la solución</div>
+        <h1 class="slide-title">DAG en Airflow — por qué orquestar el entrenamiento</h1>
+        <p class="slide-subtitle">El pipeline corre sobre Apache Airflow. Una herramienta de orquestación que convierte cada paso del flujo en una tarea atómica con su propio registro de ejecución.</p>
+      </div>
+    </div>
+
+    <div class="slide-body">
+      <div class="col-2-asym" style="flex: 1; min-height: 0; align-items: stretch;">
+        <div class="block" style="display: flex; flex-direction: column;">
+          <span class="label-tag">Airflow · captura del DAG</span>
+          <h3 style="font-size: 22px; margin-top: 6px;">localhost:8080 — vista Graph</h3>
+          <div style="flex: 1; min-height: 280px; border-radius: 12px; overflow: hidden; margin-top: 16px;">
+            <img src="assets/preanesthesia_pipeline.png" alt="Vista Graph del DAG del pipeline en Airflow"
+                 style="width: 100%; height: 100%; object-fit: contain; display: block;" />
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <div class="block dark" style="flex: 1;">
+            <span class="label-tag" style="color: #a4c465;">Por qué Airflow</span>
+            <h3 style="font-size: 26px;">Reproducibilidad como contrato</h3>
+            <p style="font-size: 18px;">Cada tarea es una unidad <strong>atómica y testeable</strong>. Reentrenar el modelo desde cero es invocar un comando: el DAG garantiza el mismo orden de operaciones, los mismos artefactos al final y un registro automático en cada ejecución.</p>
+          </div>
+          <div class="col-2" style="gap: 16px;">
+            <div class="block tinted">
+              <span class="label-tag">Trazabilidad</span>
+              <h3 style="font-size: 20px;">Logs por tarea</h3>
+              <p style="font-size: 15px;">Cada ejecución deja registro versionado: parámetros, duración, métricas, fallas. Auditable a posteriori.</p>
+            </div>
+            <div class="block tinted">
+              <span class="label-tag">Resiliencia</span>
+              <h3 style="font-size: 20px;">Reintento por tarea</h3>
+              <p style="font-size: 15px;">Si una tarea falla, sólo se reintenta esa — no todo el pipeline. Ideal para entrenamientos largos.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide-foot">
+      <div class="brand-mark"><span class="dot"></span> DAG · Airflow</div>
+      <div>14 / 30</div>
+    </div>
+  </section>

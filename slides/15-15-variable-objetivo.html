@@ -1,0 +1,114 @@
+<section data-screen-label="15 Variable objetivo">
+    <div class="title-row">
+      <div>
+        <div class="eyebrow">04 · Construcción de la solución</div>
+        <h1 class="slide-title">Variable objetivo — enfoques evaluados</h1>
+        <p class="slide-subtitle">Dos rutas evaluadas antes de fijar la definición del target. El enfoque supervisado prevaleció por la disponibilidad de eventos posoperatorios con poder discriminativo.</p>
+      </div>
+    </div>
+
+    <div class="slide-body">
+      <div class="col-2" style="flex: 1; min-height: 0; align-items: stretch;">
+
+        <!-- Izquierda · No supervisado descartado -->
+        <div class="indicator-card danger">
+          <div class="ic-head">
+            <span class="ic-tag">✕  No supervisado — descartado</span>
+            <h3>¿Patrones naturales sin etiquetar?</h3>
+          </div>
+
+          <div class="indicator-list">
+            <div class="indicator danger">
+              <div class="ic-icon">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="1.5" fill="currentColor"/><circle cx="17" cy="14" r="1.5" fill="currentColor"/><circle cx="13" cy="19" r="1.5" fill="currentColor"/><circle cx="9" cy="16" r="1.5" fill="currentColor"/><circle cx="22" cy="22" r="3"/><line x1="22" y1="22" x2="14" y2="14" stroke-dasharray="2 2"/></svg>
+              </div>
+              <div class="ic-body">
+                <div class="ic-value">IsolationForest + PCA</div>
+                <div class="ic-label">Detección de anomalías sobre la matriz cruda de features</div>
+              </div>
+            </div>
+            <div class="indicator danger">
+              <div class="ic-icon">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6,10 13,17 21,9 26,14"/><polyline points="20,14 26,14 26,8"/></svg>
+              </div>
+              <div class="ic-body">
+                <div class="ic-value">AUC ≈ 0.45</div>
+                <div class="ic-label">Por debajo del azar — sin poder discriminativo</div>
+              </div>
+            </div>
+            <div class="indicator danger">
+              <div class="ic-icon">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="16" cy="16" r="11"/><line x1="9" y1="9" x2="23" y2="23"/><line x1="23" y1="9" x2="9" y2="23"/></svg>
+              </div>
+              <div class="ic-body">
+                <div class="ic-value">Sin correlación clínica</div>
+                <div class="ic-label">Anomalía estadística ≠ riesgo clínico real</div>
+              </div>
+            </div>
+            <div class="indicator danger">
+              <div class="ic-icon">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 8 L26 8 L24 26 L8 26 Z"/><line x1="13" y1="13" x2="13" y2="22"/><line x1="19" y1="13" x2="19" y2="22"/><line x1="11" y1="8" x2="21" y2="8"/></svg>
+              </div>
+              <div class="ic-body">
+                <div class="ic-value">Enfoque descartado</div>
+                <div class="ic-label">La señal predictiva no emerge del espacio de features</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Derecha · Supervisado adoptado -->
+        <div class="indicator-card success">
+          <div class="ic-head">
+            <span class="ic-tag">✓  Supervisado — adoptado</span>
+            <h3>Eventos posoperatorios como verdad de referencia</h3>
+          </div>
+
+          <div class="indicator-list">
+            <div class="indicator success">
+              <div class="ic-icon">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="16" cy="8" rx="9" ry="3"/><path d="M7 8 L7 16 C7 17.7 11 19 16 19 C21 19 25 17.7 25 16 L25 8"/><path d="M7 16 L7 24 C7 25.7 11 27 16 27 C21 27 25 25.7 25 24 L25 16"/></svg>
+              </div>
+              <div class="ic-body">
+                <div class="ic-value">49 eventos</div>
+                <div class="ic-label">Posoperatorios candidatos registrados en HCE</div>
+              </div>
+            </div>
+            <div class="indicator success">
+              <div class="ic-icon">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5,7 27,7 19,17 19,25 13,27 13,17"/></svg>
+              </div>
+              <div class="ic-body">
+                <div class="ic-value">AUC ≥ 0.76</div>
+                <div class="ic-label">Umbral mínimo para conservar el evento</div>
+              </div>
+            </div>
+            <div class="indicator success">
+              <div class="ic-icon">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 16 L13 23 L26 9"/></svg>
+              </div>
+              <div class="ic-body">
+                <div class="ic-value">13 eventos pasaron</div>
+                <div class="ic-label">Discriminación clínicamente significativa</div>
+              </div>
+            </div>
+            <div class="indicator success">
+              <div class="ic-icon">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="5" y="5" width="10" height="10" rx="2"/><rect x="17" y="5" width="10" height="10" rx="2"/><rect x="5" y="17" width="10" height="10" rx="2"/><rect x="17" y="17" width="10" height="10" rx="2"/></svg>
+              </div>
+              <div class="ic-body">
+                <div class="ic-value">4 categorías macro</div>
+                <div class="ic-label">Hospitalización · líquidos</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="slide-foot">
+      <div class="brand-mark"><span class="dot"></span> Variable objetivo · enfoques</div>
+      <div>15 / 30</div>
+    </div>
+  </section>

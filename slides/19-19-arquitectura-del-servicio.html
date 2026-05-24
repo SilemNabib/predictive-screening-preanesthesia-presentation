@@ -1,0 +1,57 @@
+<section data-screen-label="19 Arquitectura del servicio">
+    <div class="title-row">
+      <div>
+        <div class="eyebrow">04 · Construcción de la solución</div>
+        <h1 class="slide-title">Arquitectura del servicio de inferencia</h1>
+        <p class="slide-subtitle">Separación explícita entre entrenamiento (offline, reproducible) y consumo operativo del modelo.</p>
+      </div>
+    </div>
+
+    <div class="slide-body">
+      <div class="arch-board arch-board-single">
+        <div class="arch-flow arch-flow-hero">
+          <div class="arch-node">
+            <div class="node-icon">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="16" cy="7" rx="10" ry="3"/><path d="M6 7 L6 16 C6 18 11 19.5 16 19.5 C21 19.5 26 18 26 16 L26 7"/><path d="M6 16 L6 25 C6 27 11 28.5 16 28.5 C21 28.5 26 27 26 25 L26 16"/></svg>
+            </div>
+            <div class="node-label">OPERA</div>
+            <div class="node-meta">30 962 casos</div>
+          </div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-node">
+            <div class="node-icon">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="8" r="2.5"/><circle cx="6" cy="24" r="2.5"/><circle cx="26" cy="16" r="2.5"/><circle cx="16" cy="16" r="2"/><line x1="8.5" y1="9.5" x2="14" y2="14.5"/><line x1="8.5" y1="22.5" x2="14" y2="17.5"/><line x1="18" y1="16" x2="23.5" y2="16"/></svg>
+            </div>
+            <div class="node-label">Airflow DAG</div>
+            <div class="node-meta">7 etapas</div>
+          </div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-node">
+            <div class="node-icon">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4 L27 9 L27 22 L16 28 L5 22 L5 9 Z"/><path d="M5 9 L16 14 L27 9"/><line x1="16" y1="14" x2="16" y2="28"/></svg>
+            </div>
+            <div class="node-label">Modelo + Manifiesto</div>
+            <div class="node-meta">.joblib · .json</div>
+          </div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-node">
+            <div class="node-icon">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="6" width="24" height="8" rx="2"/><rect x="4" y="18" width="24" height="8" rx="2"/><circle cx="9" cy="10" r="1.2" fill="currentColor"/><circle cx="9" cy="22" r="1.2" fill="currentColor"/><line x1="14" y1="10" x2="24" y2="10"/><line x1="14" y1="22" x2="24" y2="22"/></svg>
+            </div>
+            <div class="node-label">API REST</div>
+            <div class="node-meta">FastAPI · Docker</div>
+          </div>
+        </div>
+
+        <div class="arch-foot-note">
+          <span class="dot"></span>
+          Alcance académico · prototipo funcional, no despliegue productivo en la FVL
+        </div>
+      </div>
+    </div>
+
+    <div class="slide-foot">
+      <div class="brand-mark"><span class="dot"></span> Arquitectura</div>
+      <div>19 / 30</div>
+    </div>
+  </section>
