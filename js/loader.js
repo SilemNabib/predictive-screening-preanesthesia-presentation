@@ -40,7 +40,14 @@ async function loadSlides() {
         try {
             const res = await fetch(url);
             if (!res.ok) throw new Error('Failed to load ' + url);
-            const html = await res.text();
+            let html = await res.text();
+
+            // Live Server inyecta su script de WebSocket dentro de los <svg>
+            // al detectar contenido SVG. Eso corrompe el HTML cuando se parsea
+            // con insertAdjacentHTML. Eliminamos todos los <script> inyectados
+            // antes de insertar para que el parser no se pierda.
+            html = html.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script\s*>/gi, '');
+
             stage.insertAdjacentHTML('beforeend', html);
         } catch (error) {
             console.error(error);
