@@ -10,8 +10,8 @@
     <div class="slide-body">
       <div class="col-2" style="flex: 1; min-height: 0; align-items: stretch;">
 
-        <!-- Izquierda · No supervisado descartado -->
-        <div class="indicator-card danger">
+        <!-- Izquierda · No supervisado descartado (callout compacto) -->
+        <div class="indicator-card danger" style="flex: 0.55;">
           <div class="ic-head">
             <span class="ic-tag">✕  No supervisado — descartado</span>
             <h3>¿Patrones naturales sin etiquetar?</h3>
@@ -20,38 +20,11 @@
           <div class="indicator-list">
             <div class="indicator danger">
               <div class="ic-icon">
-                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="1.5" fill="currentColor"/><circle cx="17" cy="14" r="1.5" fill="currentColor"/><circle cx="13" cy="19" r="1.5" fill="currentColor"/><circle cx="9" cy="16" r="1.5" fill="currentColor"/><circle cx="22" cy="22" r="3"/><line x1="22" y1="22" x2="14" y2="14" stroke-dasharray="2 2"/></svg>
-              </div>
-              <div class="ic-body">
-                <div class="ic-value">IsolationForest + PCA</div>
-                <div class="ic-label">Detección de anomalías sobre la matriz cruda de features</div>
-              </div>
-            </div>
-            <div class="indicator danger">
-              <div class="ic-icon">
-                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6,10 13,17 21,9 26,14"/><polyline points="20,14 26,14 26,8"/></svg>
-              </div>
-              <div class="ic-body">
-                <div class="ic-value">AUC ≈ 0.45</div>
-                <div class="ic-label">Por debajo del azar — sin poder discriminativo</div>
-              </div>
-            </div>
-            <div class="indicator danger">
-              <div class="ic-icon">
                 <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="16" cy="16" r="11"/><line x1="9" y1="9" x2="23" y2="23"/><line x1="23" y1="9" x2="9" y2="23"/></svg>
               </div>
               <div class="ic-body">
-                <div class="ic-value">Sin correlación clínica</div>
-                <div class="ic-label">Anomalía estadística ≠ riesgo clínico real</div>
-              </div>
-            </div>
-            <div class="indicator danger">
-              <div class="ic-icon">
-                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 8 L26 8 L24 26 L8 26 Z"/><line x1="13" y1="13" x2="13" y2="22"/><line x1="19" y1="13" x2="19" y2="22"/><line x1="11" y1="8" x2="21" y2="8"/></svg>
-              </div>
-              <div class="ic-body">
-                <div class="ic-value">Enfoque descartado</div>
-                <div class="ic-label">La señal predictiva no emerge del espacio de features</div>
+                <div class="ic-value">IsolationForest + PCA · AUC ≈ 0.45</div>
+                <div class="ic-label">Anomalía estadística ≠ riesgo clínico real. Un paciente atípico en el espacio de features puede cursar la cirugía sin complicaciones — y uno estadísticamente promedio puede presentar un evento grave. Descartado.</div>
               </div>
             </div>
           </div>
@@ -109,6 +82,6 @@
 
     <div class="slide-foot">
       <div class="brand-mark"><span class="dot"></span> Variable objetivo · enfoques</div>
-      <div>15 / 30</div>
+      <div>13 / 28</div>
     </div>
   </section>
