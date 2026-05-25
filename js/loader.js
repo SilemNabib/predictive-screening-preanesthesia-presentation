@@ -25,9 +25,9 @@ const slideUrls = [
   "slides/23-23-subgrupos.html",
   "slides/24-24-validaci-n-de-software.html",
   "slides/25-25-validaci-n-cl-nica.html",
-  "slides/26-26-aporte-e-impacto.html",
-  "slides/27-27-limitaciones.html",
-  "slides/28-28-conclusiones.html",
+  "slides/26-26-limitaciones.html",
+  "slides/27-27-conclusiones.html",
+  "slides/28-28-aporte-e-impacto.html",
   "slides/29-29-trabajo-futuro.html",
   "slides/30-30-cierre.html"
 ];
