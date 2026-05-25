@@ -1,65 +1,73 @@
 <section data-screen-label="27 Conclusiones">
-    <div class="title-row">
-      <div>
-        <div class="eyebrow">06 · Conclusiones y trabajo futuro</div>
-        <h1 class="slide-title">Conclusiones</h1>
-        <p class="slide-subtitle">Los cinco objetivos específicos fueron cumplidos. Tres decisiones de diseño explican la mayor parte del desempeño alcanzado.</p>
+  <div class="title-row">
+    <div>
+      <div class="eyebrow">06 &middot; Conclusiones y trabajo futuro</div>
+      <h1 class="slide-title">Conclusiones</h1>
+      <p class="slide-subtitle">Los cinco objetivos espec&iacute;ficos fueron cumplidos. Tres decisiones de dise&ntilde;o explican la mayor parte del desempe&ntilde;o alcanzado.</p>
+    </div>
+  </div>
+
+  <div class="slide-body">
+
+    <!-- Fila de OE cumplidos -->
+    <div class="checklist">
+      <div class="check">
+        <div class="icon">&#10003;</div>
+        <span class="oe">OE1</span>
+        <h4>Datos</h4>
+      </div>
+      <div class="check">
+        <div class="icon">&#10003;</div>
+        <span class="oe">OE2</span>
+        <h4>Modelo</h4>
+      </div>
+      <div class="check">
+        <div class="icon">&#10003;</div>
+        <span class="oe">OE3</span>
+        <h4>Evaluaci&oacute;n</h4>
+      </div>
+      <div class="check">
+        <div class="icon">&#10003;</div>
+        <span class="oe">OE4</span>
+        <h4>API</h4>
+      </div>
+      <div class="check">
+        <div class="icon">&#10003;</div>
+        <span class="oe">OE5</span>
+        <h4>Arquitectura</h4>
       </div>
     </div>
 
-    <div class="slide-body">
-      <div class="checklist">
-        <div class="check">
-          <div class="icon">✓</div>
-          <span class="oe">OE1</span>
-          <h4>Datos</h4>
-        </div>
-        <div class="check">
-          <div class="icon">✓</div>
-          <span class="oe">OE2</span>
-          <h4>Modelo</h4>
-        </div>
-        <div class="check">
-          <div class="icon">✓</div>
-          <span class="oe">OE3</span>
-          <h4>Evaluación</h4>
-        </div>
-        <div class="check">
-          <div class="icon">✓</div>
-          <span class="oe">OE4</span>
-          <h4>API</h4>
-        </div>
-        <div class="check">
-          <div class="icon">✓</div>
-          <span class="oe">OE5</span>
-          <h4>Arquitectura</h4>
-        </div>
+    <!-- Tres decisiones de mayor impacto -->
+    <div class="col-3" style="align-items: start;">
+
+      <div class="block" style="display: flex; flex-direction: column; gap: 10px;">
+        <span class="label-tag">1&ordf; &middot; Mayor impacto</span>
+        <h3 style="font-size: 22px; line-height: 1.2;">Reformulaci&oacute;n iterativa del target</h3>
+        <p style="font-size: 15px;">La definici&oacute;n del problema super&oacute; en impacto a cualquier decisi&oacute;n de algoritmo. Ning&uacute;n ajuste de hiperpar&aacute;metros igual&oacute; lo que logr&oacute; redefinir correctamente qu&eacute; predecir.</p>
+        <p style="padding: 10px 12px; background: var(--icesi-purple-tint); border-radius: 8px; color: var(--icesi-purple-deep); font-size: 14px; font-weight: 600;">La definici&oacute;n del problema tiene mayor impacto que la elecci&oacute;n del algoritmo.</p>
       </div>
 
-      <div class="col-3">
-        <div class=”block”>
-          <span class=”label-tag” >1ª · Mayor impacto</span>
-          <h3>Reformulación iterativa del target</h3>
-          <p>La definición del problema superó en impacto a cualquier decisión de algoritmo. Ningún ajuste de hiperparámetros igualó lo que logró redefinir correctamente qué predecir.</p>
-          <p style=”margin-top: 12px; padding: 10px 12px; background: var(--icesi-purple-tint); border-radius: 8px; color: var(--icesi-purple); font-weight: 600; “>La definición del problema tiene mayor impacto que la elección del algoritmo.</p>
-        </div>
-        <div class=”block”>
-          <span class=”label-tag” >2ª · Mayor impacto</span>
-          <h3>F2 + threshold bajo (0.14)</h3>
-          <p>Optimizar para F2 y fijar un threshold permisivo no es un compromiso — es una decisión clínica. El modelo acepta FP para no perder pacientes de alto riesgo.</p>
-          <p style=”margin-top: 12px; padding: 10px 12px; background: var(--icesi-purple-tint); border-radius: 8px; color: var(--icesi-purple); font-weight: 600; “>Threshold 0.14: sensibilidad sobre precisión — correcto en contexto clínico.</p>
-        </div>
-        <div class="block">
-          <span class="label-tag" >3ª · Mayor impacto</span>
-          <h3>Calibración isotónica obligatoria</h3>
-          <p>Convierte scores crudos de árboles en probabilidades interpretables.</p>
-          <p style="margin-top: 12px; padding: 10px 12px; background: var(--icesi-purple-tint); border-radius: 8px; color: var(--icesi-purple); font-weight: 600; ">Brier 0.097 — el threshold tiene significado probabilístico real.</p>
-        </div>
+      <div class="block" style="display: flex; flex-direction: column; gap: 10px;">
+        <span class="label-tag">2&ordf; &middot; Mayor impacto</span>
+        <h3 style="font-size: 22px; line-height: 1.2;">F2 + threshold bajo (0.14)</h3>
+        <p style="font-size: 15px;">Optimizar para F2 y fijar un threshold permisivo no es un compromiso &#8212; es una decisi&oacute;n cl&iacute;nica. El modelo acepta FP para no perder pacientes de alto riesgo.</p>
+        <p style="padding: 10px 12px; background: var(--icesi-purple-tint); border-radius: 8px; color: var(--icesi-purple-deep); font-size: 14px; font-weight: 600;">Threshold 0.14: sensibilidad sobre precisi&oacute;n &#8212; correcto en contexto cl&iacute;nico.</p>
       </div>
+
+      <div class="block" style="display: flex; flex-direction: column; gap: 10px;">
+        <span class="label-tag">3&ordf; &middot; Mayor impacto</span>
+        <h3 style="font-size: 22px; line-height: 1.2;">Calibraci&oacute;n isot&oacute;nica obligatoria</h3>
+        <p style="font-size: 15px;">Convierte scores crudos de &aacute;rboles en probabilidades interpretables. Sin calibraci&oacute;n, el threshold no tiene significado probabil&iacute;stico real.</p>
+        <p style="padding: 10px 12px; background: var(--icesi-purple-tint); border-radius: 8px; color: var(--icesi-purple-deep); font-size: 14px; font-weight: 600;">Brier 0.097 &#8212; el threshold tiene significado probabil&iacute;stico real.</p>
+      </div>
+
     </div>
 
-    <div class="slide-foot">
-      <div class="brand-mark"><span class="dot"></span> Conclusiones</div>
-      <div>25 / 28</div>
-    </div>
-  </section>
+  </div>
+
+  <div class="slide-foot">
+    <div class="brand-mark"><span class="dot"></span> Conclusiones</div>
+    <div>25 / 28</div>
+  </div>
+</section>
