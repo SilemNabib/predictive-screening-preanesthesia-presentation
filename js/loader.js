@@ -22,7 +22,8 @@ const slideUrls = [
   "slides/23-23-subgrupos.html",
   "slides/24-24-validaci-n-de-software.html",
   "slides/25-25-validaci-n-cl-nica.html",
-  "slides/25b-api-caso-clinico.html",            // placeholder: captura API + SHAP
+  "slides/25b-seleccion-modelo.html",             // frontend: selección dominio + tabla de modelos
+  "slides/25c-resultados-shap.html",             // frontend: resultado calibrado + explicabilidad SHAP
   "slides/26-26-limitaciones.html",
   "slides/27-27-conclusiones.html",
   "slides/28-28-aporte-e-impacto.html",
@@ -52,6 +53,9 @@ async function loadSlides() {
             console.error(error);
         }
     }
+
+    // Notificar que todos los slides han sido inyectados (para Lucide u otros)
+    document.dispatchEvent(new CustomEvent('slides-loaded'));
 }
 
 document.addEventListener('DOMContentLoaded', loadSlides);

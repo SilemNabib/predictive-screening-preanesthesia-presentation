@@ -80,10 +80,15 @@
 .subg-why .why-tail strong { color: #fff; font-weight: 700; }
 
 .subg-chart { padding: 22px 26px; }
+.subg-table { table-layout: fixed; width: 100%; font-size: 16px; }
 .subg-table th,
-.subg-table td { padding: 14px 16px; }
-.subg-table th:last-child,
-.subg-table td:last-child { width: 55%; }
+.subg-table td { padding: 11px 16px; vertical-align: middle; }
+.subg-table th:nth-child(1),
+.subg-table td:nth-child(1) { width: 40%; }
+.subg-table th:nth-child(2),
+.subg-table td:nth-child(2) { width: 28%; }
+.subg-table th:nth-child(3),
+.subg-table td:nth-child(3) { width: 32%; }
 .subg-table td .cell-sub {
   display: block;
   font-family: var(--font-mono);
@@ -93,22 +98,16 @@
   letter-spacing: 0.02em;
   margin-top: 2px;
 }
-.subg-table .res-cell {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-  flex-wrap: nowrap;
-}
 .subg-table .res-val {
   font-family: var(--font-mono);
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 700;
   color: var(--ink);
   white-space: nowrap;
 }
 .subg-table .res-val.warn-val { color: var(--warn); }
 .subg-table .res-val.bad-val  { color: var(--danger); }
+.subg-table .pill { white-space: nowrap; }
 .subg-foot {
   margin: 14px 2px 0;
   font-size: 14px;

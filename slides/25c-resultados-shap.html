@@ -1,0 +1,80 @@
+<section data-screen-label="25c Servicio · resultados SHAP">
+    <div class="title-row">
+      <div>
+        <div class="eyebrow">05 · Resultados y validación</div>
+        <h1 class="slide-title">Servicio en acción — predicción y explicabilidad</h1>
+        <p class="slide-subtitle">Probabilidad calibrada, umbral clínico y variables SHAP dominantes — el modelo justifica cada decisión.</p>
+      </div>
+    </div>
+
+    <div class="slide-body">
+      <div style="flex: 1; min-height: 0; display: grid; grid-template-columns: 1.8fr 1fr; gap: 24px; align-items: stretch;">
+
+        <!-- Izquierda: screenshot -->
+        <div style="border-radius: 16px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 4px 24px rgba(0,0,0,0.08); display: flex; align-items: stretch;">
+          <img src="../assets/resultados.png"
+               alt="Resultado de predicción con explicabilidad SHAP — Sistema preanestésico FVL"
+               style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;" />
+        </div>
+
+        <!-- Derecha: lectura clínica -->
+        <div style="display: flex; flex-direction: column; gap: 16px; justify-content: center;">
+
+          <div class="block" style="padding: 20px 22px; border-left: 4px solid var(--danger);">
+            <div class="eyebrow" style="margin-bottom: 8px; color: var(--danger);">resultado — riesgo alto</div>
+            <p style="font-family: var(--font-mono); font-size: 28px; font-weight: 800; color: var(--danger); margin: 0 0 6px;">45.3 %</p>
+            <p style="font-size: 14px; color: var(--ink-soft); margin: 0; line-height: 1.5;">
+              Muy por encima del umbral de <strong>13 %</strong>. Se recomienda priorizar la evaluación preanestésica formal.
+            </p>
+          </div>
+
+          <div class="block" style="padding: 20px 22px;">
+            <div class="eyebrow" style="margin-bottom: 10px;">factores que aumentan el riesgo</div>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; font-size: 14px;">
+                <span style="color: var(--ink-soft);">Anestesia raquídea</span>
+                <span style="font-family: var(--font-mono); font-weight: 700; color: var(--danger);">+0.174</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; font-size: 14px;">
+                <span style="color: var(--ink-soft);">Anestesia sedación</span>
+                <span style="font-family: var(--font-mono); font-weight: 700; color: var(--danger);">+0.015</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; font-size: 14px;">
+                <span style="color: var(--ink-soft);">Anestesia local</span>
+                <span style="font-family: var(--font-mono); font-weight: 700; color: var(--danger);">+0.008</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="block" style="padding: 20px 22px;">
+            <div class="eyebrow" style="margin-bottom: 10px;">factores que reducen el riesgo</div>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; font-size: 14px;">
+                <span style="color: var(--ink-soft);">Score proc. crítico</span>
+                <span style="font-family: var(--font-mono); font-weight: 700; color: var(--success);">−0.069</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; font-size: 14px;">
+                <span style="color: var(--ink-soft);">Edad (44 años)</span>
+                <span style="font-family: var(--font-mono); font-weight: 700; color: var(--success);">−0.028</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; font-size: 14px;">
+                <span style="color: var(--ink-soft);">Anestesia general</span>
+                <span style="font-family: var(--font-mono); font-weight: 700; color: var(--success);">−0.028</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="font-size: 13px; color: var(--muted); line-height: 1.5; padding: 0 2px;">
+            Valores <strong>SHAP</strong> = cambio en probabilidad log-odds por variable. La suma explica la predicción completa.
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="slide-foot">
+      <div class="brand-mark"><span class="dot"></span> Servicio · predicción y SHAP</div>
+      <div>— / 30</div>
+    </div>
+  </section>
