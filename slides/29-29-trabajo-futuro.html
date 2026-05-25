@@ -10,35 +10,89 @@
     <div class="slide-body">
       <ol class="numbered" style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-content: center; flex: 1;">
         <li>
-          <span class="num">01</span>
+          <span class="num">
+            <!-- Pediatric: small + large figure -->
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+              <circle cx="11" cy="9" r="3"/>
+              <path d="M7 22 L7 16 C7 14 9 13 11 13 C13 13 15 14 15 16 L15 22"/>
+              <line x1="8" y1="22" x2="8" y2="28"/>
+              <line x1="14" y1="22" x2="14" y2="28"/>
+              <circle cx="22" cy="13" r="2.2"/>
+              <path d="M19 23 L19 18 C19 16.8 20.3 16 22 16 C23.7 16 25 16.8 25 18 L25 23"/>
+              <line x1="20" y1="23" x2="20" y2="28"/>
+              <line x1="24" y1="23" x2="24" y2="28"/>
+            </svg>
+            <span class="lbl">01</span>
+          </span>
           <div>
             <h4>Modelo específico para población pediátrica</h4>
             <p>6 683 registros excluidos con criterios clínicos propios — requiere variable objetivo y validación diferenciadas.</p>
           </div>
         </li>
         <li>
-          <span class="num">02</span>
+          <span class="num">
+            <!-- Lightning + clock = urgency/emergency -->
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+              <circle cx="13" cy="17" r="9"/>
+              <polyline points="13,11 13,17 17,19"/>
+              <polygon points="22,4 27,4 24,10 28,10 21,20 23,12 19,12" fill="currentColor" stroke="none"/>
+            </svg>
+            <span class="lbl">02</span>
+          </span>
           <div>
             <h4>Extensión a cirugía de urgencia y emergencia</h4>
             <p>Ventana temporal y perfil de riesgo estructuralmente distintos al contexto electivo.</p>
           </div>
         </li>
         <li>
-          <span class="num">03</span>
+          <span class="num">
+            <!-- Multi-center network: 4 nodes connected -->
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+              <circle cx="6" cy="8" r="2.5"/>
+              <circle cx="26" cy="8" r="2.5"/>
+              <circle cx="6" cy="24" r="2.5"/>
+              <circle cx="26" cy="24" r="2.5"/>
+              <circle cx="16" cy="16" r="3"/>
+              <line x1="8" y1="9.5" x2="14" y2="14.5"/>
+              <line x1="24" y1="9.5" x2="18" y2="14.5"/>
+              <line x1="8" y1="22.5" x2="14" y2="17.5"/>
+              <line x1="24" y1="22.5" x2="18" y2="17.5"/>
+            </svg>
+            <span class="lbl">03</span>
+          </span>
           <div>
             <h4>Generalización multicéntrica en Colombia</h4>
             <p>Protocolo de adaptación y recalibración para otras instituciones de alta complejidad.</p>
           </div>
         </li>
         <li>
-          <span class="num">04</span>
+          <span class="num">
+            <!-- Gauge/monitor for drift -->
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+              <path d="M5 22 A11 11 0 0 1 27 22"/>
+              <line x1="5" y1="22" x2="27" y2="22"/>
+              <line x1="16" y1="22" x2="22" y2="12"/>
+              <circle cx="16" cy="22" r="1.5" fill="currentColor" stroke="none"/>
+              <line x1="7.5" y1="19" x2="8.8" y2="19.7"/>
+              <line x1="16" y1="12" x2="16" y2="13.5"/>
+              <line x1="24.5" y1="19" x2="23.2" y2="19.7"/>
+            </svg>
+            <span class="lbl">04</span>
+          </span>
           <div>
             <h4>Monitoreo de deriva y recalibración automática</h4>
             <p>Detección de degradación del modelo ante cambios en prácticas clínicas o población quirúrgica.</p>
           </div>
         </li>
         <li style="grid-column: 1 / -1;">
-          <span class="num">05</span>
+          <span class="num">
+            <!-- Heart + brain + cross = high-risk specialties -->
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+              <path d="M16 27 C9 22 4 18 4 13 C4 10 6 8 9 8 C11 8 13 9 16 12 C19 9 21 8 23 8 C26 8 28 10 28 13 C28 18 23 22 16 27 Z"/>
+              <polyline points="8,16 12,16 14,13 17,19 19,16 24,16"/>
+            </svg>
+            <span class="lbl">05</span>
+          </span>
           <div>
             <h4>Modelos estratificados por especialidad de alto riesgo</h4>
             <p>Cirugía cardíaca, neurocirugía y trasplantes tienen lógica de riesgo propia — modelos especializados mejorarían la discriminación donde el falso negativo es más costoso.</p>
