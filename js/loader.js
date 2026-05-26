@@ -11,19 +11,19 @@ const slideUrls = [
   "slides/10-10-metodolog-a---ciclos.html",      // fusionado: 09+10
   "slides/11-11-datos-i.html",
   "slides/12-12-datos-ii.html",
-  "slides/13-13-dag---flujo.html",               // fusionado: 13+14
   "slides/15-15-variable-objetivo.html",
   "slides/16-16-variable-objetivo---versiones.html",
   "slides/17-17-selecci-n-de-variables.html",
   "slides/18-18-modelado.html",
+  "slides/13-13-dag---flujo.html",               // fusionado: 13+14
   "slides/19-19-arquitectura-del-servicio.html", // fusionado: 19+20 (manifiesto integrado)
   "slides/21-21-m-tricas.html",
   "slides/22-22-matriz-de-confusi-n.html",
   "slides/23-23-subgrupos.html",
-  "slides/24-24-validaci-n-de-software.html",
-  "slides/25-25-validaci-n-cl-nica.html",
   "slides/25b-seleccion-modelo.html",             // frontend: selección dominio + tabla de modelos
   "slides/25c-resultados-shap.html",             // frontend: resultado calibrado + explicabilidad SHAP
+  "slides/24-24-validaci-n-de-software.html",
+  "slides/25-25-validaci-n-cl-nica.html",
   "slides/26-26-limitaciones.html",
   "slides/27-27-conclusiones.html",
   "slides/28-28-aporte-e-impacto.html",
