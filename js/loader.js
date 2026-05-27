@@ -19,9 +19,9 @@ const slideUrls = [
   "slides/19-19-arquitectura-del-servicio.html", // fusionado: 19+20 (manifiesto integrado)
   "slides/21-21-m-tricas.html",
   "slides/22-22-matriz-de-confusi-n.html",
-  "slides/23-23-subgrupos.html",
   "slides/25b-seleccion-modelo.html",             // frontend: selección dominio + tabla de modelos
   "slides/25c-resultados-shap.html",             // frontend: resultado calibrado + explicabilidad SHAP
+  "slides/23-23-subgrupos.html",
   "slides/24-24-validaci-n-de-software.html",
   "slides/25-25-validaci-n-cl-nica.html",
   "slides/26-26-limitaciones.html",
