@@ -3,7 +3,7 @@
     <div>
       <div class="eyebrow">06 &middot; Conclusiones y trabajo futuro</div>
       <h1 class="slide-title">Conclusiones</h1>
-      <p class="slide-subtitle">Los cinco objetivos espec&iacute;ficos fueron cumplidos. Tres decisiones de dise&ntilde;o explican la mayor parte del desempe&ntilde;o alcanzado.</p>
+      <p class="slide-subtitle">Los cinco objetivos espec&iacute;ficos fueron cumplidos. Tres lecciones del proceso explican la mayor parte del desempe&ntilde;o alcanzado.</p>
     </div>
   </div>
 
@@ -62,24 +62,24 @@
     <div class="col-3" style="align-items: start;">
 
       <div class="block" style="display: flex; flex-direction: column; gap: 10px;">
-        <span class="label-tag">Definici&oacute;n del problema</span>
-        <h3 style="font-size: 22px; line-height: 1.2;">Reformulaci&oacute;n iterativa del target</h3>
-        <p style="font-size: 15px;">La definici&oacute;n del problema super&oacute; en impacto a cualquier decisi&oacute;n de algoritmo. Ning&uacute;n ajuste de hiperpar&aacute;metros igual&oacute; lo que logr&oacute; redefinir correctamente qu&eacute; predecir.</p>
+        <span class="label-tag">Lección 1</span>
+        <h3 style="font-size: 22px; line-height: 1.2;">El objetivo importa m&aacute;s que el algoritmo</h3>
+        <p style="font-size: 15px;">Redefinir correctamente qu&eacute; predecir elev&oacute; el AUC de 0,62 a 0,86 sin cambiar el modelo. Antes de elegir un clasificador, hay que asegurarse de estar resolviendo el problema correcto.</p>
         <p style="padding: 10px 12px; background: var(--icesi-purple-tint); border-radius: 8px; color: var(--icesi-purple-deep); font-size: 14px; font-weight: 600;">La definici&oacute;n del problema tiene mayor impacto que la elecci&oacute;n del algoritmo.</p>
       </div>
 
       <div class="block" style="display: flex; flex-direction: column; gap: 10px;">
-        <span class="label-tag">Criterio cl&iacute;nico</span>
-        <h3 style="font-size: 22px; line-height: 1.2;">F2 + threshold bajo (0.14)</h3>
-        <p style="font-size: 15px;">Optimizar para F2 y fijar un threshold permisivo no es un compromiso &#8212; es una decisi&oacute;n cl&iacute;nica. El modelo acepta FP para no perder pacientes de alto riesgo.</p>
-        <p style="padding: 10px 12px; background: var(--icesi-purple-tint); border-radius: 8px; color: var(--icesi-purple-deep); font-size: 14px; font-weight: 600;">Threshold 0.14: sensibilidad sobre precisi&oacute;n &#8212; correcto en contexto cl&iacute;nico.</p>
+        <span class="label-tag">Lección 2</span>
+        <h3 style="font-size: 22px; line-height: 1.2;">Cada contexto cl&iacute;nico requiere su propia optimizaci&oacute;n</h3>
+        <p style="font-size: 15px;">Los errores no son sim&eacute;tricos. En este caso se optimiz&oacute; con F2 y un umbral permisivo para priorizar la detecci&oacute;n &#8212; porque no detectar a un paciente de riesgo es mucho m&aacute;s costoso que referir a uno innecesariamente.</p>
+        <p style="padding: 10px 12px; background: var(--icesi-purple-tint); border-radius: 8px; color: var(--icesi-purple-deep); font-size: 14px; font-weight: 600;">La m&eacute;trica de optimizaci&oacute;n es una decisi&oacute;n cl&iacute;nica, no solo t&eacute;cnica.</p>
       </div>
 
       <div class="block" style="display: flex; flex-direction: column; gap: 10px;">
-        <span class="label-tag">Calidad probabil&iacute;stica</span>
-        <h3 style="font-size: 22px; line-height: 1.2;">Calibraci&oacute;n isot&oacute;nica obligatoria</h3>
-        <p style="font-size: 15px;">Convierte scores crudos de &aacute;rboles en probabilidades interpretables. Sin calibraci&oacute;n, el threshold no tiene significado probabil&iacute;stico real.</p>
-        <p style="padding: 10px 12px; background: var(--icesi-purple-tint); border-radius: 8px; color: var(--icesi-purple-deep); font-size: 14px; font-weight: 600;">Brier 0.097 &#8212; el threshold tiene significado probabil&iacute;stico real.</p>
+        <span class="label-tag">Lección 3</span>
+        <h3 style="font-size: 22px; line-height: 1.2;">La calibraci&oacute;n es siempre obligatoria</h3>
+        <p style="font-size: 15px;">Sin calibraci&oacute;n el umbral no tiene significado probabil&iacute;stico real: se operan scores, no probabilidades. La calibraci&oacute;n garantiza que las m&eacute;tricas reportadas sean v&aacute;lidas e interpretables por el cl&iacute;nico.</p>
+        <p style="padding: 10px 12px; background: var(--icesi-purple-tint); border-radius: 8px; color: var(--icesi-purple-deep); font-size: 14px; font-weight: 600;">Brier 0.097 &#8212; el umbral tiene significado probabil&iacute;stico real.</p>
       </div>
 
     </div>
