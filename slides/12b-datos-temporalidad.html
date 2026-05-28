@@ -1,160 +1,451 @@
-<section data-screen-label="Datos · temporalidad">
+<section data-screen-label="10 Datos · temporalidad">
   <div class="title-row">
     <div>
       <div class="eyebrow">04 · Construcción de la solución</div>
-      <h1 class="slide-title">Datos · estructura temporal</h1>
-      <p class="slide-subtitle">Tres ventanas de observación por episodio quirúrgico. La distinción entre ellas es la clave de toda la estrategia de modelado.</p>
+      <h1 class="slide-title">Datos · Razón de Selección</h1>
+      <p class="slide-subtitle">Tres ventanas de tiempo alrededor de la cirugía. Cada una cumple un rol distinto en el modelo.</p>
     </div>
   </div>
 
-  <div class="slide-body">
+  <style>
+    /* === Slide 10 · Datos · estructura temporal === */
+    section[data-screen-label="10 Datos · temporalidad"] .ts-body {
+      flex: 1;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 22px;
+      min-height: 0;
+    }
 
-    <!-- Timeline visual -->
-    <div style="display: flex; align-items: stretch; gap: 0; flex: 1; min-height: 0; position: relative;">
+    /* --- A. Timeline band --- */
+    section[data-screen-label="10 Datos · temporalidad"] .ts-timeline-wrap {
+      position: relative;
+      padding-top: 100px; /* room for the surgery pin to float above */
+    }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-timeline {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      align-items: stretch;
+      border-radius: 16px;
+      overflow: visible;
+      border: 1px solid var(--line);
+      background: var(--bg-soft);
+      padding: 0;
+    }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-band {
+      padding: 22px 28px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 6px;
+      position: relative;
+    }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-band:first-child { border-top-left-radius: 16px; border-bottom-left-radius: 16px; }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-band:last-child  { border-top-right-radius: 16px; border-bottom-right-radius: 16px; }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-band .ts-when {
+      font-family: var(--font-mono);
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      opacity: 0.75;
+    }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-band .ts-phase-name {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.015em;
+    }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-band.pre {
+      background: var(--icesi-purple-tint);
+      color: var(--icesi-purple-deep);
+    }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-band.intra {
+      background: var(--warn-soft);
+      color: #6e4d00;
+    }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-band.post {
+      background: var(--success-soft);
+      color: #006848;
+    }
+    /* Cirugía pin floats ABOVE the band on the PRE/INTRA boundary */
+    section[data-screen-label="10 Datos · temporalidad"] .ts-pin {
+      position: absolute;
+      left: 33.333%;
+      top: 0;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      pointer-events: none;
+    }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-pin .ts-pin-label {
+      font-family: var(--font-mono);
+      font-size: 15px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      background: var(--ink);
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-pin .ts-pin-dot {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 0 5px #fff, 0 4px 14px rgba(0,0,0,0.25);
+    }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-pin .ts-pin-dot svg {
+      width: 28px; height: 28px; stroke: #fff; fill: none; stroke-width: 2.2;
+    }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-pin .ts-pin-tail {
+      width: 2px;
+      height: 10px;
+      background: var(--ink);
+      border-radius: 1px;
+      margin-bottom: -6px;
+    }
 
-      <!-- Línea de tiempo base -->
-      <div style="position: absolute; top: 50%; left: 0; right: 0; height: 3px; background: var(--line); transform: translateY(-50%); z-index: 0;"></div>
+    /* --- B. Three phase cards --- */
+    section[data-screen-label="10 Datos · temporalidad"] .ts-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+      min-height: 0;
+    }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-card {
+      border-radius: 18px;
+      border: 2px solid;
+      padding: 26px 26px 22px;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 18px;
+      background: #fff;
+      min-height: 0;
+    }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-card.pre   { border-color: var(--icesi-purple); }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-card.intra { border-color: var(--warn); background: #fffdf7; }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-card.post  { border-color: var(--success); }
 
-      <!-- PRE-operatorio -->
-      <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 0; position: relative; z-index: 1;">
-        <div style="
-          flex: 1; width: 100%; border: 2px solid var(--icesi-purple);
-          border-radius: 20px; padding: 32px 28px; background: var(--icesi-purple-tint);
-          display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px;
-        ">
-          <div style="display: flex; align-items: center; gap: 12px;">
-            <div style="
-              width: 44px; height: 44px; border-radius: 12px;
-              background: var(--icesi-purple); display: flex; align-items: center; justify-content: center;
-            ">
-              <svg viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="#fff" stroke-width="2.5">
-                <rect x="5" y="4" width="22" height="26" rx="3"/>
-                <line x1="10" y1="12" x2="22" y2="12"/>
-                <line x1="10" y1="17" x2="22" y2="17"/>
-                <line x1="10" y1="22" x2="16" y2="22"/>
-              </svg>
-            </div>
-            <span style="font-family: var(--font-mono); font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--icesi-purple-deep);">Preoperatorio</span>
+    section[data-screen-label="10 Datos · temporalidad"] .ts-card .ts-head {
+      display: flex; align-items: center; gap: 14px;
+    }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-card .ts-icon {
+      width: 52px; height: 52px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-card.pre   .ts-icon { background: var(--icesi-purple); }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-card.intra .ts-icon { background: var(--warn); }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-card.post  .ts-icon { background: var(--success); }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-card .ts-icon svg {
+      width: 28px; height: 28px; stroke: #fff; fill: none; stroke-width: 2.2;
+    }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-card .ts-head-text { display: flex; flex-direction: column; gap: 2px; }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-card .ts-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-card .ts-name {
+      font-size: 34px;
+      font-weight: 800;
+      letter-spacing: -0.015em;
+      color: var(--ink);
+      line-height: 1.1;
+    }
+
+    /* Chips of example data items */
+    section[data-screen-label="10 Datos · temporalidad"] .ts-chips {
+      display: flex; flex-wrap: wrap; gap: 10px;
+      align-content: flex-start;
+    }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-chip {
+      display: inline-flex; align-items: center; gap: 9px;
+      padding: 11px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--bg-soft);
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--ink-soft);
+      line-height: 1;
+    }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-chip svg {
+      width: 19px; height: 19px; fill: none; stroke-width: 2.2; flex-shrink: 0;
+    }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-card.pre   .ts-chip { background: var(--icesi-purple-tint); border-color: transparent; color: var(--icesi-purple-deep); }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-card.pre   .ts-chip svg { stroke: var(--icesi-purple-deep); }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-card.intra .ts-chip { background: var(--warn-soft); border-color: transparent; color: #6e4d00; }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-card.intra .ts-chip svg { stroke: #6e4d00; }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-card.post  .ts-chip { background: var(--success-soft); border-color: transparent; color: #006848; }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-card.post  .ts-chip svg { stroke: #006848; }
+
+    /* Role badge at bottom of each card */
+    section[data-screen-label="10 Datos · temporalidad"] .ts-role {
+      display: flex; align-items: center; gap: 16px;
+      padding: 14px 18px;
+      border-radius: 12px;
+      background: var(--bg-soft);
+      border: 1px dashed var(--line);
+    }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-role .ts-role-glyph {
+      font-family: var(--font-mono);
+      font-size: 30px;
+      font-weight: 800;
+      width: 50px; height: 50px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 10px;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-card.pre   .ts-role-glyph { background: var(--icesi-purple); color: #fff; }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-card.intra .ts-role-glyph { background: #fff; color: var(--warn); border: 2px dashed var(--warn); font-size: 26px; }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-card.post  .ts-role-glyph { background: var(--success); color: #fff; }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-role .ts-role-text {
+      display: flex; flex-direction: column; gap: 2px;
+    }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-role .ts-role-title {
+      font-size: 20px; font-weight: 800; color: var(--ink); letter-spacing: -0.005em;
+    }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-role .ts-role-sub {
+      font-size: 15px; color: var(--muted);
+    }
+
+    /* --- C. Equation strip --- */
+    section[data-screen-label="10 Datos · temporalidad"] .ts-eq {
+      background: var(--ink);
+      color: #fff;
+      border-radius: 16px;
+      padding: 22px 28px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 28px;
+    }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-eq-flow {
+      display: flex; align-items: center; gap: 12px;
+      flex-shrink: 0;
+    }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-eq-box {
+      display: flex; flex-direction: column;
+      padding: 12px 18px;
+      border-radius: 12px;
+      min-width: 0;
+      gap: 2px;
+    }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-eq-box .lbl {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      opacity: 0.75;
+    }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-eq-box .val {
+      font-size: 23px;
+      font-weight: 700;
+      letter-spacing: -0.005em;
+      line-height: 1.15;
+    }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-eq-box.x {
+      background: rgba(164,196,101,0.18);
+      color: #c8e0a8;
+    }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-eq-box.x .val { color: #fff; }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-eq-box.m {
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.85);
+    }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-eq-box.m .val { color: #fff; }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-eq-box.y {
+      background: rgba(0,176,116,0.22);
+      color: #b7eed4;
+    }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-eq-box.y .val { color: #fff; }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-eq-arrow {
+      font-size: 32px;
+      color: rgba(255,255,255,0.55);
+      font-weight: 300;
+      padding: 0 4px;
+    }
+
+    section[data-screen-label="10 Datos · temporalidad"] .ts-eq-note {
+      display: flex; flex-direction: column; gap: 6px;
+      border-left: 1px solid rgba(255,255,255,0.18);
+      padding-left: 28px;
+      min-width: 0;
+    }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-eq-note .nt-tag {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #a4c465;
+    }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-eq-note .nt-text {
+      font-size: 21px;
+      line-height: 1.45;
+      color: rgba(255,255,255,0.92);
+      margin: 0;
+    }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-eq-note .nt-text .strike {
+      text-decoration: line-through;
+      text-decoration-color: var(--warn);
+      text-decoration-thickness: 2px;
+      color: rgba(255,255,255,0.6);
+    }
+    section[data-screen-label="10 Datos · temporalidad"] .ts-eq-note .nt-text strong { color: #fff; }
+  </style>
+
+  <div class="slide-body ts-body">
+
+    <!-- A. Timeline band with surgery pin floating above -->
+    <div class="ts-timeline-wrap">
+
+      <!-- Cirugía pin (floats in the padding-top area, anchored on PRE/INTRA boundary) -->
+      <div class="ts-pin">
+        <span class="ts-pin-label">Día de la cirugía</span>
+        <div class="ts-pin-dot">
+          <!-- scalpel/surgery icon -->
+          <svg viewBox="0 0 24 24">
+            <path d="M14 3l7 7-9 9-3-3"/>
+            <path d="M3 21l6-6"/>
+            <path d="M14 3l-4 4 3 3 4-4"/>
+          </svg>
+        </div>
+        <div class="ts-pin-tail"></div>
+      </div>
+
+      <div class="ts-timeline">
+        <div class="ts-band pre">
+          <span class="ts-when">Antes · días a horas</span>
+          <span class="ts-phase-name">Preoperatorio</span>
+        </div>
+        <div class="ts-band intra">
+          <span class="ts-when">Durante · minutos a horas</span>
+          <span class="ts-phase-name">Intraoperatorio</span>
+        </div>
+        <div class="ts-band post">
+          <span class="ts-when">Después · horas a días</span>
+          <span class="ts-phase-name">Posoperatorio</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- B. Three phase cards -->
+    <div class="ts-cards">
+
+      <!-- PRE -->
+      <div class="ts-card pre">
+        <div class="ts-head">
+          <div class="ts-icon">
+            <svg viewBox="0 0 24 24">
+              <rect x="4" y="3" width="16" height="18" rx="2"/>
+              <line x1="8" y1="8" x2="16" y2="8"/>
+              <line x1="8" y1="12" x2="16" y2="12"/>
+              <line x1="8" y1="16" x2="13" y2="16"/>
+            </svg>
           </div>
-          <h3 style="font-size: 26px; font-weight: 700; color: var(--ink); line-height: 1.2; margin: 0;">Historia clínica del paciente</h3>
-          <p style="font-size: 16px; color: var(--ink-soft); line-height: 1.5; margin: 0;">Datos disponibles antes del procedimiento: demografía, antecedentes, comorbilidades, medicamentos, alergias, signos vitales y valoración ASA.</p>
-          <div style="
-            background: rgba(255,255,255,0.7); border-radius: 10px;
-            padding: 12px 16px; border: 1px solid var(--icesi-purple);
-          ">
-            <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 700; color: var(--icesi-purple-deep); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px;">Rol en el modelo</div>
-            <div style="font-size: 15px; font-weight: 700; color: var(--ink);">Variables predictoras (X)</div>
-            <div style="font-size: 13px; color: var(--muted); margin-top: 2px;">Lo que el modelo recibe como entrada</div>
+          <div class="ts-head-text">
+            <span class="ts-eyebrow">Lo que sabemos antes</span>
+            <span class="ts-name">Historia clínica</span>
           </div>
         </div>
-        <!-- Nodo en la línea -->
-        <div style="width: 18px; height: 18px; border-radius: 50%; background: var(--icesi-purple); border: 3px solid #fff; box-shadow: 0 0 0 2px var(--icesi-purple); flex-shrink: 0;"></div>
-      </div>
 
-      <!-- Separador con flecha -->
-      <div style="display: flex; align-items: center; padding: 0 8px; flex-shrink: 0; z-index: 1; padding-bottom: 42px;">
-        <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="var(--muted)" stroke-width="2">
-          <line x1="4" y1="16" x2="24" y2="16"/>
-          <polyline points="18,10 24,16 18,22"/>
-        </svg>
-      </div>
+        <div class="ts-chips">
+          <span class="ts-chip"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 21c1-4 4.5-6 7-6s6 2 7 6"/></svg>Edad · sexo</span>
+          <span class="ts-chip"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-11a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 6.5-7 11-7 11z"/></svg>Comorbilidades</span>
+          <span class="ts-chip"><svg viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="6" rx="3"/><rect x="6" y="15" width="12" height="6" rx="3"/><path d="M12 9v6"/></svg>Medicamentos</span>
+          <span class="ts-chip"><svg viewBox="0 0 24 24"><path d="M4 12h4l2-6 4 12 2-6h4"/></svg>Signos vitales</span>
+          <span class="ts-chip"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>ASA</span>
+          <span class="ts-chip"><svg viewBox="0 0 24 24"><path d="M9 3v3M15 3v3"/><rect x="4" y="6" width="16" height="14" rx="2"/><line x1="4" y1="11" x2="20" y2="11"/></svg>Antecedentes</span>
+        </div>
 
-      <!-- INTRA-operatorio -->
-      <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 0; position: relative; z-index: 1;">
-        <div style="
-          flex: 1; width: 100%; border: 2px solid var(--warn);
-          border-radius: 20px; padding: 32px 28px; background: var(--warn-soft);
-          display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px;
-        ">
-          <div style="display: flex; align-items: center; gap: 12px;">
-            <div style="
-              width: 44px; height: 44px; border-radius: 12px;
-              background: var(--warn); display: flex; align-items: center; justify-content: center;
-            ">
-              <svg viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="#fff" stroke-width="2.5">
-                <path d="M16 4 L28 28 L4 28 Z"/>
-                <line x1="16" y1="14" x2="16" y2="21"/>
-                <circle cx="16" cy="24" r="1.2" fill="#fff" stroke="none"/>
-              </svg>
-            </div>
-            <span style="font-family: var(--font-mono); font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #8a6000;">Intraoperatorio</span>
-          </div>
-          <h3 style="font-size: 26px; font-weight: 700; color: var(--ink); line-height: 1.2; margin: 0;">Registro durante la cirugía</h3>
-          <p style="font-size: 16px; color: var(--ink-soft); line-height: 1.5; margin: 0;">Eventos ocurridos durante el procedimiento: duración, anestesia administrada, incidentes registrados en quirófano.</p>
-          <div style="
-            background: rgba(255,255,255,0.7); border-radius: 10px;
-            padding: 12px 16px; border: 1px solid var(--warn);
-          ">
-            <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 700; color: #8a6000; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px;">Rol en el modelo</div>
-            <div style="font-size: 15px; font-weight: 700; color: var(--ink);">Contexto del evento (no predictor)</div>
-            <div style="font-size: 13px; color: var(--muted); margin-top: 2px;">Disponible sólo después de la cirugía</div>
+        <div class="ts-role">
+          <div class="ts-role-glyph">X</div>
+          <div class="ts-role-text">
+            <span class="ts-role-title">Variables predictoras</span>
+            <span class="ts-role-sub">Entrada del modelo</span>
           </div>
         </div>
-        <div style="width: 18px; height: 18px; border-radius: 50%; background: var(--warn); border: 3px solid #fff; box-shadow: 0 0 0 2px var(--warn); flex-shrink: 0;"></div>
       </div>
 
-      <!-- Separador con flecha -->
-      <div style="display: flex; align-items: center; padding: 0 8px; flex-shrink: 0; z-index: 1; padding-bottom: 42px;">
-        <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="var(--muted)" stroke-width="2">
-          <line x1="4" y1="16" x2="24" y2="16"/>
-          <polyline points="18,10 24,16 18,22"/>
-        </svg>
-      </div>
-
-      <!-- POST-operatorio -->
-      <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 0; position: relative; z-index: 1;">
-        <div style="
-          flex: 1; width: 100%; border: 2px solid var(--success);
-          border-radius: 20px; padding: 32px 28px; background: var(--success-soft);
-          display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px;
-        ">
-          <div style="display: flex; align-items: center; gap: 12px;">
-            <div style="
-              width: 44px; height: 44px; border-radius: 12px;
-              background: var(--success); display: flex; align-items: center; justify-content: center;
-            ">
-              <svg viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="#fff" stroke-width="2.5">
-                <path d="M16 6 C10 6 6 10 6 16 C6 22 10 26 16 26 C22 26 26 22 26 16"/>
-                <path d="M20 6 L26 6 L26 12"/>
-                <path d="M14 17 L12 15"/>
-                <line x1="16" y1="11" x2="16" y2="17"/>
-              </svg>
-            </div>
-            <span style="font-family: var(--font-mono); font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #007a52;">Posoperatorio</span>
+      <!-- INTRA -->
+      <div class="ts-card intra">
+        <div class="ts-head">
+          <div class="ts-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2l9 18H3z"/>
+              <line x1="12" y1="9" x2="12" y2="14"/>
+              <circle cx="12" cy="17" r="1" fill="currentColor" stroke="none"/>
+            </svg>
           </div>
-          <h3 style="font-size: 26px; font-weight: 700; color: var(--ink); line-height: 1.2; margin: 0;">Evolución tras el procedimiento</h3>
-          <p style="font-size: 16px; color: var(--ink-soft); line-height: 1.5; margin: 0;">Complicaciones, reingreso a UCI, días de hospitalización, transfusiones y otros eventos registrados en recuperación.</p>
-          <div style="
-            background: rgba(255,255,255,0.7); border-radius: 10px;
-            padding: 12px 16px; border: 1px solid var(--success);
-          ">
-            <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 700; color: #007a52; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px;">Rol en el modelo</div>
-            <div style="font-size: 15px; font-weight: 700; color: var(--ink);">Variable objetivo (Y)</div>
-            <div style="font-size: 13px; color: var(--muted); margin-top: 2px;">La verdad de referencia para el aprendizaje supervisado</div>
+          <div class="ts-head-text">
+            <span class="ts-eyebrow">Lo que pasa en quirófano</span>
+            <span class="ts-name">Registro de la cirugía</span>
           </div>
         </div>
-        <div style="width: 18px; height: 18px; border-radius: 50%; background: var(--success); border: 3px solid #fff; box-shadow: 0 0 0 2px var(--success); flex-shrink: 0;"></div>
+
+        <div class="ts-chips">
+          <span class="ts-chip"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="7"/><path d="M12 9v4l3 2"/><path d="M9 2h6"/></svg>Duración</span>
+          <span class="ts-chip"><svg viewBox="0 0 24 24"><path d="M14 3l3 3-9 9H5v-3z"/><path d="M14 6l3 3"/></svg>Anestesia administrada</span>
+          <span class="ts-chip"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="13"/><circle cx="12" cy="16" r="1" fill="currentColor" stroke="none"/></svg>Incidentes intra-OR</span>
+          <span class="ts-chip"><svg viewBox="0 0 24 24"><path d="M3 12h4l2-6 4 12 2-6h4"/></svg>Sangrado / hemodinamia</span>
+        </div>
+
+        <div class="ts-role">
+          <div class="ts-role-glyph">∅</div>
+          <div class="ts-role-text">
+            <span class="ts-role-title">Contexto · no entra al modelo</span>
+            <span class="ts-role-sub">Sólo se conoce después de operar</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- POST -->
+      <div class="ts-card post">
+        <div class="ts-head">
+          <div class="ts-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M5 12a7 7 0 1 0 2-5"/>
+              <polyline points="3 4 7 7 4 11"/>
+              <polyline points="9 13 11 15 15 10"/>
+            </svg>
+          </div>
+          <div class="ts-head-text">
+            <span class="ts-eyebrow">Lo que queremos predecir</span>
+            <span class="ts-name">Evolución del paciente</span>
+          </div>
+        </div>
+
+        <div class="ts-chips">
+          <span class="ts-chip"><svg viewBox="0 0 24 24"><path d="M3 21V9l9-6 9 6v12"/><rect x="9" y="13" width="6" height="8"/><line x1="12" y1="6" x2="12" y2="9"/><line x1="10.5" y1="7.5" x2="13.5" y2="7.5"/></svg>Reingreso a UCI</span>
+          <span class="ts-chip"><svg viewBox="0 0 24 24"><path d="M12 2v6M12 22a8 8 0 0 1-8-8c0-4 4-6 8-12 4 6 8 8 8 12a8 8 0 0 1-8 8z"/></svg>Complicaciones</span>
+          <span class="ts-chip"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="16" y1="3" x2="16" y2="7"/></svg>Días de hospital</span>
+          <span class="ts-chip"><svg viewBox="0 0 24 24"><path d="M6 12c0-3 6-3 6 0s6 3 6 0"/><path d="M12 3v18"/></svg>Transfusiones</span>
+        </div>
+
+        <div class="ts-role">
+          <div class="ts-role-glyph">Y</div>
+          <div class="ts-role-text">
+            <span class="ts-role-title">Variable objetivo</span>
+            <span class="ts-role-sub">La verdad para el aprendizaje</span>
+          </div>
+        </div>
       </div>
 
     </div>
-
-    <!-- Callout de tensión narrativa -->
-    <div style="
-      background: var(--ink); color: #fff; border-radius: 14px;
-      padding: 20px 28px; display: flex; align-items: center; gap: 20px;
-    ">
-      <div style="
-        font-family: var(--font-mono); font-size: 13px; font-weight: 700;
-        letter-spacing: 0.12em; text-transform: uppercase; color: #a4c465;
-        white-space: nowrap;
-      ">Tensión clave</div>
-      <div style="width: 1px; height: 32px; background: rgba(255,255,255,0.15); flex-shrink: 0;"></div>
-      <p style="font-size: 19px; line-height: 1.45; margin: 0; color: rgba(255,255,255,0.9);">
-        Los datos <strong style="color: #fff;">preoperatorios</strong> son los únicos disponibles en el momento de la valoración.
-        Los <strong style="color: #fff;">posoperatorios</strong> son la única señal clínicamente honesta del riesgo real — y construirlos bien fue la decisión más crítica del proyecto.
-      </p>
-    </div>
-
   </div>
 
   <div class="slide-foot">
