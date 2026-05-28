@@ -9,6 +9,7 @@ const slideUrls = [
   "slides/07-07-estado-del-arte.html",
   "slides/08-08-objetivos.html",
   "slides/10-10-metodolog-a---ciclos.html",      // fusionado: 09+10
+  "slides/12b-datos-temporalidad.html",
   "slides/11-11-datos-i.html",
   "slides/12-12-datos-ii.html",
   "slides/15-15-variable-objetivo.html",
