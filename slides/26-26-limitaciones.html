@@ -8,41 +8,78 @@
     </div>
 
     <div class="slide-body">
-      <ol class="numbered" style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-content: center; flex: 1;">
-        <li>
-          <span class="num">
-            <!-- Lucide: scale (balanza) — procedimiento pesa más que comorbilidades -->
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M16 16H8"/>
-              <path d="m7 20 5-16 5 16"/>
-              <path d="M2 6l5-1 1.5 4.5L3 11z"/>
-              <path d="M22 6l-5-1-1.5 4.5L21 11z"/>
-              <line x1="12" y1="4" x2="12" y2="20"/>
-            </svg>
-            <span class="lbl">L1</span>
-          </span>
-          <div>
-            <h4>Complejidad &gt; riesgo intr&iacute;nseco</h4>
-            <p>Variables dominantes: procedimiento y tipo de anestesia, no comorbilidades. El modelo detecta complejidad operativa m&aacute;s que riesgo del paciente.</p>
+      <div style="flex: 1; min-height: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-content: center;">
+
+        <!-- L1 -->
+        <div class="block" style="display: flex; flex-direction: column; gap: 20px; padding: 32px 36px;">
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <div style="width: 52px; height: 52px; border-radius: 14px; background: var(--warn-soft); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--warn)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 16H8"/><path d="m7 20 5-16 5 16"/>
+                <path d="M2 6l5-1 1.5 4.5L3 11z"/><path d="M22 6l-5-1-1.5 4.5L21 11z"/>
+                <line x1="12" y1="4" x2="12" y2="20"/>
+              </svg>
+            </div>
+            <div>
+              <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--warn); margin-bottom: 4px;">L1 &middot; señal dominante</div>
+              <h3 style="font-size: 22px; font-weight: 700; color: var(--ink); margin: 0; line-height: 1.2;">Complejidad &gt; riesgo intr&iacute;nseco</h3>
+            </div>
           </div>
-        </li>
-        <li>
-          <span class="num">
-            <!-- Lucide: user-x — subgrupos no detectados correctamente -->
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
-              <circle cx="9" cy="7" r="4"/>
-              <line x1="17" y1="8" x2="23" y2="14"/>
-              <line x1="23" y1="8" x2="17" y2="14"/>
-            </svg>
-            <span class="lbl">L2</span>
-          </span>
-          <div>
-            <h4>Subgrupos peor detectados</h4>
-            <p>Endocrinol&oacute;gicos: AUC &asymp; 0.54. Cardiovasculares: FN &asymp; 24&nbsp;%. Precisamente quienes m&aacute;s se beneficiar&iacute;an de valoraci&oacute;n formal.</p>
+
+          <p style="font-size: 18px; line-height: 1.65; color: var(--ink-soft); margin: 0;">
+            Las variables dominantes son el <strong>procedimiento y el tipo de anestesia</strong>, no las comorbilidades. El modelo detecta complejidad operativa más que riesgo del paciente.
+          </p>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; border-top: 1px solid var(--line); padding-top: 20px;">
+            <div style="background: var(--warn-soft); border-radius: 10px; padding: 14px 16px;">
+              <div style="font-family: var(--font-mono); font-size: 11px; color: var(--warn); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px;">top predictor</div>
+              <div style="font-size: 15px; font-weight: 800; color: var(--warn); line-height: 1.2;">Anestesia raquídea</div>
+              <div style="font-size: 13px; color: var(--warn); margin-top: 4px; opacity: 0.8;">SHAP +0.174</div>
+            </div>
+            <div style="background: var(--bg-soft); border-radius: 10px; padding: 14px 16px;">
+              <div style="font-family: var(--font-mono); font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px;">comorbilidades</div>
+              <div style="font-size: 15px; font-weight: 800; color: var(--ink-soft); line-height: 1.2;">Posición baja</div>
+              <div style="font-size: 13px; color: var(--muted); margin-top: 4px;">en el ranking</div>
+            </div>
           </div>
-        </li>
-      </ol>
+        </div>
+
+        <!-- L2 -->
+        <div class="block" style="display: flex; flex-direction: column; gap: 20px; padding: 32px 36px;">
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <div style="width: 52px; height: 52px; border-radius: 14px; background: var(--danger-soft); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--danger)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <line x1="17" y1="8" x2="23" y2="14"/>
+                <line x1="23" y1="8" x2="17" y2="14"/>
+              </svg>
+            </div>
+            <div>
+              <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--danger); margin-bottom: 4px;">L2 &middot; subgrupos críticos</div>
+              <h3 style="font-size: 22px; font-weight: 700; color: var(--ink); margin: 0; line-height: 1.2;">Subgrupos peor detectados</h3>
+            </div>
+          </div>
+
+          <p style="font-size: 18px; line-height: 1.65; color: var(--ink-soft); margin: 0;">
+            Precisamente los pacientes que más se beneficiarían de valoración formal son los que el modelo detecta peor.
+          </p>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; border-top: 1px solid var(--line); padding-top: 20px;">
+            <div style="background: var(--danger-soft); border-radius: 10px; padding: 14px 16px;">
+              <div style="font-family: var(--font-mono); font-size: 11px; color: var(--danger); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px;">endocrinológicos</div>
+              <div style="font-family: var(--font-mono); font-size: 26px; font-weight: 800; color: var(--danger); line-height: 1;">AUC 0.54</div>
+              <div style="font-size: 13px; color: var(--danger); margin-top: 4px; opacity: 0.8;">≈ aleatorio</div>
+            </div>
+            <div style="background: var(--warn-soft); border-radius: 10px; padding: 14px 16px;">
+              <div style="font-family: var(--font-mono); font-size: 11px; color: var(--warn); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px;">cardiovasculares</div>
+              <div style="font-family: var(--font-mono); font-size: 26px; font-weight: 800; color: var(--warn); line-height: 1;">FN 24 %</div>
+              <div style="font-size: 13px; color: var(--warn); margin-top: 4px; opacity: 0.8;">peor detección</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
 
     <div class="slide-foot">
