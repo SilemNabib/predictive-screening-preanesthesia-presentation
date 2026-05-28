@@ -495,6 +495,32 @@
     }
     .confirm .danger:hover { background: #b5563a; }
 
+    /* ── Progress bar ───────────────────────────────────────────────────
+       Lives inside .canvas so it scales with the slide content.
+       position:absolute top:0 — renders above the slot (z-index) so it
+       floats over whatever slide is active without touching slide HTML. */
+    .progress-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      z-index: 10;
+      background: rgba(0,0,0,0.08);
+      pointer-events: none;
+    }
+    .progress-bar::after {
+      content: '';
+      display: block;
+      height: 100%;
+      width: var(--progress, 0%);
+      background: linear-gradient(90deg, #a4c465 0%, #c8e0a8 100%);
+      border-radius: 0 3px 3px 0;
+      transition: width 320ms cubic-bezier(.4,0,.2,1);
+      box-shadow: 0 1px 6px rgba(164,196,101,0.45);
+    }
+    @media print { .progress-bar { display: none !important; } }
+
     /* ── Print: one page per slide, no chrome ────────────────────────────
        The screen layout stacks every slide at inset:0 inside a scaled
        canvas; for print we want them in document flow at the authored
@@ -825,7 +851,14 @@
 
       const slot = document.createElement('slot');
       slot.addEventListener('slotchange', this._onSlotChange);
+
+      // Progress bar lives inside the canvas so it scales with the slide.
+      const progressBar = document.createElement('div');
+      progressBar.className = 'progress-bar';
+      progressBar.setAttribute('aria-hidden', 'true');
+
       canvas.appendChild(slot);
+      canvas.appendChild(progressBar);
       stage.appendChild(canvas);
 
       // Tap zones (mobile): left third = back, right third = forward.
@@ -967,6 +1000,7 @@
       this._confirm = confirm;
       this._countEl = overlay.querySelector('.current');
       this._totalEl = overlay.querySelector('.total');
+      this._progressBar = progressBar;
 
       // Restore persisted rail width.
       let rw = 188;
@@ -1098,6 +1132,12 @@
         else s.removeAttribute('data-deck-active');
       });
       if (this._countEl) this._countEl.textContent = String(curr + 1);
+
+      // Progress bar + slide counter
+      const total = this._slides.length || 1;
+      const pct = total <= 1 ? 100 : (curr / (total - 1)) * 100;
+      if (this._progressBar) this._progressBar.style.setProperty('--progress', pct.toFixed(2) + '%');
+
       // Follow-scroll on every navigation (init deep-link, keyboard, click,
       // tap, external goTo) — the only time we *don't* want the rail to
       // track current is after a rail-internal mutation, where _renderRail
@@ -1285,9 +1325,9 @@
       const key = e.key;
       let handled = true;
 
-      if (key === 'ArrowRight' || key === 'PageDown' || key === ' ' || key === 'Spacebar') {
+      if (key === 'ArrowRight' || key === 'ArrowDown' || key === 'PageDown' || key === ' ' || key === 'Spacebar') {
         this._advance(1, 'keyboard');
-      } else if (key === 'ArrowLeft' || key === 'PageUp') {
+      } else if (key === 'ArrowLeft' || key === 'ArrowUp' || key === 'PageUp') {
         this._advance(-1, 'keyboard');
       } else if (key === 'Home') {
         this._go(0, 'keyboard');
