@@ -3,33 +3,33 @@
       <div>
         <div class="eyebrow">04 · Construcción de la solución</div>
         <h1 class="slide-title">Variable objetivo — enfoques evaluados</h1>
-        <p class="slide-subtitle">Dos rutas evaluadas antes de fijar la definición del target. El enfoque supervisado prevaleció por la disponibilidad de eventos posoperatorios con poder discriminativo.</p>
+        <p class="slide-subtitle">Dos rutas evaluadas antes de fijar la definición del target.</p>
       </div>
     </div>
 
     <div class="slide-body">
-      <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 32px; align-items: stretch;">
+      <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 32px; align-items: stretch; flex: 1; min-height: 0;">
 
         <!-- Izquierda · No supervisado descartado -->
         <div class="indicator-card danger" style="display: flex; flex-direction: column; gap: 24px; padding: 32px 34px;">
           <div>
             <span style="font-family: var(--font-mono); font-size: 18px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--danger); display: block; margin-bottom: 12px;">✕  No supervisado — descartado</span>
-            <h3 style="font-size: 30px; font-weight: 700; line-height: 1.2; color: var(--ink); margin: 0;">¿Patrones naturales sin etiquetar?</h3>
+            <h3 style="font-size: 28px; font-weight: 700; line-height: 1.2; color: var(--ink); margin: 0;">¿Patrones naturales sin etiquetar?</h3>
           </div>
-          <!-- Resultado único -->
+
           <div style="background: rgba(255,255,255,0.7); border-radius: 18px; border: 1px solid rgba(209,67,67,0.2); padding: 24px 26px; display: flex; gap: 20px; align-items: flex-start;">
             <div style="width: 64px; height: 64px; flex-shrink: 0; border-radius: 14px; background: #fff; border: 1px solid rgba(209,67,67,0.28); display: flex; align-items: center; justify-content: center; color: var(--danger);">
               <svg viewBox="0 0 32 32" width="36" height="36" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="16" cy="16" r="11"/><line x1="9" y1="9" x2="23" y2="23"/><line x1="23" y1="9" x2="9" y2="23"/></svg>
             </div>
             <div>
-              <div style="font-size: 26px; font-weight: 800; color: var(--danger); line-height: 1.1; margin-bottom: 8px;">IsolationForest + PCA</div>
-              <div style="font-size: 32px; font-weight: 800; color: var(--danger); line-height: 1.1; margin-bottom: 10px;">AUC ≈ 0.45</div>
-              <div style="font-size: 20px; color: var(--ink-soft); line-height: 1.4;">Anomalía estadística ≠ riesgo clínico real.</div>
+              <div style="font-size: 22px; font-weight: 700; color: var(--ink-soft); line-height: 1.1; margin-bottom: 8px;">IsolationForest + PCA</div>
+              <div style="font-size: 42px; font-weight: 800; color: var(--danger); line-height: 1; margin-bottom: 10px;">AUC ≈ 0.45</div>
+              <div style="font-size: 18px; color: var(--ink-soft); line-height: 1.4;">Casi aleatorio.</div>
             </div>
           </div>
-          <!-- Razonamiento -->
-          <div style="background: rgba(209,67,67,0.08); border-radius: 14px; border-left: 4px solid var(--danger); padding: 20px 22px; font-size: 20px; color: var(--ink-soft); line-height: 1.5;">
-            Un paciente atípico en el espacio de features puede cursar la cirugía sin complicaciones — y uno estadísticamente promedio puede presentar un evento grave.
+
+          <div style="background: rgba(209,67,67,0.08); border-radius: 14px; border-left: 4px solid var(--danger); padding: 20px 22px; font-size: 19px; color: var(--ink-soft); line-height: 1.5; flex: 1;">
+            Un paciente <strong style="color: var(--ink);">atípico estadísticamente</strong> puede cursar la cirugía sin complicaciones — y uno promedio puede presentar un evento grave.
           </div>
         </div>
 
@@ -37,46 +37,56 @@
         <div class="indicator-card success" style="display: flex; flex-direction: column; gap: 24px; padding: 32px 36px;">
           <div>
             <span style="font-family: var(--font-mono); font-size: 18px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--success); display: block; margin-bottom: 12px;">✓  Supervisado — adoptado</span>
-            <h3 style="font-size: 34px; font-weight: 700; line-height: 1.18; color: var(--ink); margin: 0;">Eventos posoperatorios como verdad de referencia</h3>
+            <h3 style="font-size: 32px; font-weight: 700; line-height: 1.18; color: var(--ink); margin: 0;">Eventos posoperatorios como verdad de referencia</h3>
           </div>
-          <!-- Grid 2×2 de indicadores -->
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px;">
-            <div class="indicator success" style="padding: 22px 24px; gap: 20px; grid-template-columns: 80px 1fr;">
-              <div class="ic-icon" style="width: 80px; height: 80px; border-radius: 16px;">
-                <svg viewBox="0 0 32 32" width="44" height="44" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="16" cy="8" rx="9" ry="3"/><path d="M7 8 L7 16 C7 17.7 11 19 16 19 C21 19 25 17.7 25 16 L25 8"/><path d="M7 16 L7 24 C7 25.7 11 27 16 27 C21 27 25 25.7 25 24 L25 16"/></svg>
+
+          <!-- 2×2: los dos "historia" arriba en muted, los dos "resultado" abajo en destacado -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; flex: 1;">
+
+            <!-- 49 candidatos — secundario, muted -->
+            <div class="indicator success" style="padding: 20px 22px; gap: 16px; grid-template-columns: 64px 1fr; opacity: 0.72;">
+              <div class="ic-icon" style="width: 64px; height: 64px; border-radius: 14px;">
+                <svg viewBox="0 0 32 32" width="36" height="36" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="16" cy="8" rx="9" ry="3"/><path d="M7 8 L7 16 C7 17.7 11 19 16 19 C21 19 25 17.7 25 16 L25 8"/><path d="M7 16 L7 24 C7 25.7 11 27 16 27 C21 27 25 25.7 25 24 L25 16"/></svg>
               </div>
               <div class="ic-body">
-                <div class="ic-value" style="font-size: 34px;">49 eventos</div>
-                <div class="ic-label" style="font-size: 20px;">Posoperatorios candidatos registrados en HCE</div>
+                <div class="ic-value" style="font-size: 30px;">49 candidatos</div>
+                <div class="ic-label" style="font-size: 17px;">Eventos posoperatorios en HCE</div>
               </div>
             </div>
-            <div class="indicator success" style="padding: 22px 24px; gap: 20px; grid-template-columns: 80px 1fr;">
-              <div class="ic-icon" style="width: 80px; height: 80px; border-radius: 16px;">
-                <svg viewBox="0 0 32 32" width="44" height="44" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5,7 27,7 19,17 19,25 13,27 13,17"/></svg>
+
+            <!-- AUC ≥ 0.76 — secundario, muted -->
+            <div class="indicator success" style="padding: 20px 22px; gap: 16px; grid-template-columns: 64px 1fr; opacity: 0.72;">
+              <div class="ic-icon" style="width: 64px; height: 64px; border-radius: 14px;">
+                <svg viewBox="0 0 32 32" width="36" height="36" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5,7 27,7 19,17 19,25 13,27 13,17"/></svg>
               </div>
               <div class="ic-body">
-                <div class="ic-value" style="font-size: 34px;">AUC ≥ 0.76</div>
-                <div class="ic-label" style="font-size: 20px;">Umbral mínimo para conservar el evento</div>
+                <div class="ic-value" style="font-size: 30px;">AUC ≥ 0.76</div>
+                <div class="ic-label" style="font-size: 17px;">Umbral de discriminación mínima</div>
               </div>
             </div>
-            <div class="indicator success" style="padding: 22px 24px; gap: 20px; grid-template-columns: 80px 1fr;">
-              <div class="ic-icon" style="width: 80px; height: 80px; border-radius: 16px;">
-                <svg viewBox="0 0 32 32" width="44" height="44" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 16 L13 23 L26 9"/></svg>
+
+            <!-- 13 pasaron — DESTACADO -->
+            <div class="indicator success" style="padding: 22px 24px; gap: 18px; grid-template-columns: 72px 1fr; border-width: 2px;">
+              <div class="ic-icon" style="width: 72px; height: 72px; border-radius: 16px; background: var(--success);">
+                <svg viewBox="0 0 32 32" width="40" height="40" fill="none" stroke="#fff" stroke-width="2.8"><path d="M6 16 L13 23 L26 9"/></svg>
               </div>
               <div class="ic-body">
-                <div class="ic-value" style="font-size: 34px;">13 eventos pasaron</div>
-                <div class="ic-label" style="font-size: 20px;">Discriminación clínicamente significativa</div>
+                <div class="ic-value" style="font-size: 38px; color: var(--success);">13 pasaron</div>
+                <div class="ic-label" style="font-size: 18px;">Con poder discriminativo real</div>
               </div>
             </div>
-            <div class="indicator success" style="padding: 22px 24px; gap: 20px; grid-template-columns: 80px 1fr;">
-              <div class="ic-icon" style="width: 80px; height: 80px; border-radius: 16px;">
-                <svg viewBox="0 0 32 32" width="44" height="44" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="5" y="5" width="10" height="10" rx="2"/><rect x="17" y="5" width="10" height="10" rx="2"/><rect x="5" y="17" width="10" height="10" rx="2"/><rect x="17" y="17" width="10" height="10" rx="2"/></svg>
+
+            <!-- 4 categorías — DESTACADO -->
+            <div class="indicator success" style="padding: 22px 24px; gap: 18px; grid-template-columns: 72px 1fr; border-width: 2px;">
+              <div class="ic-icon" style="width: 72px; height: 72px; border-radius: 16px; background: var(--success);">
+                <svg viewBox="0 0 32 32" width="40" height="40" fill="none" stroke="#fff" stroke-width="2.5"><rect x="5" y="5" width="10" height="10" rx="2"/><rect x="17" y="5" width="10" height="10" rx="2"/><rect x="5" y="17" width="10" height="10" rx="2"/><rect x="17" y="17" width="10" height="10" rx="2"/></svg>
               </div>
               <div class="ic-body">
-                <div class="ic-value" style="font-size: 34px;">4 categorías macro</div>
-                <div class="ic-label" style="font-size: 20px;">Hospitalización · líquidos</div>
+                <div class="ic-value" style="font-size: 38px; color: var(--success);">4 categorías</div>
+                <div class="ic-label" style="font-size: 18px;">Hospitalización · líquidos · desenlace · seguimiento</div>
               </div>
             </div>
+
           </div>
         </div>
 

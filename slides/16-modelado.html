@@ -8,65 +8,66 @@
     </div>
 
     <div class="slide-body">
+
+      <!-- Fila superior: decisiones técnicas -->
       <div class="col-2">
         <div class="block">
           <span class="label-tag">Desbalance de clases</span>
-          <h3>19 % positivos · 28 % en target secundario</h3>
-          <p><span class="mono" style="background: var(--icesi-purple-tint); padding: 2px 6px; border-radius: 4px;">class_weight='balanced'</span> en sklearn · <span class="mono" style="background: var(--icesi-purple-tint); padding: 2px 6px; border-radius: 4px;">scale_pos_weight</span> en XGBoost/LightGBM.</p>
+          <h3>19 % positivos</h3>
+          <p>Manejado con pesos internos por familia de algoritmo — simple y sin riesgo de contaminar la validación.</p>
         </div>
         <div class="block">
           <span class="label-tag">Calibración de probabilidades</span>
           <h3>Por familia de algoritmo</h3>
-          <p><strong>Isotónica</strong> (CalibratedClassifierCV, cv=5) → árboles y boosting. <strong>Sigmoidal</strong> (Platt) → Regresión Logística y MLP.</p>
+          <p><strong>Isotónica</strong> → modelos basados en árboles. <strong>Sigmoidal</strong> → modelos con salida naturalmente suave.</p>
         </div>
       </div>
 
-      <div class="algo-grid">
-        <div class="algo-group">
-          <span class="gtitle">Lineal</span>
-          <ul><li>Regresión Logística</li></ul>
+      <!-- Grid de algoritmos con ganador destacado -->
+      <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px;">
+
+        <div style="border: 1px solid var(--line); border-radius: 14px; padding: 18px 16px; background: var(--bg);">
+          <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px;">Lineal</div>
+          <div style="font-size: 17px; font-weight: 600; color: var(--ink-soft);">Regresión Logística</div>
         </div>
-        <div class="algo-group">
-          <span class="gtitle">Bagging</span>
-          <ul>
-            <li>Random Forest</li>
-            <li>Extra Trees</li>
-          </ul>
+
+        <div style="border: 1px solid var(--line); border-radius: 14px; padding: 18px 16px; background: var(--bg);">
+          <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px;">Bagging</div>
+          <div style="font-size: 17px; font-weight: 600; color: var(--ink-soft); line-height: 1.6;">Random Forest<br>Extra Trees</div>
         </div>
-        <div class="algo-group">
-          <span class="gtitle">Boosting</span>
-          <ul>
-            <li>XGBoost</li>
-            <li>LightGBM</li>
-            <li>HistGradientBoosting</li>
-          </ul>
+
+        <!-- XGBoost destacado como ganador -->
+        <div style="border: 2px solid var(--success); border-radius: 14px; padding: 18px 16px; background: var(--success-soft); position: relative;">
+          <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--success); color: #fff; font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.08em; padding: 3px 10px; border-radius: 999px; white-space: nowrap;">✓ Seleccionado</div>
+          <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #007a52; margin-bottom: 10px;">Boosting</div>
+          <div style="font-size: 17px; font-weight: 700; color: var(--ink); line-height: 1.6;"><strong>XGBoost</strong><br><span style="font-weight: 500; color: var(--ink-soft);">LightGBM<br>HistGradientBoosting</span></div>
         </div>
-        <div class="algo-group">
-          <span class="gtitle">Red neuronal</span>
-          <ul><li>MLP (128-64, ReLU, early_stop)</li></ul>
+
+        <div style="border: 1px solid var(--line); border-radius: 14px; padding: 18px 16px; background: var(--bg);">
+          <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px;">Red neuronal</div>
+          <div style="font-size: 17px; font-weight: 600; color: var(--ink-soft);">MLP<br><span style="font-size: 14px; font-weight: 400;">128-64 · ReLU · early stop</span></div>
         </div>
-        <div class="algo-group">
-          <span class="gtitle">Ensamble</span>
-          <ul>
-            <li>Voting · soft (RF+XGB+HGB)</li>
-            <li>Stacking · LR meta, cv=5</li>
-          </ul>
+
+        <div style="border: 1px solid var(--line); border-radius: 14px; padding: 18px 16px; background: var(--bg);">
+          <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px;">Ensamble</div>
+          <div style="font-size: 17px; font-weight: 600; color: var(--ink-soft); line-height: 1.6;">Voting · soft<br>Stacking · LR meta</div>
+        </div>
+
+      </div>
+
+      <!-- Threshold: prominente -->
+      <div style="background: var(--ink); border-radius: 14px; padding: 22px 32px; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 32px;">
+        <div>
+          <div style="font-family: var(--font-mono); font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #a4c465; margin-bottom: 6px;">Threshold · optimizado por F2</div>
+          <div style="font-size: 48px; font-weight: 800; color: #fff; letter-spacing: -0.02em; line-height: 1;">0.13 – 0.38</div>
+          <div style="font-size: 16px; color: rgba(255,255,255,0.6); margin-top: 4px;">según algoritmo · no el 0.5 convencional</div>
+        </div>
+        <div style="height: 1px; background: rgba(255,255,255,0.12);"></div>
+        <div style="max-width: 320px;">
+          <p style="font-size: 19px; color: rgba(255,255,255,0.85); line-height: 1.5; margin: 0;">Optimizado sobre train con CV interna. Da más peso a los <strong style="color:#fff;">falsos negativos</strong> — más estricto sobre a quién NO marcar como positivo.</p>
         </div>
       </div>
 
-      <div class="dial-row">
-        <span class="label">Threshold F2</span>
-        <div class="ruler">
-          <div class="mark" style="left: 0%;"></div>
-          <div class="mark" style="left: 25%;"></div>
-          <div class="mark" style="left: 50%;"></div>
-          <div class="mark" style="left: 75%;"></div>
-          <div class="mark" style="left: 100%;"></div>
-          <div class="pin" style="left: 13%;">.13</div>
-          <div class="pin" style="left: 38%; background: var(--icesi-purple);">.38</div>
-        </div>
-        <div style="font-size: 13px; opacity: 0.85;">Rango resultante <strong>0.13 – 0.38</strong> según algoritmo. No el 0.5 convencional — optimizado por F2 sobre train con CV interna.</div>
-      </div>
     </div>
 
     <div class="slide-foot">

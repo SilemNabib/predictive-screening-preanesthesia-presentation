@@ -1,14 +1,14 @@
-﻿<section data-screen-label="13 DAG &middot; pipeline y Airflow">
+<section data-screen-label="13 DAG · pipeline y Airflow">
   <div class="title-row">
     <div>
-      <div class="eyebrow">04 &middot; Construcci&oacute;n de la soluci&oacute;n</div>
+      <div class="eyebrow">04 · Construcción de la solución</div>
       <h1 class="slide-title">Pipeline orquestado en Airflow</h1>
-      <p class="slide-subtitle">Cada modelo se entrena con el mismo flujo reproducible. Cada tarea es at&oacute;mica, versionada y reintentable de forma independiente.</p>
+      <p class="slide-subtitle">Todo el flujo de entrenamiento en un solo comando reproducible.</p>
     </div>
   </div>
 
   <div class="slide-body">
-    <div style="display: grid; grid-template-columns: 3fr 1.4fr; gap: 24px; flex: 1; min-height: 0; align-items: stretch;">
+    <div style="display: grid; grid-template-columns: 3fr 1fr; gap: 24px; flex: 1; min-height: 0; align-items: stretch;">
 
       <!-- Izquierda: DAG -->
       <div class="dag-canvas" style="display: grid; grid-template-columns: 1fr; gap: 10px; overflow: hidden;">
@@ -18,29 +18,29 @@
           <div class="dag-track">
             <div class="dag-task entry single" style="flex: 0 0 auto; min-width: 180px;">
               <div class="t-name">Cargar OPERA</div>
-              <div class="t-meta">load_dataset &middot; 30 962 registros</div>
+              <div class="t-meta">load_dataset · 30 962 registros</div>
             </div>
           </div>
         </div>
 
         <div class="dag-row">
-          <div class="dag-label">Preparaci&oacute;n</div>
+          <div class="dag-label">Preparación</div>
           <div class="dag-track" style="flex-wrap: wrap; gap: 6px;">
             <div class="dag-task" style="flex: 1 1 120px; min-width: 0;">
               <div class="t-name">Limpiar datos</div>
-              <div class="t-meta">clean &middot; 24 279 adultos</div>
+              <div class="t-meta">clean · 24 279 adultos</div>
             </div>
             <div class="dag-task" style="flex: 1 1 120px; min-width: 0;">
               <div class="t-name">Construir target</div>
-              <div class="t-meta">build_target &middot; AUC &ge; 0.76</div>
+              <div class="t-meta">build_target · AUC ≥ 0.76</div>
             </div>
             <div class="dag-task" style="flex: 1 1 120px; min-width: 0;">
               <div class="t-name">Seleccionar features</div>
-              <div class="t-meta">feature_select &middot; 80 vars</div>
+              <div class="t-meta">feature_select · 80 vars</div>
             </div>
             <div class="dag-task" style="flex: 1 1 120px; min-width: 0;">
               <div class="t-name">Split train / test</div>
-              <div class="t-meta">split &middot; 80/20 estratificado</div>
+              <div class="t-meta">split · 80/20 estratificado</div>
             </div>
           </div>
         </div>
@@ -54,11 +54,11 @@
             </div>
             <div class="dag-task fork" style="flex: 1 1 90px; min-width: 0;">
               <div class="t-name">Bagging</div>
-              <div class="t-meta">rf &middot; et</div>
+              <div class="t-meta">rf · et</div>
             </div>
             <div class="dag-task fork" style="flex: 1 1 90px; min-width: 0;">
               <div class="t-name">Boosting</div>
-              <div class="t-meta">xgb &middot; lgbm &middot; hgb</div>
+              <div class="t-meta">xgb · lgbm · hgb</div>
             </div>
             <div class="dag-task fork" style="flex: 1 1 90px; min-width: 0;">
               <div class="t-name">MLP</div>
@@ -66,7 +66,7 @@
             </div>
             <div class="dag-task fork" style="flex: 1 1 90px; min-width: 0;">
               <div class="t-name">Ensambles</div>
-              <div class="t-meta">voting &middot; stacking</div>
+              <div class="t-meta">voting · stacking</div>
             </div>
           </div>
         </div>
@@ -76,15 +76,15 @@
           <div class="dag-track" style="flex-wrap: wrap; gap: 6px;">
             <div class="dag-task" style="flex: 1 1 110px; min-width: 0;">
               <div class="t-name">Calibrar</div>
-              <div class="t-meta">isot&oacute;nica &middot; Platt</div>
+              <div class="t-meta">isotónica · Platt</div>
             </div>
             <div class="dag-task" style="flex: 1 1 110px; min-width: 0;">
               <div class="t-name">Optimizar umbral</div>
-              <div class="t-meta">tune_threshold &middot; F2</div>
+              <div class="t-meta">tune_threshold · F2</div>
             </div>
             <div class="dag-task" style="flex: 1 1 110px; min-width: 0;">
               <div class="t-name">Evaluar</div>
-              <div class="t-meta">evaluate &middot; test set</div>
+              <div class="t-meta">evaluate · test set</div>
             </div>
             <div class="dag-task" style="flex: 1 1 110px; min-width: 0;">
               <div class="t-name">Explicar (SHAP)</div>
@@ -98,36 +98,36 @@
           <div class="dag-track" style="gap: 6px;">
             <div class="dag-task final" style="flex: 1 1 auto; min-width: 0;">
               <div class="t-name">Reporte JSON</div>
-              <div class="t-meta">write_report &middot; m&eacute;tricas + metadatos</div>
+              <div class="t-meta">write_report · métricas + metadatos</div>
             </div>
             <div class="dag-task final" style="flex: 1 1 auto; min-width: 0;">
               <div class="t-name">Persistir modelo</div>
-              <div class="t-meta">save_artifact &middot; .joblib + manifest.json</div>
+              <div class="t-meta">save_artifact · .joblib + manifest.json</div>
             </div>
           </div>
         </div>
 
       </div>
 
-      <!-- Derecha: por qu&eacute; Airflow -->
+      <!-- Derecha: por qué Airflow — tamaños legibles -->
       <div style="display: flex; flex-direction: column; gap: 14px; min-height: 0;">
 
         <div class="block dark" style="flex: 1; min-height: 0; overflow: hidden;">
-          <span class="label-tag" style="color: #a4c465;">Por qu&eacute; Airflow</span>
-          <h3 style="font-size: 18px; margin: 6px 0 8px;">Reproducibilidad como contrato</h3>
-          <p style="font-size: 14px; line-height: 1.5;">Cada tarea es una unidad <strong>at&oacute;mica y testeable</strong>. Reentrenar desde cero es invocar un comando: el DAG garantiza el mismo orden, los mismos artefactos y un registro autom&aacute;tico.</p>
+          <span class="label-tag" style="color: #a4c465;">Por qué Airflow</span>
+          <h3 style="font-size: 22px; margin: 8px 0 10px;">Un comando, todo el pipeline</h3>
+          <p style="font-size: 17px; line-height: 1.55;">Reentrenar desde cero es invocar un DAG. El orden, los artefactos y el registro son siempre los mismos.</p>
+        </div>
+
+        <div class="block tinted" style="flex: 1; min-height: 0; overflow: hidden;">
+          <span class="label-tag">Atomicidad</span>
+          <h3 style="font-size: 20px; margin: 6px 0 8px;">Falla una tarea → solo esa</h3>
+          <p style="font-size: 16px; line-height: 1.5;">No se repite todo el pipeline — solo la tarea que falló.</p>
         </div>
 
         <div class="block tinted" style="flex: 1; min-height: 0; overflow: hidden;">
           <span class="label-tag">Trazabilidad</span>
-          <h3 style="font-size: 16px; margin: 4px 0 6px;">Logs por tarea</h3>
-          <p style="font-size: 13px; line-height: 1.5;">Par&aacute;metros, duraci&oacute;n, m&eacute;tricas y fallas quedan versionados. Auditable a posteriori.</p>
-        </div>
-
-        <div class="block tinted" style="flex: 1; min-height: 0; overflow: hidden;">
-          <span class="label-tag">Resiliencia</span>
-          <h3 style="font-size: 16px; margin: 4px 0 6px;">Reintento por tarea</h3>
-          <p style="font-size: 13px; line-height: 1.5;">Si una tarea falla, s&oacute;lo se reintenta esa &#8212; no todo el pipeline. Ideal para entrenamientos largos.</p>
+          <h3 style="font-size: 20px; margin: 6px 0 8px;">Logs por ejecución</h3>
+          <p style="font-size: 16px; line-height: 1.5;">Parámetros, duración, métricas y fallas versionados. Auditable a posteriori.</p>
         </div>
 
       </div>
@@ -136,7 +136,7 @@
   </div>
 
   <div class="slide-foot">
-    <div class="brand-mark"><span class="dot"></span> DAG &middot; pipeline</div>
+    <div class="brand-mark"><span class="dot"></span> DAG · pipeline</div>
     <div>17 / 30</div>
   </div>
 </section>
