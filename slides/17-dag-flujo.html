@@ -18,7 +18,7 @@
           <div class="dag-track">
             <div class="dag-task entry single" style="flex: 0 0 auto; min-width: 180px;">
               <div class="t-name">Cargar OPERA</div>
-              <div class="t-meta">load_dataset · 30 962 registros</div>
+              <div class="t-meta">30 962 registros</div>
             </div>
           </div>
         </div>
@@ -28,19 +28,19 @@
           <div class="dag-track" style="flex-wrap: wrap; gap: 6px;">
             <div class="dag-task" style="flex: 1 1 120px; min-width: 0;">
               <div class="t-name">Limpiar datos</div>
-              <div class="t-meta">clean · 24 279 adultos</div>
+              <div class="t-meta">24 279 adultos</div>
             </div>
             <div class="dag-task" style="flex: 1 1 120px; min-width: 0;">
               <div class="t-name">Construir target</div>
-              <div class="t-meta">build_target · AUC ≥ 0.76</div>
+              <div class="t-meta">AUC ≥ 0.76</div>
             </div>
             <div class="dag-task" style="flex: 1 1 120px; min-width: 0;">
               <div class="t-name">Seleccionar features</div>
-              <div class="t-meta">feature_select · 80 vars</div>
+              <div class="t-meta">80 vars</div>
             </div>
             <div class="dag-task" style="flex: 1 1 120px; min-width: 0;">
               <div class="t-name">Split train / test</div>
-              <div class="t-meta">split · 80/20</div>
+              <div class="t-meta">80/20</div>
             </div>
           </div>
         </div>
@@ -80,11 +80,11 @@
             </div>
             <div class="dag-task" style="flex: 1 1 110px; min-width: 0;">
               <div class="t-name">Optimizar umbral</div>
-              <div class="t-meta">tune_threshold · F2</div>
+              <div class="t-meta">F2</div>
             </div>
             <div class="dag-task" style="flex: 1 1 110px; min-width: 0;">
               <div class="t-name">Evaluar</div>
-              <div class="t-meta">evaluate · test set</div>
+              <div class="t-meta">test set</div>
             </div>
             <div class="dag-task" style="flex: 1 1 110px; min-width: 0;">
               <div class="t-name">Explicar (SHAP)</div>
@@ -98,11 +98,11 @@
           <div class="dag-track" style="gap: 6px;">
             <div class="dag-task final" style="flex: 1 1 auto; min-width: 0;">
               <div class="t-name">Reporte JSON</div>
-              <div class="t-meta">write_report · métricas + metadatos</div>
+              <div class="t-meta">métricas + metadatos</div>
             </div>
             <div class="dag-task final" style="flex: 1 1 auto; min-width: 0;">
               <div class="t-name">Persistir modelo</div>
-              <div class="t-meta">save_artifact · .joblib + manifest.json</div>
+              <div class="t-meta">.joblib + manifest.json</div>
             </div>
           </div>
         </div>
