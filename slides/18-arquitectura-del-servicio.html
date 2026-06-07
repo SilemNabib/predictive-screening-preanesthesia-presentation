@@ -8,7 +8,7 @@
     </div>
 
     <div class="slide-body">
-      <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 28px; flex: 1; min-height: 0; align-items: stretch;">
+      <div style="display: grid; grid-template-columns: 3fr 2fr; gap: 28px; flex: 1; min-height: 0; align-items: stretch;">
 
         <!-- Izquierda: flujo completo -->
         <div style="display: flex; flex-direction: column; gap: 20px; justify-content: center;">
@@ -41,7 +41,7 @@
                   <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" width="38" height="38"><rect x="4" y="4" width="24" height="24" rx="3"/><line x1="4" y1="11" x2="28" y2="11"/><line x1="10" y1="17" x2="22" y2="17"/><line x1="10" y1="22" x2="18" y2="22"/></svg>
                 </div>
               </div>
-              <div class="node-label" style="font-size: 17px;">.joblib + manifest</div>
+              <div class="node-label">.joblib + manifest</div>
               <div class="node-meta">dos artefactos</div>
             </div>
             <div class="arch-arrow">→</div>
@@ -64,53 +64,53 @@
         <div style="display: flex; flex-direction: column; gap: 0; background: var(--bg-soft); border: 1px solid var(--line); border-radius: 16px; overflow: hidden;">
           <div style="background: var(--icesi-purple-deep); color: #fff; padding: 16px 20px; display: flex; align-items: center; gap: 10px;">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#a4c465" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="8" y1="15" x2="16" y2="15"/></svg>
-            <span style="font-family: var(--font-mono); font-size: 13px; font-weight: 700; letter-spacing: 0.08em; color: #fff;">manifest.json</span>
-            <span style="margin-left: auto; font-family: var(--font-mono); font-size: 11px; color: rgba(255,255,255,0.55);">contrato técnico</span>
+            <span style="font-family: var(--font-mono); font-weight: 700; letter-spacing: 0.08em; color: #fff;">manifest.json</span>
+            <span style="margin-left: auto; font-family: var(--font-mono); color: rgba(255,255,255,0.55);">contrato técnico</span>
           </div>
 
           <!-- Campos del manifiesto como filas legibles -->
-          <div style="flex: 1; display: flex; flex-direction: column; padding: 16px; gap: 10px;">
+          <div style="flex: 1; display: flex; flex-direction: column; padding: 16px; gap: 10px; font-size: var(--t-body);">
 
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
               <div style="background: var(--icesi-purple-tint); border-radius: 10px; padding: 12px 14px;">
-                <div style="font-family: var(--font-mono); font-size: 12px; color: var(--icesi-purple-deep); font-weight: 700; margin-bottom: 4px;">algorithm</div>
-                <div style="font-size: 18px; font-weight: 700; color: var(--ink);">XGBoost</div>
+                <div style="font-family: var(--font-mono); color: var(--icesi-purple-deep); font-weight: 700; margin-bottom: 4px;">algorithm</div>
+                <div style="font-weight: 700; color: var(--ink);">XGBoost</div>
               </div>
               <div style="background: var(--icesi-purple-tint); border-radius: 10px; padding: 12px 14px;">
-                <div style="font-family: var(--font-mono); font-size: 12px; color: var(--icesi-purple-deep); font-weight: 700; margin-bottom: 4px;">threshold</div>
-                <div style="font-size: 18px; font-weight: 700; color: var(--ink);">0.14 <span style="font-size: 12px; font-weight: 400; color: var(--muted);">· F2</span></div>
+                <div style="font-family: var(--font-mono); color: var(--icesi-purple-deep); font-weight: 700; margin-bottom: 4px;">threshold</div>
+                <div style="font-weight: 700; color: var(--ink);">0.14 <span style="font-weight: 400; color: var(--muted);">· F2</span></div>
               </div>
             </div>
 
             <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px;">
               <div style="background: var(--success-soft); border-radius: 10px; padding: 12px 14px; border: 1px solid rgba(0,176,116,0.2);">
-                <div style="font-family: var(--font-mono); font-size: 11px; color: #007a52; font-weight: 700; margin-bottom: 4px;">roc_auc</div>
-                <div style="font-size: 20px; font-weight: 800; color: var(--success);">0.861</div>
+                <div style="font-family: var(--font-mono); color: #007a52; font-weight: 700; margin-bottom: 4px;">roc_auc</div>
+                <div style="font-size: var(--t-body-lg); font-weight: 800; color: var(--success);">0.861</div>
               </div>
               <div style="background: var(--success-soft); border-radius: 10px; padding: 12px 14px; border: 1px solid rgba(0,176,116,0.2);">
-                <div style="font-family: var(--font-mono); font-size: 11px; color: #007a52; font-weight: 700; margin-bottom: 4px;">recall</div>
-                <div style="font-size: 20px; font-weight: 800; color: var(--success);">0.853</div>
+                <div style="font-family: var(--font-mono); color: #007a52; font-weight: 700; margin-bottom: 4px;">recall</div>
+                <div style="font-size: var(--t-body-lg); font-weight: 800; color: var(--success);">0.853</div>
               </div>
               <div style="background: var(--bg); border-radius: 10px; padding: 12px 14px; border: 1px solid var(--line);">
-                <div style="font-family: var(--font-mono); font-size: 11px; color: var(--muted); font-weight: 700; margin-bottom: 4px;">f2</div>
-                <div style="font-size: 20px; font-weight: 700; color: var(--ink);">0.677</div>
+                <div style="font-family: var(--font-mono); color: var(--muted); font-weight: 700; margin-bottom: 4px;">f2</div>
+                <div style="font-size: var(--t-body-lg); font-weight: 700; color: var(--ink);">0.677</div>
               </div>
             </div>
 
             <div style="background: var(--bg); border-radius: 10px; padding: 12px 14px; border: 1px solid var(--line); display: flex; align-items: center; gap: 12px;">
               <div>
-                <div style="font-family: var(--font-mono); font-size: 11px; color: var(--muted); font-weight: 700; margin-bottom: 2px;">feature_names</div>
-                <div style="font-size: 17px; font-weight: 700; color: var(--ink);">80 variables</div>
+                <div style="font-family: var(--font-mono); color: var(--muted); font-weight: 700; margin-bottom: 2px;">feature_names</div>
+                <div style="font-weight: 700; color: var(--ink);">80 variables</div>
               </div>
               <div style="width: 1px; height: 32px; background: var(--line); flex-shrink: 0;"></div>
               <div>
-                <div style="font-family: var(--font-mono); font-size: 11px; color: var(--muted); font-weight: 700; margin-bottom: 2px;">prevalence · train</div>
-                <div style="font-size: 17px; font-weight: 700; color: var(--ink);">19.4 %</div>
+                <div style="font-family: var(--font-mono); color: var(--muted); font-weight: 700; margin-bottom: 2px;">prevalence · train</div>
+                <div style="font-weight: 700; color: var(--ink);">19.4 %</div>
               </div>
             </div>
           </div>
 
-          <div style="padding: 12px 20px; background: var(--icesi-purple-deep); border-top: 1px solid var(--line); font-size: 15px; color: #a4c465; font-family: var(--font-mono); font-weight: 700; letter-spacing: 0.04em;">
+          <div style="padding: 12px 20px; background: var(--icesi-purple-deep); border-top: 1px solid var(--line); color: #a4c465; font-family: var(--font-mono); font-weight: 700; letter-spacing: 0.04em;">
             Sin manifiesto → la API rechaza el modelo
           </div>
         </div>

@@ -1,4 +1,5 @@
-/* Presentación · Modelo predictivo de valoración preanestésica    ICESI · Fundación Valle del Lili · 2026 */
+/* Presentación · Modelo predictivo de valoración preanestésica
+    ICESI · Fundación Valle del Lili · 2026 */
 :root {
   /* ICESI primary palette */
   --icesi-purple: #a4c465;
@@ -26,6 +27,21 @@
   /* Type */
   --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+
+  /* Typographic scale — designed for 1920×1080 projected at distance
+     All body/label text: minimum 22px. Captions/badges: minimum 18px. */
+  --t-display:   100px; /* hero numbers, closing quote             */
+  --t-title:      72px; /* slide-title (.slide-title)              */
+  --t-h1:         92px; /* section transition h1                   */
+  --t-h2:         56px; /* large stat / context flow               */
+  --t-h3:         36px; /* card headers, block h3                  */
+  --t-h4:         30px; /* pipeline step h4, phase-card h4         */
+  --t-body-lg:    24px; /* slide-subtitle, section-lead, block p   */
+  --t-body:       22px; /* default body copy, list items, callout  */
+  --t-body-sm:    22px; /* secondary body, table cells             */
+  --t-label:      18px; /* mono tags, step-tag, eyebrow            */
+  --t-caption:    16px; /* footnotes, axis labels, minor badges    */
+  --t-micro:      14px; /* ui-mock chrome — decorative only        */
 }
 
 * { box-sizing: border-box; }
@@ -51,7 +67,7 @@ deck-stage > section {
   display: flex;
   align-items: center;
   gap: 14px;
-  font-size: 17px;
+  font-size: var(--t-label);
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -73,7 +89,7 @@ deck-stage > section {
 h1, h2, h3, h4 { margin: 0; }
 
 .slide-title {
-  font-size: 67px;
+  font-size: var(--t-title);
   font-weight: 800;
   line-height: 1.04;
   letter-spacing: -0.02em;
@@ -81,7 +97,7 @@ h1, h2, h3, h4 { margin: 0; }
   margin-bottom: 8px;
 }
 .slide-subtitle {
-  font-size: 26px;
+  font-size: var(--t-body-lg);
   font-weight: 400;
   color: var(--muted);
   line-height: 1.45;
@@ -107,7 +123,7 @@ h1, h2, h3, h4 { margin: 0; }
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 13px;
+  font-size: var(--t-caption);
   color: var(--muted);
   font-weight: 500;
   letter-spacing: 0.04em;

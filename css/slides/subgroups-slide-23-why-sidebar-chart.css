@@ -92,7 +92,7 @@
 .subg-table td .cell-sub {
   display: block;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--t-caption);
   font-weight: 500;
   color: var(--muted);
   letter-spacing: 0.02em;

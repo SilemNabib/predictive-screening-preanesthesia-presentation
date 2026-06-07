@@ -7,14 +7,14 @@
 table.data {
   width: 100%;
   border-collapse: collapse;
-  font-size: 19px;
+  font-size: var(--t-body);
 }
 table.data th {
   background: var(--icesi-purple);
   color: #fff;
   text-align: left;
   font-weight: 600;
-  font-size: 18px;
+  font-size: var(--t-body);
   letter-spacing: 0.04em;
   padding: 14px 18px;
 }
@@ -34,12 +34,12 @@ table.data tr.is-best td:first-child {
   border-left: 4px solid var(--success);
 }
 table.data tr.is-rejected td { color: var(--muted); }
-table.data .mono { font-family: var(--font-mono); font-size: 13.5px; }
+table.data .mono { font-family: var(--font-mono); font-size: var(--t-body); }
 table.data .pill {
   display: inline-block;
   padding: 2px 10px;
   border-radius: 999px;
-  font-size: 12px;
+  font-size: var(--t-caption);
   font-weight: 600;
   letter-spacing: 0.02em;
 }
@@ -58,20 +58,20 @@ table.data .pill.muted { background: var(--line-soft); color: var(--muted); }
 }
 .slide-section .section-num {
   font-family: var(--font-mono);
-  font-size: 14px;
+  font-size: var(--t-caption);
   letter-spacing: 0.18em;
   opacity: 0.8;
   margin-bottom: 14px;
 }
 .slide-section h1 {
-  font-size: 92px;
+  font-size: var(--t-h1);
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1;
   max-width: 16ch;
 }
 .slide-section .section-lead {
-  font-size: 20px;
+  font-size: var(--t-body-lg);
   font-weight: 400;
   line-height: 1.5;
   margin-top: 28px;
@@ -101,7 +101,7 @@ table.data .pill.muted { background: var(--line-soft); color: var(--muted); }
 }
 .confusion .head {
   display: flex; align-items: center; justify-content: center;
-  font-size: 12px;
+  font-size: var(--t-caption);
   color: var(--muted);
   font-weight: 600;
   letter-spacing: 0.05em;
@@ -111,7 +111,7 @@ table.data .pill.muted { background: var(--line-soft); color: var(--muted); }
   writing-mode: vertical-rl;
   transform: rotate(180deg);
   display: flex; align-items: center; justify-content: center;
-  font-size: 12px;
+  font-size: var(--t-caption);
   color: var(--muted);
   font-weight: 600;
   letter-spacing: 0.05em;
@@ -127,7 +127,7 @@ table.data .pill.muted { background: var(--line-soft); color: var(--muted); }
   min-height: 110px;
 }
 .confusion .cell .name {
-  font-size: 11px;
+  font-size: var(--t-caption);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -140,7 +140,7 @@ table.data .pill.muted { background: var(--line-soft); color: var(--muted); }
   line-height: 1;
 }
 .confusion .cell .pct {
-  font-size: 12px;
+  font-size: var(--t-caption);
   opacity: 0.85;
 }
 .confusion .cell.tp { background: var(--success); color: #fff; }
@@ -151,10 +151,10 @@ table.data .pill.muted { background: var(--line-soft); color: var(--muted); }
 .confusion.confusion-wide { grid-template-columns: 80px repeat(2, 1fr); gap: 14px; }
 .confusion.confusion-wide .cell { min-height: 160px; padding: 22px 26px; }
 .confusion.confusion-wide .cell .count { font-size: 56px; }
-.confusion.confusion-wide .cell .name { font-size: 13px; }
-.confusion.confusion-wide .cell .pct { font-size: 14px; }
-.confusion.confusion-wide .head { font-size: 14px; }
-.confusion.confusion-wide .side { font-size: 14px; }
+.confusion.confusion-wide .cell .name { font-size: var(--t-caption); }
+.confusion.confusion-wide .cell .pct { font-size: var(--t-caption); }
+.confusion.confusion-wide .head { font-size: var(--t-caption); }
+.confusion.confusion-wide .side { font-size: var(--t-caption); }
 
 /* Checklist */
 .checklist {
@@ -181,17 +181,17 @@ table.data .pill.muted { background: var(--line-soft); color: var(--muted); }
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
+  font-size: var(--t-caption);
 }
 .checklist .check .oe {
   font-family: var(--font-mono);
-  font-size: 20px;
+  font-size: var(--t-body-sm);
   color: var(--success);
   font-weight: 700;
   letter-spacing: 0.08em;
 }
 .checklist .check h4 {
-  font-size: 26px;
+  font-size: var(--t-body-lg);
   font-weight: 700;
   color: var(--ink);
 }
@@ -224,12 +224,12 @@ table.data .pill.muted { background: var(--line-soft); color: var(--muted); }
   font-family: var(--font-mono);
 }
 .numbered li h4 {
-  font-size: 26px;
+  font-size: var(--t-body-lg);
   font-weight: 700;
   margin-bottom: 6px;
 }
 .numbered li p {
-  font-size: 20px;
+  font-size: var(--t-body-sm);
   color: var(--ink-soft);
   line-height: 1.55;
   margin: 0;
@@ -259,7 +259,7 @@ table.data .pill.muted { background: var(--line-soft); color: var(--muted); }
 }
 .slide-end .end-meta {
   font-family: var(--font-mono);
-  font-size: 14px;
+  font-size: var(--t-caption);
   letter-spacing: 0.14em;
   opacity: 0.9;
   margin-top: 22px;
@@ -273,11 +273,11 @@ table.data .pill.muted { background: var(--line-soft); color: var(--muted); }
   gap: 60px;
 }
 .slide-end .end-bottom .authors {
-  font-size: 16px;
+  font-size: var(--t-caption);
   line-height: 1.7;
 }
 .slide-end .end-bottom .authors .label {
-  font-size: 11px;
+  font-size: var(--t-caption);
   letter-spacing: 0.2em;
   text-transform: uppercase;
   opacity: 0.7;
@@ -289,7 +289,7 @@ table.data .pill.muted { background: var(--line-soft); color: var(--muted); }
   letter-spacing: -0.03em;
 }
 .slide-end .end-bottom .thanks .q {
-  font-size: 22px;
+  font-size: var(--t-body);
   font-weight: 500;
   opacity: 0.85;
   display: block;
@@ -307,7 +307,7 @@ table.data .pill.muted { background: var(--line-soft); color: var(--muted); }
   grid-template-columns: 260px 1fr 130px 200px;
   gap: 14px;
   align-items: center;
-  font-size: 19px;
+  font-size: var(--t-body);
 }
 .bar-row .row .name { font-weight: 600; color: var(--ink); }
 .bar-row .row .track {
@@ -327,12 +327,12 @@ table.data .pill.muted { background: var(--line-soft); color: var(--muted); }
 .bar-row .row .fill.danger { background: var(--danger); }
 .bar-row .row .value {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: var(--t-caption);
   font-weight: 600;
   color: var(--ink);
 }
 .bar-row .row .badge {
-  font-size: 11px;
+  font-size: var(--t-caption);
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -361,7 +361,7 @@ table.data .pill.muted { background: var(--line-soft); color: var(--muted); }
 }
 .algo-group .gtitle {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--t-caption);
   font-weight: 700;
   letter-spacing: 0.1em;
   color: var(--icesi-purple);
@@ -372,7 +372,7 @@ table.data .pill.muted { background: var(--line-soft); color: var(--muted); }
   display: flex; flex-direction: column; gap: 6px;
 }
 .algo-group ul li {
-  font-size: 19px;
+  font-size: var(--t-body);
   font-weight: 600;
   color: var(--ink);
   padding: 8px 10px;
@@ -391,7 +391,7 @@ table.data .pill.muted { background: var(--line-soft); color: var(--muted); }
   padding: 20px 26px;
 }
 .dial-row .label {
-  font-size: 13px;
+  font-size: var(--t-caption);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   opacity: 0.7;
@@ -437,13 +437,13 @@ table.data .pill.muted { background: var(--line-soft); color: var(--muted); }
   overflow: hidden;
 }
 .viz-card .viz-title {
-  font-size: 14px;
+  font-size: var(--t-caption);
   font-weight: 700;
   color: var(--ink);
   margin-bottom: 6px;
 }
 .viz-card .viz-sub {
-  font-size: 12px;
+  font-size: var(--t-caption);
   color: var(--muted);
   margin-bottom: 14px;
 }
@@ -486,7 +486,7 @@ table.data .pill.muted { background: var(--line-soft); color: var(--muted); }
 .eda-col-success .eda-item-xl .glyph { color: var(--success); border-color: rgba(0,176,116,0.25); }
 .eda-item-xl .glyph svg { width: 42px; height: 42px; }
 .eda-item-xl .body {
-  font-size: 17px;
+  font-size: var(--t-body-sm);
   color: var(--ink-soft);
   line-height: 1.45;
 }
@@ -494,7 +494,7 @@ table.data .pill.muted { background: var(--line-soft); color: var(--muted); }
   color: var(--ink);
   font-weight: 700;
   display: block;
-  font-size: 19px;
+  font-size: var(--t-body);
   margin-bottom: 3px;
   letter-spacing: -0.005em;
 }
@@ -503,7 +503,7 @@ table.data .pill.muted { background: var(--line-soft); color: var(--muted); }
   align-items: center;
   gap: 14px;
   font-family: var(--font-mono);
-  font-size: 15px;
+  font-size: var(--t-caption);
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -519,7 +519,7 @@ table.data .pill.muted { background: var(--line-soft); color: var(--muted); }
 }
 .eda-section-tag .count {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: var(--t-caption);
   font-weight: 600;
   letter-spacing: 0.06em;
   color: var(--muted);
@@ -558,7 +558,7 @@ table.data .pill.muted { background: var(--line-soft); color: var(--muted); }
 .indicator.neutral .ic-icon { color: var(--ink-soft); }
 .indicator .ic-body { display: flex; flex-direction: column; gap: 2px; }
 .indicator .ic-value {
-  font-size: 26px;
+  font-size: var(--t-body-lg);
   font-weight: 800;
   letter-spacing: -0.015em;
   color: var(--ink);
@@ -567,7 +567,7 @@ table.data .pill.muted { background: var(--line-soft); color: var(--muted); }
 .indicator.danger .ic-value { color: var(--danger); }
 .indicator.success .ic-value { color: var(--success); }
 .indicator .ic-label {
-  font-size: 16px;
+  font-size: var(--t-body);
   color: var(--ink-soft);
   font-weight: 500;
   line-height: 1.35;
@@ -575,8 +575,8 @@ table.data .pill.muted { background: var(--line-soft); color: var(--muted); }
 .indicator.compact { padding: 12px 16px; gap: 14px; grid-template-columns: 56px 1fr; }
 .indicator.compact .ic-icon { width: 56px; height: 56px; border-radius: 12px; }
 .indicator.compact .ic-icon svg { width: 30px; height: 30px; }
-.indicator.compact .ic-value { font-size: 22px; }
-.indicator.compact .ic-label { font-size: 15px; }
+.indicator.compact .ic-value { font-size: var(--t-body-sm); }
+.indicator.compact .ic-label { font-size: var(--t-caption); }
 
 /* Section card around an indicator list (used when not on tinted background) */
 .indicator-card {
@@ -589,7 +589,7 @@ table.data .pill.muted { background: var(--line-soft); color: var(--muted); }
 }
 .indicator-card .ic-head .ic-tag {
   font-family: var(--font-mono);
-  font-size: 15px;
+  font-size: var(--t-caption);
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -597,14 +597,14 @@ table.data .pill.muted { background: var(--line-soft); color: var(--muted); }
   display: block;
 }
 .indicator-card .ic-head h3 {
-  font-size: 28px;
+  font-size: var(--t-h3);
   font-weight: 700;
   line-height: 1.2;
   color: var(--ink);
   letter-spacing: -0.01em;
 }
 .indicator-card .ic-question {
-  font-size: 16px;
+  font-size: var(--t-body-sm);
   color: var(--ink-soft);
   font-style: italic;
   line-height: 1.4;
@@ -672,28 +672,28 @@ table.data .pill.muted { background: var(--line-soft); color: var(--muted); }
   align-items: center;
   justify-content: center;
   font-family: var(--font-mono);
-  font-size: 22px;
+  font-size: var(--t-body);
   font-weight: 800;
   letter-spacing: -0.02em;
 }
 .cycle-card .cy-body { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
 .cycle-card .cy-tag {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: var(--t-caption);
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--muted);
 }
 .cycle-card h3 {
-  font-size: 26px;
+  font-size: var(--t-body-lg);
   font-weight: 700;
   line-height: 1.18;
   color: var(--ink);
   letter-spacing: -0.01em;
 }
 .cycle-card p {
-  font-size: 17px;
+  font-size: var(--t-body-sm);
   color: var(--ink-soft);
   line-height: 1.5;
   margin: 0;
@@ -744,21 +744,21 @@ table.data .pill.muted { background: var(--line-soft); color: var(--muted); }
 .phase-card .ph-body { display: flex; flex-direction: column; gap: 10px; min-width: 0; justify-content: center; }
 .phase-card .ph-tag {
   font-family: var(--font-mono);
-  font-size: 15px;
+  font-size: var(--t-caption);
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--muted);
 }
 .phase-card h4 {
-  font-size: 30px;
+  font-size: var(--t-h4);
   font-weight: 700;
   line-height: 1.18;
   color: var(--ink);
   letter-spacing: -0.01em;
 }
 .phase-card p {
-  font-size: 19px;
+  font-size: var(--t-body);
   color: var(--ink-soft);
   line-height: 1.5;
   margin: 0;

@@ -8,7 +8,7 @@
   </div>
 
   <div class="slide-body">
-    <div style="display: grid; grid-template-columns: 3fr 1fr; gap: 24px; flex: 1; min-height: 0; align-items: stretch;">
+    <div style="display: grid; grid-template-columns: 4fr 2fr; gap: 24px; flex: 1; min-height: 0; align-items: stretch;">
 
       <!-- Izquierda: DAG -->
       <div class="dag-canvas" style="display: grid; grid-template-columns: 1fr; gap: 10px; overflow: hidden;">
@@ -40,7 +40,7 @@
             </div>
             <div class="dag-task" style="flex: 1 1 120px; min-width: 0;">
               <div class="t-name">Split train / test</div>
-              <div class="t-meta">split · 80/20 estratificado</div>
+              <div class="t-meta">split · 80/20</div>
             </div>
           </div>
         </div>
@@ -114,20 +114,20 @@
 
         <div class="block dark" style="flex: 1; min-height: 0; overflow: hidden;">
           <span class="label-tag" style="color: #a4c465;">Por qué Airflow</span>
-          <h3 style="font-size: 22px; margin: 8px 0 10px;">Un comando, todo el pipeline</h3>
-          <p style="font-size: 17px; line-height: 1.55;">Reentrenar desde cero es invocar un DAG. El orden, los artefactos y el registro son siempre los mismos.</p>
+          <h3 style="margin: 8px 0 10px;">Un comando, todo el pipeline</h3>
+          <p style="line-height: 1.35;">Reentrenar desde cero es invocar un DAG. El orden, los artefactos y el registro son siempre los mismos.</p>
         </div>
 
         <div class="block tinted" style="flex: 1; min-height: 0; overflow: hidden;">
           <span class="label-tag">Atomicidad</span>
-          <h3 style="font-size: 20px; margin: 6px 0 8px;">Falla una tarea → solo esa</h3>
-          <p style="font-size: 16px; line-height: 1.5;">No se repite todo el pipeline — solo la tarea que falló.</p>
+          <h3 style="margin: 6px 0 8px;">Falla una tarea → solo esa</h3>
+          <p style="line-height: 1.35;">No se repite todo el pipeline — solo la tarea que falló.</p>
         </div>
 
         <div class="block tinted" style="flex: 1; min-height: 0; overflow: hidden;">
           <span class="label-tag">Trazabilidad</span>
-          <h3 style="font-size: 20px; margin: 6px 0 8px;">Logs por ejecución</h3>
-          <p style="font-size: 16px; line-height: 1.5;">Parámetros, duración, métricas y fallas versionados. Auditable a posteriori.</p>
+          <h3 style="margin: 6px 0 8px;">Logs por ejecución</h3>
+          <p style="line-height: 1.35;">Parámetros, duración, métricas y fallas versionados. Auditable a posteriori.</p>
         </div>
 
       </div>

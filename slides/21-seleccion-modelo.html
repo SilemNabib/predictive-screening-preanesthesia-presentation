@@ -14,16 +14,16 @@
         <div style="display: flex; flex-direction: column; gap: 16px;">
 
           <div class="block" style="padding: 32px 32px; flex: 1; display: flex; flex-direction: column; justify-content: center;">
-            <div class="eyebrow" style="margin-bottom: 16px; font-size: 15px;">paso 1 — dominio</div>
-            <p style="font-size: 21px; line-height: 1.6; color: var(--ink-soft); margin: 0;">
+            <div class="eyebrow" style="margin-bottom: 16px;">paso 1 — dominio</div>
+            <p style="line-height: 1.6; color: var(--ink-soft); margin: 0;">
               El usuario selecciona el <strong>tipo de riesgo</strong>: general (múltiples flags) o
               <strong>hospitalización / UCI</strong> — el de mayor predictibilidad.
             </p>
           </div>
 
           <div class="block" style="padding: 32px 32px; flex: 1; display: flex; flex-direction: column; justify-content: center;">
-            <div class="eyebrow" style="margin-bottom: 16px; font-size: 15px;">paso 2 — modelo</div>
-            <p style="font-size: 21px; line-height: 1.6; color: var(--ink-soft); margin: 0;">
+            <div class="eyebrow" style="margin-bottom: 16px;">paso 2 — modelo</div>
+            <p style="line-height: 1.6; color: var(--ink-soft); margin: 0;">
               La interfaz expone <strong>9 algoritmos</strong> con sus métricas.
               XGBoost lidera con <span style="font-family: var(--font-mono); font-weight: 700; color: var(--icesi-purple);">ROC-AUC 86.1 %</span>
               y calibración isotónica validada.

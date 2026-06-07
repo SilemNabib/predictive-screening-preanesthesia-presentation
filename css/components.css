@@ -21,7 +21,7 @@
   border-color: transparent;
 }
 .block h3 {
-  font-size: 26px;
+  font-size: var(--t-h3);
   font-weight: 700;
   color: var(--ink);
   margin-bottom: 12px;
@@ -29,7 +29,7 @@
 }
 .block.dark h3 { color: #fff; }
 .block p {
-  font-size: 20px;
+  font-size: var(--t-body-sm);
   color: var(--ink-soft);
   line-height: 1.55;
   margin: 0;
@@ -38,7 +38,7 @@
 
 .block .label-tag {
   font-family: var(--font-mono);
-  font-size: 16px;
+  font-size: var(--t-caption);
   font-weight: 700;
   letter-spacing: 0.1em;
   color: var(--icesi-purple);
@@ -52,7 +52,7 @@ ul.tidy {
   display: flex; flex-direction: column; gap: 10px;
 }
 ul.tidy li {
-  font-size: 18px;
+  font-size: var(--t-body);
   color: var(--ink-soft);
   line-height: 1.55;
   padding-left: 22px;
@@ -72,7 +72,7 @@ ul.tidy li strong { color: var(--ink); font-weight: 600; }
   color: #fff;
   border-radius: 14px;
   padding: 20px 26px;
-  font-size: 19px;
+  font-size: var(--t-body);
   line-height: 1.55;
   display: flex;
   gap: 16px;
@@ -83,7 +83,7 @@ ul.tidy li strong { color: var(--ink); font-weight: 600; }
 }
 .callout .marker {
   font-family: var(--font-mono);
-  font-size: 16px;
+  font-size: var(--t-caption);
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -123,13 +123,13 @@ section[data-screen-label="03 Contexto"] .col-3 > div:nth-child(3) .label-tag {
   color: #a4c465;
 }
 section[data-screen-label="03 Contexto"] .col-3 h3 {
-  font-size: 32px;
+  font-size: var(--t-h3);
 }
 section[data-screen-label="03 Contexto"] .col-3 p {
-  font-size: 20px;
+  font-size: var(--t-body-sm);
 }
 section[data-screen-label="03 Contexto"] .col-3 .label-tag {
-  font-size: 16px;
+  font-size: var(--t-caption);
   font-weight: 700;
 }
 
@@ -138,7 +138,7 @@ section[data-screen-label="03 Contexto"] .col-3 .label-tag {
   background: #023739 !important;
   color: #fff !important;
   border-color: #023739;
-  font-size: 18px;
+  font-size: var(--t-body);
 }
 .dark-callout .marker {
   background: rgba(255,255,255,0.2) !important;
@@ -167,20 +167,20 @@ section[data-screen-label="03 Contexto"] .col-3 .label-tag {
   color: var(--ink);
 }
 .metric .value .suffix {
-  font-size: 26px;
+  font-size: var(--t-body-lg);
   font-weight: 700;
   color: var(--muted);
   margin-left: 2px;
 }
 .metric .label {
-  font-size: 16px;
+  font-size: var(--t-caption);
   font-weight: 600;
   color: var(--muted);
   letter-spacing: 0.04em;
   margin-top: 10px;
 }
 .metric .hint {
-  font-size: 12px;
+  font-size: var(--t-caption);
   color: var(--muted);
   margin-top: 4px;
 }
@@ -213,19 +213,19 @@ section[data-screen-label="03 Contexto"] .col-3 .label-tag {
 }
 .pipeline .step .step-tag {
   font-family: var(--font-mono);
-  font-size: 18px;
+  font-size: var(--t-label);
   font-weight: 600;
   letter-spacing: 0.1em;
   color: var(--icesi-purple);
   text-transform: uppercase;
 }
 .pipeline .step h4 {
-  font-size: 30px;
+  font-size: var(--t-h4);
   font-weight: 700;
   line-height: 1.25;
 }
 .pipeline .step p {
-  font-size: 18px;
+  font-size: var(--t-body);
   color: var(--muted);
   line-height: 1.5;
   margin: 0;
@@ -233,7 +233,7 @@ section[data-screen-label="03 Contexto"] .col-3 .label-tag {
 .pipeline .arrow {
   display: flex;
   align-items: center;
-  font-size: 18px;
+  font-size: var(--t-body);
   color: var(--icesi-purple);
   width: 14px;
   flex-shrink: 0;
@@ -271,10 +271,10 @@ section[data-screen-label="03 Contexto"] .col-3 .label-tag {
   height: 70px;
 }
 .arch-flow-hero .arch-node .node-label {
-  font-size: 26px;
+  font-size: var(--t-body-lg);
 }
 .arch-flow-hero .arch-node .node-meta {
-  font-size: 15px;
+  font-size: var(--t-caption);
 }
 .arch-flow-hero .arch-arrow {
   font-size: 44px;
@@ -298,7 +298,7 @@ section[data-screen-label="03 Contexto"] .col-3 .label-tag {
 }
 .arch-track .track-tag {
   font-family: var(--font-mono);
-  font-size: 14px;
+  font-size: var(--t-caption);
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -312,7 +312,7 @@ section[data-screen-label="03 Contexto"] .col-3 .label-tag {
   background: var(--success-soft);
 }
 .arch-track .track-title {
-  font-size: 22px;
+  font-size: var(--t-body);
   font-weight: 700;
   color: var(--ink);
   letter-spacing: -0.005em;
@@ -346,7 +346,7 @@ section[data-screen-label="03 Contexto"] .col-3 .label-tag {
 .arch-track.offline .arch-node .node-icon { border-color: rgba(2,55,57,0.12); }
 .arch-node .node-icon svg { width: 46px; height: 46px; }
 .arch-node .node-label {
-  font-size: 19px;
+  font-size: var(--t-body);
   font-weight: 700;
   color: var(--ink);
   line-height: 1.2;
@@ -354,7 +354,7 @@ section[data-screen-label="03 Contexto"] .col-3 .label-tag {
 }
 .arch-node .node-meta {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: var(--t-caption);
   letter-spacing: 0.06em;
   color: var(--muted);
   text-transform: uppercase;
@@ -389,7 +389,7 @@ section[data-screen-label="03 Contexto"] .col-3 .label-tag {
   align-items: center;
   gap: 8px;
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: var(--t-caption);
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -525,7 +525,7 @@ section[data-screen-label="03 Contexto"] .col-3 .label-tag {
 .concept-card-xl.dark { background: #023739; color: #fff; border-color: transparent; }
 .concept-card-xl .c-head .label-tag {
   font-family: var(--font-mono);
-  font-size: 15px;
+  font-size: var(--t-caption);
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -535,7 +535,7 @@ section[data-screen-label="03 Contexto"] .col-3 .label-tag {
 }
 .concept-card-xl.dark .c-head .label-tag { color: #a4c465; }
 .concept-card-xl .c-head h3 {
-  font-size: 36px;
+  font-size: var(--t-h3);
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.015em;
@@ -543,7 +543,7 @@ section[data-screen-label="03 Contexto"] .col-3 .label-tag {
 }
 .concept-card-xl.dark .c-head h3 { color: #fff; }
 .concept-card-xl .c-lede {
-  font-size: 20px;
+  font-size: var(--t-body-sm);
   line-height: 1.5;
   color: var(--ink-soft);
   margin: 0;
@@ -589,7 +589,7 @@ section[data-screen-label="03 Contexto"] .col-3 .label-tag {
 }
 .dag-row .dag-label {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--t-caption);
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -615,7 +615,7 @@ section[data-screen-label="03 Contexto"] .col-3 .label-tag {
   min-width: 0;
 }
 .dag-task .t-name {
-  font-size: 14px;
+  font-size: var(--t-caption);
   font-weight: 700;
   color: var(--ink);
   margin-bottom: 2px;
@@ -624,7 +624,7 @@ section[data-screen-label="03 Contexto"] .col-3 .label-tag {
 }
 .dag-task .t-meta {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--t-micro);
   color: var(--muted);
 }
 .dag-task.entry { border-left-color: var(--success); }
@@ -648,7 +648,7 @@ section[data-screen-label="03 Contexto"] .col-3 .label-tag {
   min-height: 0;
 }
 .dag-canvas.xl .dag-label {
-  font-size: 16px;
+  font-size: var(--t-caption);
   letter-spacing: 0.14em;
   padding-right: 14px;
   padding-top: 14px;
@@ -667,12 +667,12 @@ section[data-screen-label="03 Contexto"] .col-3 .label-tag {
   justify-content: center;
 }
 .dag-canvas.xl .dag-task .t-name {
-  font-size: 22px;
+  font-size: var(--t-body);
   line-height: 1.2;
   margin-bottom: 6px;
 }
 .dag-canvas.xl .dag-task .t-meta {
-  font-size: 14px;
+  font-size: var(--t-caption);
 }
 .dag-canvas.xl .dag-task.single { flex: 0 0 320px; }
 
