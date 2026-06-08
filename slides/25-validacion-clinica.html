@@ -9,25 +9,37 @@
 
     <div class="slide-body">
       <div style="display: flex; flex-direction: column; gap: 20px; flex: 1;">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-          <div class="block" style="border-color: var(--icesi-purple);">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;">
-              <span class="label-tag">Variable objetivo</span>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; flex: 1;">
+          <div class="block" style="border-color: var(--icesi-purple); display: flex; flex-direction: column; justify-content: center; gap: 14px;">
+            <div style="width: 52px; height: 52px; border-radius: 14px; background: var(--icesi-purple-tint); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--icesi-purple)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>
+              </svg>
             </div>
-            <h3 style="margin-top: 8px;">Variable objetivo: hospitalización no anticipada + UCI + complicaciones postoperatorias</h3>
+            <span class="label-tag">Variable objetivo</span>
+            <h3 style="margin: 0;">Hospitalización no anticipada + UCI + complicaciones postoperatorias</h3>
           </div>
-          <div class="block" style="border-color: var(--icesi-purple);">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;">
-              <span class="label-tag">Umbral de clasificación</span>
+          <div class="block" style="border-color: var(--icesi-purple); display: flex; flex-direction: column; justify-content: center; gap: 14px;">
+            <div style="width: 52px; height: 52px; border-radius: 14px; background: var(--icesi-purple-tint); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--icesi-purple)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 21V9"/><path d="M4 9l4-6 4 6"/><path d="M4 9h8"/>
+                <path d="M14 21h6"/><path d="M17 21v-7"/>
+              </svg>
             </div>
-            <h3 style="margin-top: 8px;">Umbral conservador: detectar más, remitir más — el costo de no detectar es mayor</h3>
+            <span class="label-tag">Umbral de clasificación</span>
+            <h3 style="margin: 0;">Umbral conservador: detectar más, remitir más — el costo de no detectar es mayor</h3>
           </div>
         </div>
-        <div class="block" style="border-color: var(--icesi-purple);">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;">
-            <span class="label-tag">Costo diferencial del error</span>
+        <div class="block" style="border-color: var(--icesi-purple); display: flex; flex-direction: row; align-items: center; gap: 20px; flex: 1;">
+          <div style="width: 52px; height: 52px; border-radius: 14px; background: var(--icesi-purple-tint); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--icesi-purple)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 3v18h18"/><path d="M7 16v-4"/><path d="M12 16V8"/><path d="M17 16v-9"/>
+            </svg>
           </div>
-          <h3 style="margin-top: 8px;">El falso negativo supera ampliamente al falso positivo</h3>
+          <div>
+            <span class="label-tag">Costo diferencial del error</span>
+            <h3 style="margin: 6px 0 0;">El falso negativo supera ampliamente al falso positivo</h3>
+          </div>
         </div>
       </div>
     </div>
