@@ -1,4 +1,4 @@
-﻿<section data-screen-label="10 Datos · temporalidad">
+﻿<section data-screen-label="09 Datos · temporalidad">
   <div class="title-row">
     <div>
       <div class="eyebrow">04 · Construcción de la solución</div>
@@ -9,7 +9,7 @@
 
   <style>
     /* === Slide 10 · Datos · estructura temporal === */
-    section[data-screen-label="10 Datos · temporalidad"] .ts-body {
+    section[data-screen-label="09 Datos · temporalidad"] .ts-body {
       flex: 1;
       display: grid;
       grid-template-rows: auto 1fr auto;
@@ -18,11 +18,11 @@
     }
 
     /* --- A. Timeline band --- */
-    section[data-screen-label="10 Datos · temporalidad"] .ts-timeline-wrap {
+    section[data-screen-label="09 Datos · temporalidad"] .ts-timeline-wrap {
       position: relative;
       padding-top: 100px; /* room for the surgery pin to float above */
     }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-timeline {
+    section[data-screen-label="09 Datos · temporalidad"] .ts-timeline {
       position: relative;
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
@@ -33,7 +33,7 @@
       background: var(--bg-soft);
       padding: 0;
     }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-band {
+    section[data-screen-label="09 Datos · temporalidad"] .ts-band {
       padding: 22px 28px 20px;
       display: flex;
       flex-direction: column;
@@ -41,9 +41,9 @@
       gap: 6px;
       position: relative;
     }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-band:first-child { border-top-left-radius: 16px; border-bottom-left-radius: 16px; }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-band:last-child  { border-top-right-radius: 16px; border-bottom-right-radius: 16px; }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-band .ts-when {
+    section[data-screen-label="09 Datos · temporalidad"] .ts-band:first-child { border-top-left-radius: 16px; border-bottom-left-radius: 16px; }
+    section[data-screen-label="09 Datos · temporalidad"] .ts-band:last-child  { border-top-right-radius: 16px; border-bottom-right-radius: 16px; }
+    section[data-screen-label="09 Datos · temporalidad"] .ts-band .ts-when {
       font-family: var(--font-mono);
       font-size: var(--t-caption);
       font-weight: 700;
@@ -51,25 +51,25 @@
       text-transform: uppercase;
       opacity: 0.75;
     }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-band .ts-phase-name {
+    section[data-screen-label="09 Datos · temporalidad"] .ts-band .ts-phase-name {
       font-size: var(--t-h3);
       font-weight: 800;
       letter-spacing: -0.015em;
     }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-band.pre {
+    section[data-screen-label="09 Datos · temporalidad"] .ts-band.pre {
       background: var(--icesi-purple-tint);
       color: var(--icesi-purple-deep);
     }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-band.intra {
+    section[data-screen-label="09 Datos · temporalidad"] .ts-band.intra {
       background: var(--warn-soft);
       color: #6e4d00;
     }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-band.post {
+    section[data-screen-label="09 Datos · temporalidad"] .ts-band.post {
       background: var(--success-soft);
       color: #006848;
     }
     /* Cirugía pin floats ABOVE the band on the PRE/INTRA boundary */
-    section[data-screen-label="10 Datos · temporalidad"] .ts-pin {
+    section[data-screen-label="09 Datos · temporalidad"] .ts-pin {
       position: absolute;
       left: 33.333%;
       top: 0;
@@ -81,7 +81,7 @@
       gap: 6px;
       pointer-events: none;
     }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-pin .ts-pin-label {
+    section[data-screen-label="09 Datos · temporalidad"] .ts-pin .ts-pin-label {
       font-family: var(--font-mono);
       font-size: var(--t-caption);
       letter-spacing: 0.14em;
@@ -93,7 +93,7 @@
       border-radius: 6px;
       white-space: nowrap;
     }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-pin .ts-pin-dot {
+    section[data-screen-label="09 Datos · temporalidad"] .ts-pin .ts-pin-dot {
       width: 56px; height: 56px;
       border-radius: 50%;
       background: var(--ink);
@@ -101,10 +101,10 @@
       display: flex; align-items: center; justify-content: center;
       box-shadow: 0 0 0 5px #fff, 0 4px 14px rgba(0,0,0,0.25);
     }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-pin .ts-pin-dot svg {
+    section[data-screen-label="09 Datos · temporalidad"] .ts-pin .ts-pin-dot svg {
       width: 28px; height: 28px; stroke: #fff; fill: none; stroke-width: 2.2;
     }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-pin .ts-pin-tail {
+    section[data-screen-label="09 Datos · temporalidad"] .ts-pin .ts-pin-tail {
       width: 2px;
       height: 10px;
       background: var(--ink);
@@ -113,13 +113,13 @@
     }
 
     /* --- B. Three phase cards --- */
-    section[data-screen-label="10 Datos · temporalidad"] .ts-cards {
+    section[data-screen-label="09 Datos · temporalidad"] .ts-cards {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       gap: 20px;
       min-height: 0;
     }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-card {
+    section[data-screen-label="09 Datos · temporalidad"] .ts-card {
       border-radius: 18px;
       border: 2px solid;
       padding: 26px 26px 22px;
@@ -129,26 +129,26 @@
       background: #fff;
       min-height: 0;
     }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-card.pre   { border-color: var(--icesi-purple); }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-card.intra { border-color: var(--warn); background: #fffdf7; }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-card.post  { border-color: var(--success); }
+    section[data-screen-label="09 Datos · temporalidad"] .ts-card.pre   { border-color: var(--icesi-purple); }
+    section[data-screen-label="09 Datos · temporalidad"] .ts-card.intra { border-color: var(--warn); background: #fffdf7; }
+    section[data-screen-label="09 Datos · temporalidad"] .ts-card.post  { border-color: var(--success); }
 
-    section[data-screen-label="10 Datos · temporalidad"] .ts-card .ts-head {
+    section[data-screen-label="09 Datos · temporalidad"] .ts-card .ts-head {
       display: flex; align-items: center; gap: 14px;
     }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-card .ts-icon {
+    section[data-screen-label="09 Datos · temporalidad"] .ts-card .ts-icon {
       width: 52px; height: 52px; border-radius: 12px;
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
     }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-card.pre   .ts-icon { background: var(--icesi-purple); }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-card.intra .ts-icon { background: var(--warn); }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-card.post  .ts-icon { background: var(--success); }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-card .ts-icon svg {
+    section[data-screen-label="09 Datos · temporalidad"] .ts-card.pre   .ts-icon { background: var(--icesi-purple); }
+    section[data-screen-label="09 Datos · temporalidad"] .ts-card.intra .ts-icon { background: var(--warn); }
+    section[data-screen-label="09 Datos · temporalidad"] .ts-card.post  .ts-icon { background: var(--success); }
+    section[data-screen-label="09 Datos · temporalidad"] .ts-card .ts-icon svg {
       width: 28px; height: 28px; stroke: #fff; fill: none; stroke-width: 2.2;
     }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-card .ts-head-text { display: flex; flex-direction: column; gap: 2px; }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-card .ts-eyebrow {
+    section[data-screen-label="09 Datos · temporalidad"] .ts-card .ts-head-text { display: flex; flex-direction: column; gap: 2px; }
+    section[data-screen-label="09 Datos · temporalidad"] .ts-card .ts-eyebrow {
       font-family: var(--font-mono);
       font-size: var(--t-caption);
       font-weight: 700;
@@ -156,7 +156,7 @@
       text-transform: uppercase;
       color: var(--muted);
     }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-card .ts-name {
+    section[data-screen-label="09 Datos · temporalidad"] .ts-card .ts-name {
       font-size: var(--t-h3);
       font-weight: 800;
       letter-spacing: -0.015em;
@@ -165,11 +165,11 @@
     }
 
     /* Chips of example data items */
-    section[data-screen-label="10 Datos · temporalidad"] .ts-chips {
+    section[data-screen-label="09 Datos · temporalidad"] .ts-chips {
       display: flex; flex-wrap: wrap; gap: 10px;
       align-content: flex-start;
     }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-chip {
+    section[data-screen-label="09 Datos · temporalidad"] .ts-chip {
       display: inline-flex; align-items: center; gap: 9px;
       padding: 11px 16px;
       border-radius: 999px;
@@ -180,25 +180,25 @@
       color: var(--ink-soft);
       line-height: 1;
     }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-chip svg {
+    section[data-screen-label="09 Datos · temporalidad"] .ts-chip svg {
       width: 19px; height: 19px; fill: none; stroke-width: 2.2; flex-shrink: 0;
     }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-card.pre   .ts-chip { background: var(--icesi-purple-tint); border-color: transparent; color: var(--icesi-purple-deep); }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-card.pre   .ts-chip svg { stroke: var(--icesi-purple-deep); }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-card.intra .ts-chip { background: var(--warn-soft); border-color: transparent; color: #6e4d00; }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-card.intra .ts-chip svg { stroke: #6e4d00; }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-card.post  .ts-chip { background: var(--success-soft); border-color: transparent; color: #006848; }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-card.post  .ts-chip svg { stroke: #006848; }
+    section[data-screen-label="09 Datos · temporalidad"] .ts-card.pre   .ts-chip { background: var(--icesi-purple-tint); border-color: transparent; color: var(--icesi-purple-deep); }
+    section[data-screen-label="09 Datos · temporalidad"] .ts-card.pre   .ts-chip svg { stroke: var(--icesi-purple-deep); }
+    section[data-screen-label="09 Datos · temporalidad"] .ts-card.intra .ts-chip { background: var(--warn-soft); border-color: transparent; color: #6e4d00; }
+    section[data-screen-label="09 Datos · temporalidad"] .ts-card.intra .ts-chip svg { stroke: #6e4d00; }
+    section[data-screen-label="09 Datos · temporalidad"] .ts-card.post  .ts-chip { background: var(--success-soft); border-color: transparent; color: #006848; }
+    section[data-screen-label="09 Datos · temporalidad"] .ts-card.post  .ts-chip svg { stroke: #006848; }
 
     /* Role badge at bottom of each card */
-    section[data-screen-label="10 Datos · temporalidad"] .ts-role {
+    section[data-screen-label="09 Datos · temporalidad"] .ts-role {
       display: flex; align-items: center; gap: 16px;
       padding: 14px 18px;
       border-radius: 12px;
       background: var(--bg-soft);
       border: 1px dashed var(--line);
     }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-role .ts-role-glyph {
+    section[data-screen-label="09 Datos · temporalidad"] .ts-role .ts-role-glyph {
       font-family: var(--font-mono);
       font-size: 30px;
       font-weight: 800;
@@ -208,21 +208,21 @@
       flex-shrink: 0;
       line-height: 1;
     }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-card.pre   .ts-role-glyph { background: var(--icesi-purple); color: #fff; }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-card.intra .ts-role-glyph { background: #fff; color: var(--warn); border: 2px dashed var(--warn); font-size: 26px; }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-card.post  .ts-role-glyph { background: var(--success); color: #fff; }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-role .ts-role-text {
+    section[data-screen-label="09 Datos · temporalidad"] .ts-card.pre   .ts-role-glyph { background: var(--icesi-purple); color: #fff; }
+    section[data-screen-label="09 Datos · temporalidad"] .ts-card.intra .ts-role-glyph { background: #fff; color: var(--warn); border: 2px dashed var(--warn); font-size: 26px; }
+    section[data-screen-label="09 Datos · temporalidad"] .ts-card.post  .ts-role-glyph { background: var(--success); color: #fff; }
+    section[data-screen-label="09 Datos · temporalidad"] .ts-role .ts-role-text {
       display: flex; flex-direction: column; gap: 2px;
     }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-role .ts-role-title {
+    section[data-screen-label="09 Datos · temporalidad"] .ts-role .ts-role-title {
       font-size: var(--t-body-sm); font-weight: 800; color: var(--ink); letter-spacing: -0.005em;
     }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-role .ts-role-sub {
+    section[data-screen-label="09 Datos · temporalidad"] .ts-role .ts-role-sub {
       font-size: var(--t-caption); color: var(--muted);
     }
 
     /* --- C. Equation strip --- */
-    section[data-screen-label="10 Datos · temporalidad"] .ts-eq {
+    section[data-screen-label="09 Datos · temporalidad"] .ts-eq {
       background: var(--ink);
       color: #fff;
       border-radius: 16px;
@@ -232,18 +232,18 @@
       align-items: center;
       gap: 28px;
     }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-eq-flow {
+    section[data-screen-label="09 Datos · temporalidad"] .ts-eq-flow {
       display: flex; align-items: center; gap: 12px;
       flex-shrink: 0;
     }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-eq-box {
+    section[data-screen-label="09 Datos · temporalidad"] .ts-eq-box {
       display: flex; flex-direction: column;
       padding: 12px 18px;
       border-radius: 12px;
       min-width: 0;
       gap: 2px;
     }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-eq-box .lbl {
+    section[data-screen-label="09 Datos · temporalidad"] .ts-eq-box .lbl {
       font-family: var(--font-mono);
       font-size: var(--t-caption);
       font-weight: 700;
@@ -251,41 +251,41 @@
       text-transform: uppercase;
       opacity: 0.75;
     }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-eq-box .val {
+    section[data-screen-label="09 Datos · temporalidad"] .ts-eq-box .val {
       font-size: var(--t-body);
       font-weight: 700;
       letter-spacing: -0.005em;
       line-height: 1.15;
     }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-eq-box.x {
+    section[data-screen-label="09 Datos · temporalidad"] .ts-eq-box.x {
       background: rgba(164,196,101,0.18);
       color: #c8e0a8;
     }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-eq-box.x .val { color: #fff; }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-eq-box.m {
+    section[data-screen-label="09 Datos · temporalidad"] .ts-eq-box.x .val { color: #fff; }
+    section[data-screen-label="09 Datos · temporalidad"] .ts-eq-box.m {
       background: rgba(255,255,255,0.08);
       color: rgba(255,255,255,0.85);
     }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-eq-box.m .val { color: #fff; }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-eq-box.y {
+    section[data-screen-label="09 Datos · temporalidad"] .ts-eq-box.m .val { color: #fff; }
+    section[data-screen-label="09 Datos · temporalidad"] .ts-eq-box.y {
       background: rgba(0,176,116,0.22);
       color: #b7eed4;
     }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-eq-box.y .val { color: #fff; }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-eq-arrow {
+    section[data-screen-label="09 Datos · temporalidad"] .ts-eq-box.y .val { color: #fff; }
+    section[data-screen-label="09 Datos · temporalidad"] .ts-eq-arrow {
       font-size: 32px;
       color: rgba(255,255,255,0.55);
       font-weight: 300;
       padding: 0 4px;
     }
 
-    section[data-screen-label="10 Datos · temporalidad"] .ts-eq-note {
+    section[data-screen-label="09 Datos · temporalidad"] .ts-eq-note {
       display: flex; flex-direction: column; gap: 6px;
       border-left: 1px solid rgba(255,255,255,0.18);
       padding-left: 28px;
       min-width: 0;
     }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-eq-note .nt-tag {
+    section[data-screen-label="09 Datos · temporalidad"] .ts-eq-note .nt-tag {
       font-family: var(--font-mono);
       font-size: var(--t-caption);
       font-weight: 700;
@@ -293,19 +293,19 @@
       text-transform: uppercase;
       color: #a4c465;
     }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-eq-note .nt-text {
+    section[data-screen-label="09 Datos · temporalidad"] .ts-eq-note .nt-text {
       font-size: var(--t-body);
       line-height: 1.45;
       color: rgba(255,255,255,0.92);
       margin: 0;
     }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-eq-note .nt-text .strike {
+    section[data-screen-label="09 Datos · temporalidad"] .ts-eq-note .nt-text .strike {
       text-decoration: line-through;
       text-decoration-color: var(--warn);
       text-decoration-thickness: 2px;
       color: rgba(255,255,255,0.6);
     }
-    section[data-screen-label="10 Datos · temporalidad"] .ts-eq-note .nt-text strong { color: #fff; }
+    section[data-screen-label="09 Datos · temporalidad"] .ts-eq-note .nt-text strong { color: #fff; }
   </style>
 
   <div class="slide-body ts-body">

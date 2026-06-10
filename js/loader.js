@@ -5,7 +5,6 @@ const slideUrls = [
   "slides/03-contexto.html",
   "slides/04-problema.html",
   "slides/05-marco-conceptual-i.html",
-  "slides/06-marco-conceptual-ii.html",
   "slides/07-estado-del-arte.html",
   "slides/08-objetivos.html",
   "slides/09-metodologia-ciclos.html",
