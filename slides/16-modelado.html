@@ -10,11 +10,16 @@
     <div class="slide-body">
 
       <!-- Fila superior: decisiones técnicas -->
-      <div class="col-2">
+      <div class="col-2" style="grid-template-columns: 1fr 1fr 1fr;">
+        <div class="block">
+          <span class="label-tag">Partición de datos</span>
+          <h3>Split 80 / 20</h3>
+          <p>Estratificado por clase. <strong>19 423 train</strong> · <strong>4 856 test</strong>. El test no participa en ningún ajuste.</p>
+        </div>
         <div class="block">
           <span class="label-tag">Desbalance de clases</span>
           <h3>19 % positivos</h3>
-          <p>Manejado con pesos internos por familia de algoritmo — simple y sin riesgo de contaminar la validación.</p>
+          <p>Manejado con pesos internos por familia de algoritmo — sin riesgo de contaminar la validación.</p>
         </div>
         <div class="block">
           <span class="label-tag">Calibración de probabilidades</span>
